@@ -33,32 +33,32 @@ if (!empty($widgetSettings['custom_icon'])) {
             <div class="image-radio-buttons in-flex">
                 <div class="image-radio-button">
                     <input id="view_icon" type="radio" class="sr-only ginger-menu-view" name="widget_settings[view]" value="icon_view" <?php checked($widgetSettings['view'], "icon_view") ?>>
-                    <label for="view_icon" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/icon-view.svg"; ?>'></label>
-                    <label for="view_icon" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/icon-view-selected.svg"; ?>'></label>
+                    <label for="view_icon" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/icon-view.svg"; ?>'></label>
+                    <label for="view_icon" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/icon-view-selected.svg"; ?>'></label>
                     <label for="view_icon" class="image-radio-label"><?php esc_html_e("Icon view", "sticky-chat-widget") ?></label>
                 </div>
                 <div class="image-radio-button">
                     <input id="view_list" type="radio" class="sr-only ginger-menu-view" name="widget_settings[view]" value="list_view" <?php checked($widgetSettings['view'], "list_view") ?>>
-                    <label for="view_list" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/list-view.svg"; ?>'></label>
-                    <label for="view_list" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/list-view-selected.svg"; ?>'></label>
+                    <label for="view_list" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/list-view.svg"; ?>'></label>
+                    <label for="view_list" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/list-view-selected.svg"; ?>'></label>
                     <label for="view_list" class="image-radio-label"><?php esc_html_e("List view", "sticky-chat-widget") ?></label>
                 </div>
                 <div class="image-radio-button">
                     <input id="view_grid" type="radio" class="sr-only ginger-menu-view" name="widget_settings[view]" value="grid_view" <?php checked($widgetSettings['view'], "grid_view") ?>>
-                    <label for="view_grid" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/grid-view.svg"; ?>'></label>
-                    <label for="view_grid" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/grid-view-selected.svg"; ?>'></label>
+                    <label for="view_grid" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/grid-view.svg"; ?>'></label>
+                    <label for="view_grid" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/grid-view-selected.svg"; ?>'></label>
                     <label for="view_grid" class="image-radio-label"><?php esc_html_e("Grid view", "sticky-chat-widget") ?></label>
                 </div>
                 <div class="image-radio-button">
                     <input id="corner_circle_icon" type="radio" class="sr-only ginger-menu-view" name="widget_settings[view]" value="corner_circle_view" <?php checked($widgetSettings['view'], "corner_circle_view") ?>>
-                    <label for="corner_circle_icon" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/corner-circle.svg"; ?>'></label>
-                    <label for="corner_circle_icon" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/corner-circle-selected.svg"; ?>'></label>
+                    <label for="corner_circle_icon" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/corner-circle.svg"; ?>'></label>
+                    <label for="corner_circle_icon" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/corner-circle-selected.svg"; ?>'></label>
                     <label for="corner_circle_icon" class="image-radio-label"><?php esc_html_e("Corner circle", "sticky-chat-widget") ?></label>
                 </div>
                 <div class="image-radio-button">
                     <input id="menu_icon" type="radio" class="sr-only ginger-menu-view" name="widget_settings[view]" value="menu_view" <?php checked($widgetSettings['view'], "menu_view") ?>>
-                    <label for="menu_icon" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/menu-view.svg"; ?>'></label>
-                    <label for="menu_icon" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/menu-view-selected.svg"; ?>'></label>
+                    <label for="menu_icon" class="radio-image"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/menu-view.svg"; ?>'></label>
+                    <label for="menu_icon" class="radio-image-checked"><img src='<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/menu-view-selected.svg"; ?>'></label>
                     <label for="menu_icon" class="image-radio-label"><?php esc_html_e("Menu view", "sticky-chat-widget") ?></label>
                 </div>
             </div>
@@ -79,7 +79,7 @@ if (!empty($widgetSettings['custom_icon'])) {
             </div>
             <div class="gp-form-input medium-input">
                 <?php
-                $settings         = [
+                $settings = [
                     'media_buttons'    => false,
                     'wpautop'          => false,
                     'drag_drop_upload' => false,
@@ -87,10 +87,10 @@ if (!empty($widgetSettings['custom_icon'])) {
                     'textarea_rows'    => 4,
                     'quicktags'        => false,
                     'tinymce'          => [
-                        'toolbar1' => 'bold, italic, underline',
-                        'toolbar2' => '',
-                        'toolbar3' => '',
-                        'content_css' => GSB_PLUGIN_URL . 'dist/admin/css/myEditorCSS.css'
+                        'toolbar1'    => 'bold, italic, underline',
+                        'toolbar2'    => '',
+                        'toolbar3'    => '',
+                        'content_css' => GSB_PLUGIN_URL.'dist/admin/css/myEditorCSS.css',
                     ],
                 ];
                 wp_editor($widgetSettings['list_view_subtitle'], "grid_view_title", $settings);
@@ -99,7 +99,7 @@ if (!empty($widgetSettings['custom_icon'])) {
                 <span class="scw-badges view-badges"><?php esc_html_e("{page_title}", "sticky-chat-widget") ?></span>
             </div>
         </div>
-        <?php if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) { ?>
+        <?php if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) { ?>
             <div class="gp-form-field">
                 <div class="gp-form-label">
                 </div>
@@ -129,7 +129,7 @@ if (!empty($widgetSettings['custom_icon'])) {
                     </div>
                     <div class="gp-form-input medium-input">
                         <?php
-                        $settings         = [
+                        $settings = [
                             'media_buttons'    => false,
                             'wpautop'          => false,
                             'drag_drop_upload' => false,
@@ -137,10 +137,10 @@ if (!empty($widgetSettings['custom_icon'])) {
                             'textarea_rows'    => 4,
                             'quicktags'        => false,
                             'tinymce'          => [
-                                'toolbar1' => 'bold, italic, underline',
-                                'toolbar2' => '',
-                                'toolbar3' => '',
-                                'content_css' => GSB_PLUGIN_URL . 'dist/admin/css/myEditorCSS.css'
+                                'toolbar1'    => 'bold, italic, underline',
+                                'toolbar2'    => '',
+                                'toolbar3'    => '',
+                                'content_css' => GSB_PLUGIN_URL.'dist/admin/css/myEditorCSS.css',
                             ],
                         ];
                         wp_editor($widgetSettings['woo_list_view_subtitle'], "woo_list_view_subtitle", $settings);
@@ -159,7 +159,8 @@ if (!empty($widgetSettings['custom_icon'])) {
                     </div>
                 </div>
             </div>
-        <?php } ?>
+        <?php }//end if
+        ?>
         <div class="flex-input mt-20">
             <div class="gp-form-field">
                 <div class="gp-form-label">
@@ -186,21 +187,21 @@ if (!empty($widgetSettings['custom_icon'])) {
         <div class="gp-form-input">
             <div class="ginger-close-icons">
                 <ul>
-                    <?php foreach($closeIcons as $key => $value) { ?>
+                    <?php foreach ($closeIcons as $key => $value) { ?>
                         <li class="<?php echo esc_attr($upgrade) ?>">
                             <input class="sr-only" type="radio" name="widget_settings[chat_icon]" <?php echo (!empty($disabled)) ? esc_attr($value['disabled']) : ""; ?> value="<?php echo esc_attr($key) ?>" <?php checked($widgetSettings['chat_icon'], $key) ?> id="chat_icon_<?php echo esc_attr($key) ?>">
                             <?php if ($value['disabled'] == "disabled" && !empty($disabled)) { ?>
                                 <label data-ginger-tooltip="<?php esc_html_e("Upgrade to Pro", 'sticky-chat-widget') ?>" id="label-chat_icon_<?php echo esc_attr($key) ?><?php echo esc_attr($disabled) ?>" for="chat_icon_<?php echo esc_attr($key) ?>">
                                     <a class="" href="<?php echo esc_url(GP_Admin_Sticky_Chat_Buttons::upgrade_url()) ?>" target="_blank">
                                     <span class="svg-icon">
-                                        <?php echo $value['icon'] ?>
+                                        <?php Ginger_Social_Icons::load_and_sanitize_svg($value['icon']); ?>
                                     </span>
                                     </a>
                                 </label>
                             <?php } else { ?>
                                 <label id="label-chat_icon_<?php echo esc_attr($key) ?><?php echo esc_attr($disabled) ?>" for="chat_icon_<?php echo esc_attr($key) ?>">
                                 <span class="svg-icon">
-                                    <?php echo $value['icon'] ?>
+                                    <?php Ginger_Social_Icons::load_and_sanitize_svg($value['icon']); ?>
                                 </span>
                                 </label>
                             <?php } ?>
@@ -246,7 +247,7 @@ if (!empty($widgetSettings['custom_icon'])) {
                 <input type="checkbox" id="position_in_mobile" name="widget_settings[position_in_mobile]" <?php echo esc_attr($disabled) ?> value="yes" class="sr-only" <?php checked($widgetSettings['position_in_mobile'], "yes") ?>>
                 <label for="position_in_mobile"><?php esc_html_e("Position in mobile", "sticky-chat-widget") ?></label>
                 <?php if (!empty($disabled)) { ?>
-                    <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php echo $icons['pro'] ?></a>
+                    <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
                 <?php } ?>
             </span>
         </div>
@@ -421,10 +422,10 @@ if (!empty($widgetSettings['custom_icon'])) {
 
 
     <?php
-    require_once dirname(__FILE__) . "/analytics-settings.php";
-    require_once dirname(__FILE__) . "/pending-messages.php";
-    require_once dirname(__FILE__) . "/tooltip-settings.php";
-    require_once dirname(__FILE__) . "/custom-css.php";
+    require_once dirname(__FILE__)."/analytics-settings.php";
+    require_once dirname(__FILE__)."/pending-messages.php";
+    require_once dirname(__FILE__)."/tooltip-settings.php";
+    require_once dirname(__FILE__)."/custom-css.php";
     ?>
 
 </div>

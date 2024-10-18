@@ -36,7 +36,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                 <?php foreach ($posts as $post) {
                     $widgetStatus = get_post_meta($post->ID, "widget_status", true);
                     ?>
-                    <tr data-nonce="<?php echo esc_attr(wp_create_nonce("gsb_buttons_action_" . esc_attr($post->ID))) ?>"
+                    <tr data-nonce="<?php echo esc_attr(wp_create_nonce("gsb_buttons_action_".esc_attr($post->ID))) ?>"
                         data-id="<?php echo esc_attr($post->ID) ?>"
                         class="gsb-buttons-col-<?php echo esc_attr($post->ID) ?>">
                         <td class="status-col">
@@ -50,14 +50,14 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                         <td class="created-col"><?php echo esc_attr($post->post_title) ?></td>
                         <td class="channel-col">
                             <?php
-                            $icons = Ginger_Social_Icons::icon_list();
+                            $icons    = Ginger_Social_Icons::icon_list();
                             $channels = get_post_meta($post->ID, "channel_settings", true);
                             if (isset($channels) && !empty($channels)) {
                                 ?>
                                 <div class="display-icon widget-<?php echo esc_attr($post->ID) ?>">
                                     <?php
-                                    $icon = "";
-                                    $count = 0;
+                                    $icon          = "";
+                                    $count         = 0;
                                     $channelTitles = [];
                                     foreach ($channels as $key => $channel) {
                                         $setting = $icons[$key];
@@ -76,18 +76,19 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                                             'whatsapp_message' => '',
                                             'email_subject'    => '',
                                         ];
-                                        $channelSetting = shortcode_atts($defaultChannelSetting, $channel);
+                                        $channelSetting        = shortcode_atts($defaultChannelSetting, $channel);
 
-                                        if($key == "twitter" && ($channelSetting['bg_color'] == "#65BBF2" || $channelSetting['bg_color'] == '#65bbf2')) {
-                                          $channelSetting['bg_color'] = "#000000";
-                                      }
-                                        $imageUrl = "";
+                                        if ($key == "twitter" && ($channelSetting['bg_color'] == "#65BBF2" || $channelSetting['bg_color'] == '#65bbf2')) {
+                                            $channelSetting['bg_color'] = "#000000";
+                                        }
+
+                                        $imageUrl   = "";
                                         $imageClass = "";
-                                        $imageId = $channelSetting['image_id'];
+                                        $imageId    = $channelSetting['image_id'];
                                         if (!empty($imageId)) {
                                             $imageData = wp_get_attachment_image_src($imageId, "full");
                                             if (!empty($imageData) && isset($imageData[0])) {
-                                                $imageUrl = $imageData[0];
+                                                $imageUrl   = $imageData[0];
                                                 $imageClass = "has-image";
                                             }
                                         }
@@ -95,95 +96,96 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                                         $count++;
                                         if (count($channels) > 5) {
                                             if ($count <= 4) { ?>
-                                                <span class="channel-icons <?php echo ($key == "instagram" && $channels['instagram']['bg_color'] != "#df0079") ? "" : "channel-slug-". esc_attr($key) ?>"
+                                                <span class="channel-icons <?php echo ($key == "instagram" && $channels['instagram']['bg_color'] != "#df0079") ? "" : "channel-slug-".esc_attr($key) ?>"
                                                       data-ginger-tooltip="<?php echo esc_attr($channelSetting['title']) ?>"
                                                       style="background-color: <?php echo esc_attr($channelSetting['bg_color']) ?>;">
-                                                    <?php if(!empty($imageUrl)) {?>
+                                                    <?php if (!empty($imageUrl)) {?>
                                                         <img src="<?php echo esc_attr($imageUrl) ?>">
                                                     <?php } else { ?>
-                                                        <?php echo $icons[$key]['icon'] ?>
+                                                        <?php Ginger_Social_Icons::load_and_sanitize_svg($icons[$key]['icon']); ?>
                                                     <?php } ?>
                                                 </span>
                                             <?php }
                                         } else if (count($channels) == 5 || count($channels) < 5) { ?>
-                                            <span class="channel-icons <?php echo ($key == "instagram" && $channels['instagram']['bg_color'] != "#df0079") ? "" : "channel-slug-". esc_attr($key) ?>"
+                                            <span class="channel-icons <?php echo ($key == "instagram" && $channels['instagram']['bg_color'] != "#df0079") ? "" : "channel-slug-".esc_attr($key) ?>"
                                                   data-ginger-tooltip="<?php echo esc_attr($channelSetting['title']) ?>"
                                                   style="background-color: <?php echo esc_attr($channelSetting['bg_color']) ?>;">
-                                                    <?php if(!empty($imageUrl)) {?>
+                                                    <?php if (!empty($imageUrl)) {?>
                                                         <img src="<?php echo esc_attr($imageUrl) ?>">
                                                     <?php } else { ?>
-                                                        <?php echo $icons[$key]['icon'] ?>
+                                                        <?php Ginger_Social_Icons::load_and_sanitize_svg($icons[$key]['icon']); ?>
                                                     <?php } ?>
                                             </span>
-                                        <?php }
+                                        <?php }//end if
 
                                         $channelTitles[] = $channels[$key]['title'];
                                     }//end foreach
 
                                     $sliceArray = array_slice($channelTitles, 4);
-                                    $channelst = implode(", ", $sliceArray);
+                                    $channelst  = implode(", ", $sliceArray);
                                     if (count($channels) > 4 && count($channels) != 5) {
-                                        echo '<span class="channel-icons channel-count" data-ginger-tooltip="' . esc_attr($channelst) . '">+' . (count($channels) - 4) . '</span>';
+                                        echo '<span class="channel-icons channel-count" data-ginger-tooltip="'.esc_attr($channelst).'">+'.(count($channels) - 4).'</span>';
                                     }
                                     ?>
                                 </div>
                             <?php }//end if
                             ?>
                         </td>
-                        <td class="analytics-col"><a href="<?php echo esc_url(admin_url("admin.php?page=sticky-chat-widget-analytics")) ?>" class="analytics-icon"><?php echo $formIcons['analytics'] ?></a></td>
+                        <td class="analytics-col"><a href="<?php echo esc_url(admin_url("admin.php?page=sticky-chat-widget-analytics")) ?>" class="analytics-icon"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['analytics']); ?></a></td>
                         <td class="date-col"><?php echo esc_attr(gmdate("d M, Y", strtotime(esc_attr($post->post_date)))) ?></td>
                         <td class="action-col">
                             <span class="action-box">
                                 <a class="edit-record"
-                                   href="<?php echo esc_url(admin_url('admin.php?page=sticky-chat-widget&task=edit-widget&edit=' . esc_attr($post->ID) . '&nonce=' . esc_attr(wp_create_nonce('edit_widget_' . esc_attr($post->ID))))) ?>"><?php esc_html_e("Edit", "sticky-chat-widget") ?></a>
+                                   href="<?php echo esc_url(admin_url('admin.php?page=sticky-chat-widget&task=edit-widget&edit='.esc_attr($post->ID).'&nonce='.esc_attr(wp_create_nonce('edit_widget_'.esc_attr($post->ID))))) ?>"><?php esc_html_e("Edit", "sticky-chat-widget") ?></a>
                                 <a class="dropdown-button" href="javascript:;">
-                                    <?php echo $formIcons['action'] ?>
+                                    <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['action']); ?>
                                 </a>
                             </span>
                             <div class="button-actions">
                                 <ul>
                                     <?php if (!empty($upgrade)) { ?>
                                         <li><a href="#"
-                                               class="clone-option pro-premium-features"><?php echo $formIcons['clone'] ?><?php esc_html_e("Clone (Pro)", "sticky-chat-widget") ?></a>
+                                               class="clone-option pro-premium-features"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['clone']); ?><?php esc_html_e("Clone (Pro)", "sticky-chat-widget") ?></a>
                                         </li>
                                     <?php } else { ?>
                                         <li><a href="#" class="clone-option clone-widget"
-                                               data-name="<?php echo esc_attr($post->post_title) ?>"><?php echo $formIcons['clone'] ?><?php esc_html_e("Clone", "sticky-chat-widget") ?></a>
+                                               data-name="<?php echo esc_attr($post->post_title) ?>"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['clone']); ?><?php esc_html_e("Clone", "sticky-chat-widget") ?></a>
                                         </li>
                                     <?php } ?>
                                     <li><a href="#" class="rename-option rename-widget"
-                                           data-title="<?php echo esc_attr($post->post_title) ?>"><?php echo $formIcons['edit'] ?><?php esc_html_e("Rename", "sticky-chat-widget") ?></a>
+                                           data-title="<?php echo esc_attr($post->post_title) ?>"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['edit']); ?><?php esc_html_e("Rename", "sticky-chat-widget") ?></a>
                                     </li>
                                     <li class="delete-btn"><a href="#"
-                                                              class="delete-option remove-widget"><?php echo $formIcons['trash'] ?><?php esc_html_e("Remove", "sticky-chat-widget") ?></a>
+                                                              class="delete-option remove-widget"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['trash']); ?><?php esc_html_e("Remove", "sticky-chat-widget") ?></a>
                                     </li>
                                 </ul>
                             </div>
                         </td>
                     </tr>
                     <?php
-                    $icons = Ginger_Social_Icons::icon_list();
+                    $icons    = Ginger_Social_Icons::icon_list();
                     $channels = get_post_meta($post->ID, "channel_settings", true);
                     if (isset($channels) && !empty($channels)) {
                         foreach ($channels as $key => $value) {?>
                             <style>
                                 .widget-<?php echo esc_attr($post->ID) ?> .channel-slug-<?php echo esc_attr($key) ?> svg { fill: <?php echo esc_attr($value['text_color']) ?> !important;}
-                                <?php if($key == "slack" && $channels['slack']['text_color'] != "#ffffff") { ?>
+                                <?php if ($key == "slack" && $channels['slack']['text_color'] != "#ffffff") { ?>
                                 .widget-<?php echo esc_attr($post->ID) ?> .channel-slug-<?php echo esc_attr($key) ?> svg path { fill: <?php echo esc_attr($value['text_color']) ?> !important;}
                                 <?php } ?>
                             </style>
                             <?php
                         }
                     } ?>
-                <?php } ?>
+                <?php }//end foreach
+                ?>
                 </tbody>
             </table>
         </div>
     </div>
 <?php } else { ?>
     <style>
-        #wpcontent, #wpfooter {
-            background-color: #EEF0FF;
+        body, #wpcontent, #wpfooter {
+            background-color: #F7F7FF;
         }
 
         #wpfooter {
@@ -191,7 +193,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
         }
 
         #wpcontent, #wpbody-content {
-            padding: 0;
+            padding: 0 !important;
         }
 
         .gp-no-records * {
@@ -214,11 +216,12 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             height: auto;
             transform: translate(0, -50%);
             top: 50%;
+            padding: 10px;
         }
 
         .gp-no-records-top {
-            width: 350px;
-            margin: 0 auto 20px;
+            width: 300px;
+            margin: 20px auto;
             max-width: 100%;
         }
 
@@ -251,7 +254,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
         .no-records-features {
             max-width: 900px;
             margin: 0 auto;
-            padding: 55px;
+            padding: 30px;
             background-color: #EEF0FF;
             border-radius: 18px;
         }
@@ -289,7 +292,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
 
         .gp-no-records-bottom {
             text-align: center;
-            margin: 40px 0 30px;
+            padding: 40px 0 30px;
         }
         .gp-no-records-bottom .gp-action-button i {
             margin-left: 15px;
@@ -301,6 +304,16 @@ defined('ABSPATH') or die('Direct Access is not allowed');
         @media screen and (max-width: 782px) {
             .no-records-features {
                 padding: 25px;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .gp-no-records-box {
+                position: relative;
+                top: 0;
+                transform: none;
+            }
+            .gp-no-records {
+                height: auto;
             }
         }
     </style>

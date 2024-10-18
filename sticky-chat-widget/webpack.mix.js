@@ -11,6 +11,7 @@ mix.sass('src/admin/css/widget-analytics.scss', 'dist/admin/css');
 mix.sass('src/admin/css/leads-css.scss', 'dist/admin/css');
 mix.sass('src/admin/css/deactivate-plugin.scss', 'dist/admin/css');
 mix.sass('src/admin/css/admin-style.scss', 'dist/admin/css');
+mix.sass('src/admin/css/integration.scss', 'dist/admin/css');
 
 mix.js('src/admin/js/deactivate-plugin.js', 'dist/admin/js');
 mix.js('src/admin/js/common-script.js', 'dist/admin/js');

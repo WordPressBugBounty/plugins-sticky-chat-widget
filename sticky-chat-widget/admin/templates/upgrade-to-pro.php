@@ -11,24 +11,24 @@ defined('ABSPATH') or die('Direct Access is not allowed');
 $faqs = [
     [
         'question' => esc_html__("What is your refund and return policy for Sticky Chat Widget purchases?", "sticky-chat-widget"),
-        'answer' => esc_html__("We are committed to giving you the best plugin experience to help you improve your business. If you find that Sticky Chat Widget is not suitable for your business needs, we offer a hassle-free 100% money-back guarantee within 30 days of purchase", "sticky-chat-widget"),
+        'answer'   => esc_html__("We are committed to giving you the best plugin experience to help you improve your business. If you find that Sticky Chat Widget is not suitable for your business needs, we offer a hassle-free 100% money-back guarantee within 30 days of purchase", "sticky-chat-widget"),
     ],
     [
         'question' => esc_html__("Will Sticky Chat Widget stop working if I don’t renew my license?", "sticky-chat-widget"),
-        'answer' => esc_html__("Of course NOT!, Sticky Chat Widget plugin and all your settings will continue to work as before; however, you will no longer receive plugin updates including feature additions, improvements, and support", "sticky-chat-widget"),
+        'answer'   => esc_html__("Of course NOT!, Sticky Chat Widget plugin and all your settings will continue to work as before; however, you will no longer receive plugin updates including feature additions, improvements, and support", "sticky-chat-widget"),
     ],
     [
         'question' => esc_html__("Do I need separate license key for my staging or development site?", "sticky-chat-widget"),
-        'answer' => esc_html__("No, we do not consider domains like staging.*, dev.*, local.*, localhost in activation domain list", "sticky-chat-widget"),
+        'answer'   => esc_html__("No, we do not consider domains like staging.*, dev.*, local.*, localhost in activation domain list", "sticky-chat-widget"),
     ],
     [
         'question' => esc_html__("Can I upgrade my plan in future if needed?", "sticky-chat-widget"),
-        'answer' => esc_html__("Yes, you can upgrade your plan from Basic to Business or Enterprise and Business to Enterprise", "sticky-chat-widget"),
+        'answer'   => esc_html__("Yes, you can upgrade your plan from Basic to Business or Enterprise and Business to Enterprise", "sticky-chat-widget"),
     ],
     [
         'question' => esc_html__("Can I use Sticky chat widget on multiple domains?", "sticky-chat-widget"),
-        'answer' => esc_html__("Yes, you can use free version on any numbers of domains, while for Pro version you need to buy Business or Enterprise plan", "sticky-chat-widget"),
-    ]
+        'answer'   => esc_html__("Yes, you can use free version on any numbers of domains, while for Pro version you need to buy Business or Enterprise plan", "sticky-chat-widget"),
+    ],
 ]
 ?>
 
@@ -195,12 +195,6 @@ $faqs = [
                     <div class="clear"></div>
                 </div>
             </div>
-            <!--<div class="credit-cards">
-                <img src="<?php /*echo esc_url(GSB_PLUGIN_URL."assets/admin/images/payment-card-icons.png") */?>" alt="<?php /*esc_html_e("Payment options", 'sticky-chat-widget') */?>">
-            </div>
-            <div class="text-center money-back">
-                <?php /*esc_html_e('30 days money back guaranteed', 'sticky-chat-widget') */?>
-            </div>-->
         </div>
     </div>
     <div class="gp-faq-section">
@@ -220,8 +214,8 @@ $faqs = [
                 </div>
                 <div class="gp-faq-box-right">
                     <div class="faqs-items">
-                        <?php foreach($faqs as $key => $faq) { ?>
-                            <div class="faq-item <?php echo esc_attr(($key==0)?"active":"") ?>">
+                        <?php foreach ($faqs as $key => $faq) { ?>
+                            <div class="faq-item <?php echo esc_attr(($key == 0) ? "active" : "") ?>">
                                 <div class="faq-question">
                                     <?php echo esc_attr($faq['question']) ?>
                                 </div>

@@ -1,22 +1,25 @@
-=== Sticky Chat Widget: WhatsApp, Messenger, Contact Chat Icons, Contact form, Telegram, WeChat, Email, SMS, Call Button ===
+=== Sticky Chat Widget: Chat Icons, Contact form, Email, SMS, Call Button, Click to Chat, Social Chat Widget, Sticky Chat Buttons ===
 Contributors: gingerplugins
 Tags: whatsapp widget, chat button, facebook messenger, chat widget, contact form
 Requires at least: 5.0
 Tested up to: 6.6
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 5.4
 Plugin URI: https://www.gingerplugins.com/downloads/sticky-chat-widget/
+License: GPL3
+
+Social chat buttons, Whatsapp Chat, Facebook Messenger, WeChat, Telegram, Instagram, TikTok, SMS, Call Button, Contact Form + 20 chat icons
 
 == Description ==
 
 <strong>Connect with your valuable website visitors through Sticky Chat Widget that consist of current trendy chat options from Whatsapp, Facebook Messenger, Viber, Line, Email, Telegram, Vkontakte, SMS, WeChat, Skype, Snapchat, LinkedIn, Twitter, Instagram, Waze to Custom Link.. Show a list of chat buttons at any place on your website and give your customers or clients the freedom, so they can communicate with you within seconds.</strong>
 
 = Features =
-- Easy setup and configuration.
-- Customizable chat widget appearance.
-- Chat with website visitors via their populat chat app.
-- Get authentic calls or leads
-- Increase customer satisfaction ratio
+– Easy setup and configuration.
+– Customizable chat widget appearance.
+– Chat with website visitors via their populat chat app.
+– Get authentic calls or leads
+– Increase customer satisfaction ratio
 
 = The most effective Click to Chat and Call to Action buttons for website =
 
@@ -39,23 +42,23 @@ Want to use our amazing plugin to chat with your website visitors, Please check 
 = Select from 26 different channels =
 Sticky Chat Widget seamlessly integrates with a variety of social channels, enhancing communication options for your users. Here are some of the supported channels:
 
-1.	Whatsapp
-2.	Facebook Messenger
-3.	Viber
-4.	Line
-5.	Email
-6.	Telegram
-7.	Vkontakte
-8.	SMS
-9.  Phone
-10.	WeChat
-11.	Skype
-12.	Snapchat
-13.	LinkedIn
-14.	Twitter
+1. Whatsapp
+2. Facebook Messenger
+3. Viber
+4. Line
+5. Email
+6. Telegram
+7. Vkontakte
+8. SMS
+9. Phone
+10. WeChat
+11. Skype
+12. Snapchat
+13. LinkedIn
+14. Twitter
 15. Slack
-16.	Instagram
-17.	Waze
+16. Instagram
+17. Waze
 18. Google Map
 19. Signal
 20. TikTok
@@ -63,15 +66,13 @@ Sticky Chat Widget seamlessly integrates with a variety of social channels, enha
 22. Discord
 23. Microsoft Team
 24. Zalo
-25.	Custom Link
-26. Custom Link
+25. Custom Links
 
 = Live Demo =
 
 <strong>Sticky chat widget</strong> live demo is available at <a title="Sticky chat widget's demo site" href="https://demo.gingerplugins.com/sticky-chat-widget/"><strong>Ginger's demo site</strong></a>.
 
-= Sticky Chat Widget - What will you get in a free plan? =
-
+= Sticky Chat Widget – What will you get in a free plan? =
 
 1. Unlimited Channels: Create an unlimited number of chat channels to cater to different aspects of your website or various support topics.
 2. Widget Position: Choose between left or right positioning for the chat widget, allowing flexibility based on your website layout and design.
@@ -90,7 +91,7 @@ Sticky Chat Widget seamlessly integrates with a variety of social channels, enha
 15. Custom Size for Widget: Specify a custom size for the chat widget, tailoring it to fit perfectly within your website layout.
 16. Custom Links: Include custom links within the chat widget, directing users to specific pages or resources relevant to their queries.
 
-= Sticky Chat Widget - What will you get in the PRO plan? =
+= Sticky Chat Widget – What will you get in the PRO plan? =
 You will get all the features of the free plan, plus:
 
 1. Custom Image or Icon for Channel: Enhance the visual appeal of your chat channels by uploading custom images or icons, providing a distinctive and branded look.
@@ -115,7 +116,7 @@ You will get all the features of the free plan, plus:
 * Viber: Enhance user interaction by offering Viber as a communication channel, enabling free messaging and calls.
 * Line: Provide support through Line, a versatile messaging app with features like free calls, messages, and multimedia sharing.
 * Email: Allow users to contact you via traditional email, ensuring a familiar and widely used communication method.
-* Telegram: Enable secure and fast messaging with Telegram, providing a channel for users who prefer this platform.* 
+* Telegram: Enable secure and fast messaging with Telegram, providing a channel for users who prefer this platform.*
 * Vkontakte: Reach a broader audience by integrating with Vkontakte, a popular social networking platform in Eastern Europe.
 * SMS: Facilitate direct text messaging for quick and concise communication between users and your support team.
 * Phone: Offer users the option to connect with your support team via a direct phone call for immediate assistance.
@@ -133,9 +134,8 @@ You will get all the features of the free plan, plus:
 * Contact Form: Allow users to submit inquiries and feedback through a customizable contact form on your website.
 * Discord: Foster community engagement and support through Discord, a popular platform for real-time communication and collaboration.
 
-
 = Sticky Chat Widget is GDPR Complaint =
-Sticky Chat Widget is not only a powerful communication tool but also prioritizes user privacy and data protection. 
+Sticky Chat Widget is not only a powerful communication tool but also prioritizes user privacy and data protection.
 Our plugin is fully GDPR compliant, ensuring that your visitors' personal information remains secure and handled with the utmost care.
 
 * No Visitor Data Storage: Sticky Chat Widget does not store any visitor data on your servers. We believe in respecting user privacy, and as such, no personal information is retained or processed within the plugin.
@@ -143,7 +143,6 @@ Our plugin is fully GDPR compliant, ensuring that your visitors' personal inform
 * Contact Form Data Collection: When users choose to engage via the customizable contact form, only the information voluntarily provided by users is collected. This may include details such as name, email, and any additional information specified through the custom fields.
 * GDPR Compliance Assurance: We are committed to adhering to the General Data Protection Regulation (GDPR) guidelines, ensuring that our plugin aligns with the highest standards of data protection and user privacy.
 * By adopting a privacy-centric approach, Sticky Chat Widget empowers website owners to engage with their audience effectively while maintaining a strong commitment to user privacy and GDPR compliance. Enjoy the benefits of real-time communication without compromising on data security.
-
 
 == Installation ==
 
@@ -168,7 +167,6 @@ Yes. We have developed this plugin device compatible. And an individual can sele
 = What is the price of PRO Sticky Chat Widget? =
 You can enjoy all the features of Sticky Chat Widget at $25/year only. Once you will purchase the PRO version, you will get the license key.
 
-
 == Screenshots ==
 
 1. chat with your website visitors with all channels
@@ -179,71 +177,70 @@ You can enjoy all the features of Sticky Chat Widget at $25/year only. Once you 
 6. Set day and time to show sticky chat widget on a page
 7. Select pages where you like to show sticky chat widget
 
-
 == Changelog ==
 
 = 1.3.1 =
-- Widget Analytics (Pro)
-- Custom Position for Mobile (Pro)
-- Bug fixes
+– Widget Analytics (Pro)
+– Custom Position for Mobile (Pro)
+– Bug fixes
 
 = 1.3 =
-- New Channels: Microsoft Team, Zalo
-- Bug fixes
+– New Channels: Microsoft Team, Zalo
+– Bug fixes
 
 = 1.2.9.2 =
-- WhatsApp link fixed for mobile
+– WhatsApp link fixed for mobile
 
 = 1.2.9.1 =
-- WhatsApp Widget and Contact form popup bug
+– WhatsApp Widget and Contact form popup bug
 
 = 1.2.9 =
-- WordPress 6.5 combability
-- Mobile click bug
+– WordPress 6.5 combability
+– Mobile click bug
 
 = 1.2.8 =
-- Two new layout for chat icons: Corner Circle and Menu View
-- WooCommerce tags for WhatsApp, List View, Chat View
-- Google reCAPTCHA integration with contact form (Pro Feature)
+– Two new layout for chat icons: Corner Circle and Menu View
+– WooCommerce tags for WhatsApp, List View, Chat View
+– Google reCAPTCHA integration with contact form (Pro Feature)
 
 = 1.2.7 =
-- Custom tags for WhatsApp prefilled message
-- Custom tags for Chat/List view
-- WhatsApp and Contact form preview
-- Design improvement
-- Contact form field custom order (Pro Feature)
+– Custom tags for WhatsApp prefilled message
+– Custom tags for Chat/List view
+– WhatsApp and Contact form preview
+– Design improvement
+– Contact form field custom order (Pro Feature)
 
 = 1.2.6 =
-- Improvement in WhatsApp Widget
-- Custom fields for Contact form (Pro Feature)
-- Contact form integration with Mailchimp and Mailpoet (Pro Feature)
-- UI improvements
-- Bug Fixed: Conflicting with DeepL API translation Plugin
+– Improvement in WhatsApp Widget
+– Custom fields for Contact form (Pro Feature)
+– Contact form integration with Mailchimp and Mailpoet (Pro Feature)
+– UI improvements
+– Bug Fixed: Conflicting with DeepL API translation Plugin
 
 = 1.2.5 =
 Bugs Fixed
-- WhatsApp widget text editor
-- Chat View/Grid View issue in mobile
+– WhatsApp widget text editor
+– Chat View/Grid View issue in mobile
 
 = 1.2.4 =
-- Pending message bug fixed
+– Pending message bug fixed
 
 = 1.2.3 =
-- WhatsApp Chat popup
-- Bug fixes
+– WhatsApp Chat popup
+– Bug fixes
 
 = 1.2.2 =
-- Send leads to mail (Pro)
-- Autoresponder (Pro)
-- Bug fixes
+– Send leads to mail (Pro)
+– Autoresponder (Pro)
+– Bug fixes
 
 = 1.2.1 =
 Bug fixes
 
 = 1.2 =
 New Icon Views
-- List View
-- Grid View
+– List View
+– Grid View
 
 = 1.1.9 =
 New Channels:

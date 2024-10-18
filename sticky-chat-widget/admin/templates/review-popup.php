@@ -52,7 +52,7 @@ $formIcons = Ginger_Social_Icons::svg_icons();
     .review-modal .review-modal-container .review-modal-content {
         position: relative;
         text-align: center;
-        background: url("<?php echo esc_url(GSB_PLUGIN_URL) . "dist/admin/images/social-icons.png" ?>") fixed top center no-repeat;
+        background: url("<?php echo esc_url(GSB_PLUGIN_URL)."dist/admin/images/social-icons.png" ?>") fixed top center no-repeat;
         background-size: contain;
     }
     .review-modal .review-modal-container .review-modal-content .review-modal-close-btn {
@@ -167,6 +167,33 @@ $formIcons = Ginger_Social_Icons::svg_icons();
     .review-desc {
         line-height: 1.4;
     }
+    .gp-form-field .gp-form-label {
+        display: block;
+    }
+    .gp-form-label {
+        text-align: left;
+    }
+    .gp-form-field .gp-form-label label {
+        display: inline-block;
+        padding: 0 0 8px 0;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .gp-form-field .gp-form-input {
+        position: relative;
+    }
+    .gp-form-field .gp-form-input textarea {
+        border: solid 1px #d7d7d7;
+        padding: 5px 10px;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 14px;
+        color: #1c2733;
+        height: 84px;
+        max-width: 100%;
+        outline: none;
+        box-shadow: none;
+    }
     @media only screen and (max-width: 500px) {
         .review-modal .review-modal-container .review-modal-body {
             padding: 15px 20px;
@@ -180,7 +207,7 @@ $formIcons = Ginger_Social_Icons::svg_icons();
             <div class="review-modal-data">
                 <button class="review-modal-close-btn">
                     <span class="svg-icon">
-                        <?php echo $formIcons['close'] ?>
+                        <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
                     <div class="review-close-box">
                         <ul>
@@ -224,7 +251,7 @@ $formIcons = Ginger_Social_Icons::svg_icons();
             <div class="review-modal-data">
                 <button class="review-modal-close-btn">
                     <span class="svg-icon">
-                        <?php echo $formIcons['close'] ?>
+                        <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
                 </button>
                 <div class="review-modal-body">

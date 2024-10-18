@@ -18,7 +18,7 @@ $inputValue = isset($inputValue) ? $inputValue : "";
     <div class="gp-form-label d-flex">
         <label for="css_editor"><?php esc_html_e("Button CSS:", "sticky-chat-widget") ?></label>
         <?php if (!empty($disabled)) { ?>
-            <a class="upgrade-link in-block" href="javascript:;" target="_blank" style="margin-bottom: 5px"><?php echo $icons['pro'] ?></a>
+            <a class="upgrade-link in-block" href="javascript:;" target="_blank" style="margin-bottom: 5px"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
         <?php } ?>
     </div>
     <div class="gp-form-input">

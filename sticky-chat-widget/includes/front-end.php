@@ -28,6 +28,13 @@ class GP_Front_Sticky_Chat_Buttons
      */
     private $settings = [];
 
+    /**
+     * The name of the plugin.
+     *
+     * @var    string $pluginName The name of the plugin.
+     * @since  1.0.0
+     * @access private
+     */
     public $pluginName = "Sticky Chat Widget";
 
 
@@ -47,11 +54,12 @@ class GP_Front_Sticky_Chat_Buttons
         add_action('wp_enqueue_scripts', [ $this, 'front_end_script' ]);
 
         // Register AJAX action to save form data for logged-in users.
-        add_action('wp_ajax_scw_save_form_data', [$this,'save_form_data']);
+        add_action('wp_ajax_scw_save_form_data', [$this, 'save_form_data']);
 
         // Register AJAX action to save form data for non-logged-in users.
-        add_action('wp_ajax_nopriv_scw_save_form_data', [$this,'save_form_data']);
-    }
+        add_action('wp_ajax_nopriv_scw_save_form_data', [$this, 'save_form_data']);
+
+    }//end __construct()
 
 
     /**
@@ -61,7 +69,7 @@ class GP_Front_Sticky_Chat_Buttons
      * It checks if the widget is active and, if so, enqueues the corresponding assets. Additionally, it localizes script data
      * with information about buttons, AJAX URL, and form data nonce for dynamic functionality on the front end.
      *
-     * @since 1.1.2
+     * @since  1.1.2
      * @return null
      */
     public function front_end_script()
@@ -78,20 +86,21 @@ class GP_Front_Sticky_Chat_Buttons
         // Enqueue script and style if the widget is active.
         if ($this->isWidgetActive) {
             // Enqueue JavaScript script.
-            wp_enqueue_script('gsb-script', GSB_PLUGIN_URL . "dist/front/js/script.js", ['jquery'], GSB_PLUGIN_VERSION,true);
+            wp_enqueue_script('gsb-script', GSB_PLUGIN_URL."dist/front/js/script.js", ['jquery'], GSB_PLUGIN_VERSION, true);
 
             // Enqueue front-end CSS.
-            wp_enqueue_style('gsb-front', GSB_PLUGIN_URL . "dist/front/css/front.css", [], GSB_PLUGIN_VERSION);
+            wp_enqueue_style('gsb-front', GSB_PLUGIN_URL."dist/front/css/front.css", [], GSB_PLUGIN_VERSION);
 
             // Localize script data for dynamic functionality.
             $data = [
-                'buttons' => $this->settings,
-                'ajax_url' => admin_url("admin-ajax.php"),
-                'form_data_nonce' => wp_create_nonce("form_data_nonce")
+                'buttons'         => $this->settings,
+                'ajax_url'        => admin_url("admin-ajax.php"),
+                'form_data_nonce' => wp_create_nonce("form_data_nonce"),
             ];
             wp_localize_script('gsb-script', "gsb_settings", $data);
         }
-    }
+
+    }//end front_end_script()
 
 
     /**
@@ -120,15 +129,16 @@ class GP_Front_Sticky_Chat_Buttons
         if (isset($nonce)) {
             $nonce = sanitize_text_field($nonce);
         }
+
         $call_back_url = filter_input(INPUT_POST, "call_back_url");
-        if(isset($call_back_url)) {
+        if (isset($call_back_url)) {
             $call_back_url = sanitize_text_field($call_back_url);
         }
 
         // Verify the nonce for security.
         if (!empty($nonce) && wp_verify_nonce($nonce, "form_data_nonce")) {
             // Retrieve form data from the POST request.
-            $formData  = filter_input(INPUT_POST, 'scw_form_fields', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+            $formData = filter_input(INPUT_POST, 'scw_form_fields', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
 
             // Retrieve the client's IP address.
             $ip = $this->get_client_ip();
@@ -138,23 +148,23 @@ class GP_Front_Sticky_Chat_Buttons
 
             // Initialize validation variables.
             $isValid = 1;
-            $response['has_error'] = [];
+            $response['has_error']       = [];
             $response['has_error_valid'] = [];
 
             // Validate form field values based on form settings.
-            foreach($formSettings as $formSetting) {
-                foreach($formSetting['fields'] as $key=>$field) {
-                    if($field['is_visible'] == 1 && $field['is_required'] == 1 && $formData[$key] == "") {
+            foreach ($formSettings as $formSetting) {
+                foreach ($formSetting['fields'] as $key => $field) {
+                    if ($field['is_visible'] == 1 && $field['is_required'] == 1 && $formData[$key] == "") {
                         $isValid = 0;
                         $response['has_error'][] = $key;
-                    } else if($field['is_visible'] == 1 && $formData[$key] != "") {
-                        if($key == "email") {
-                            if(!filter_var($formData[$key], FILTER_VALIDATE_EMAIL)) {
+                    } else if ($field['is_visible'] == 1 && $formData[$key] != "") {
+                        if ($key == "email") {
+                            if (!filter_var($formData[$key], FILTER_VALIDATE_EMAIL)) {
                                 $isValid = 0;
                                 $response['has_error_valid'][] = $key;
                             }
-                        } else if($key == "phone") {
-                            if(!preg_match('/^[0-9]*$/', $formData[$key])) {
+                        } else if ($key == "phone") {
+                            if (!preg_match('/^[0-9]*$/', $formData[$key])) {
                                 $isValid = 0;
                                 $response['has_error_valid'][] = $key;
                             }
@@ -164,18 +174,18 @@ class GP_Front_Sticky_Chat_Buttons
             }
 
             // If the data is valid, insert it into the database.
-            if($isValid == 1) {
+            if ($isValid == 1) {
                 $formData['ip_address'] = $ip;
                 $tableName = $wpdb->prefix.'scw_contact_form_leads';
-                $result = $wpdb->insert($tableName,$formData);
+                $result    = $wpdb->insert($tableName, $formData);
 
                 // Update the response based on the database insertion result.
-                if($result) {
-                    $isSentmail = get_option('scb-sent-leads-mail',false);
-                    $rowCount = $wpdb->get_var("SELECT COUNT(*) FROM `$tableName`");
-                    if(!$isSentmail && $rowCount == 1) {
-                        add_option('scb-sent-leads-mail',1);
-                        $email = get_option('admin_email');
+                if ($result) {
+                    $isSentmail = get_option('scb-sent-leads-mail', false);
+                    $rowCount   = $wpdb->get_var("SELECT COUNT(*) FROM `$tableName`");
+                    if (!$isSentmail && $rowCount == 1) {
+                        add_option('scb-sent-leads-mail', 1);
+                        $email    = get_option('admin_email');
                         $headers  = "MIME-Version: 1.0\r\n";
                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                         $headers .= 'From:'.$this->pluginName.PHP_EOL;
@@ -188,23 +198,25 @@ class GP_Front_Sticky_Chat_Buttons
                         // Sending an Email.
                         wp_mail($email, $subject, $emailMessage, $headers);
                     }
+
                     $response['status']  = 1;
                     $response['message'] = $formSettings[0]['success_msg'];
-                    if(isset($call_back_url) && !empty($call_back_url)) {
+                    if (isset($call_back_url) && !empty($call_back_url)) {
                         $response['data']['URL'] = $call_back_url;
                     }
-                }
+                }//end if
             } else {
                 // If the data is not valid, update the response with an error message.
-                $response['status'] = 0;
+                $response['status']  = 0;
                 $response['message'] = esc_html__("Invalid Request, Please try again", "sticky-chat-widget");
-            }
-        }
+            }//end if
+        }//end if
 
         // Return the JSON-encoded response and exit the script.
-        echo json_encode($response);
+        echo wp_json_encode($response);
         exit;
-    }
+
+    }//end save_form_data()
 
 
     /**
@@ -212,23 +224,25 @@ class GP_Front_Sticky_Chat_Buttons
      *
      * @return string The client's IP address.
      */
-    private function get_client_ip() {
-        if(getenv('HTTP_CLIENT_IP')) {
+    private function get_client_ip()
+    {
+        if (getenv('HTTP_CLIENT_IP')) {
             return getenv('HTTP_CLIENT_IP');
-        } elseif(getenv('HTTP_X_FORWARDED_FOR')) {
+        } else if (getenv('HTTP_X_FORWARDED_FOR')) {
             return getenv('HTTP_X_FORWARDED_FOR');
-        } elseif(getenv('HTTP_X_FORWARDED')) {
+        } else if (getenv('HTTP_X_FORWARDED')) {
             return getenv('HTTP_X_FORWARDED');
-        } elseif(getenv('HTTP_FORWARDED_FOR')) {
+        } else if (getenv('HTTP_FORWARDED_FOR')) {
             return getenv('HTTP_FORWARDED_FOR');
-        } elseif(getenv('HTTP_FORWARDED')) {
+        } else if (getenv('HTTP_FORWARDED')) {
             return getenv('HTTP_FORWARDED');
-        } elseif(getenv('REMOTE_ADDR')) {
+        } else if (getenv('REMOTE_ADDR')) {
             return getenv('REMOTE_ADDR');
         } else {
             return 'UNKNOWN';
         }
-    }
+
+    }//end get_client_ip()
 
 
     /**
@@ -240,7 +254,7 @@ class GP_Front_Sticky_Chat_Buttons
      * The collected settings are stored in an array and the 'isWidgetActive' flag is updated accordingly. The function returns
      * whether the widget is active or not.
      *
-     * @since 1.1.2
+     * @since  1.1.2
      * @return boolean The widget is active or not.
      */
     public function check_for_buttons()
@@ -249,9 +263,7 @@ class GP_Front_Sticky_Chat_Buttons
         $prefix = $wpdb->prefix;
 
         // Retrieve active buttons from the database.
-
-        $posts = $wpdb->get_results($wpdb->prepare("SELECT %1\$sposts.ID FROM %2\$sposts INNER JOIN %3\$spostmeta ON ( %4\$sposts.ID = %5\$spostmeta.post_id ) WHERE 1=1 AND ( ( %6\$spostmeta.meta_key = 'widget_status' AND %7\$spostmeta.meta_value = 'yes' ) ) AND %8\$sposts.post_type = 'gsb_buttons' AND ((%9\$sposts.post_status = 'publish')) GROUP BY %10\$sposts.ID",[$prefix,$prefix,$prefix,$prefix,$prefix,$prefix,$prefix,$prefix,$prefix,$prefix]));
-
+        $posts = $wpdb->get_results($wpdb->prepare("SELECT %1\$sposts.ID FROM %2\$sposts INNER JOIN %3\$spostmeta ON ( %4\$sposts.ID = %5\$spostmeta.post_id ) WHERE 1=1 AND ( ( %6\$spostmeta.meta_key = 'widget_status' AND %7\$spostmeta.meta_value = 'yes' ) ) AND %8\$sposts.post_type = 'gsb_buttons' AND ((%9\$sposts.post_status = 'publish')) GROUP BY %10\$sposts.ID", [$prefix, $prefix, $prefix, $prefix, $prefix, $prefix, $prefix, $prefix, $prefix, $prefix]));
 
         $settings = [];
 
@@ -267,7 +279,7 @@ class GP_Front_Sticky_Chat_Buttons
                     $customCss       = $this->get_custom_css($post->ID);
 
                     // Prepare and store the button settings.
-                    $setting         = [
+                    $setting    = [
                         'channels'   => $channels,
                         'triggers'   => $triggerSettings,
                         'settings'   => $widgetSettings,
@@ -276,17 +288,18 @@ class GP_Front_Sticky_Chat_Buttons
                         'token'      => wp_create_nonce("gsb_button_settings_".$post->ID),
                         'client'     => 1,
                     ];
-                    $settings[]      = $setting;
+                    $settings[] = $setting;
                 }
-            }
-        }
+            }//end foreach
+        }//end if
 
         // Update class properties based on the collected settings.
         $this->settings       = $settings;
         $this->isWidgetActive = !empty($this->settings);
 
         return $this->isWidgetActive;
-    }
+
+    }//end check_for_buttons()
 
 
     /**
@@ -298,7 +311,7 @@ class GP_Front_Sticky_Chat_Buttons
      * replacing placeholders like {page_url}, {page_title}, {product-name}, {product-sku}, and {product-price}. The
      * function also retrieves and customizes tooltip settings, including border radius, font size, and tooltip height.
      *
-     * @since 1.1.2
+     * @since  1.1.2
      * @param  integer $postId The ID of the widget.
      * @return array The customized settings of the widget.
      */
@@ -306,7 +319,11 @@ class GP_Front_Sticky_Chat_Buttons
     {
         // Define allowed HTML tags for wp_kses.
         $allowedTags = [
-            'a'       => ['href' => [], 'title' => [], 'target' => []],
+            'a'       => [
+                'href'   => [],
+                'title'  => [],
+                'target' => [],
+            ],
             'abbr'    => ['title' => []],
             'acronym' => ['title' => []],
             'code'    => [],
@@ -319,7 +336,10 @@ class GP_Front_Sticky_Chat_Buttons
             'span'    => ['style' => []],
             'p'       => [],
             'br'      => [],
-            'img'     => ['src' => [], 'alt' => []],
+            'img'     => [
+                'src' => [],
+                'alt' => [],
+            ],
         ];
 
         // Get default widget settings.
@@ -330,7 +350,7 @@ class GP_Front_Sticky_Chat_Buttons
         $widgetSettings = shortcode_atts($defaultWidgetSettings, $widgetSettings);
 
         // Get current page URL and title.
-        $pageURL = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $pageURL = (empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         global $wp_query;
         $pageTitle = isset($wp_query->post->post_title) ? $wp_query->post->post_title : "";
 
@@ -342,7 +362,7 @@ class GP_Front_Sticky_Chat_Buttons
         $widgetSettings['list_view_title'] = esc_attr($widgetSettings['list_view_title']);
         $list_view_subtitle = wp_kses($widgetSettings['list_view_subtitle'], $allowedTags);
         $widgetSettings['list_view_subtitle'] = str_replace(['{page_url}', '{page_title}'], [$pageURL, $pageTitle], $list_view_subtitle);
-        $widgetSettings['call_to_action'] = esc_attr($widgetSettings['call_to_action']);
+        $widgetSettings['call_to_action']     = esc_attr($widgetSettings['call_to_action']);
 
         // Check if WooCommerce customization is enabled and the current page is a product page.
         if (function_exists('is_product') && isset($widgetSettings['woocommerce_customization']) && $widgetSettings['woocommerce_customization'] == "yes" && is_product()) {
@@ -361,11 +381,11 @@ class GP_Front_Sticky_Chat_Buttons
 
         // Customize tooltip settings.
         $widgetSettings['tooltip_settings'] = [
-            'border_radius' => isset($tooltipSettings['border_radius']) && !empty($tooltipSettings['border_radius']) ? $tooltipSettings['border_radius'] : '5',
-            'font_size'     => isset($tooltipSettings['font_size']) && !empty($tooltipSettings['font_size']) ? $tooltipSettings['font_size'] : '16',
-            'tooltip_height'=> isset($tooltipSettings['tooltip_height']) && !empty($tooltipSettings['tooltip_height']) ? $tooltipSettings['tooltip_height'] : '20',
-            'bg_color'=> isset($tooltipSettings['bg_color']) && !empty($tooltipSettings['bg_color']) ? $tooltipSettings['bg_color'] : '#ffffff',
-            'text_color'=> isset($tooltipSettings['text_color']) && !empty($tooltipSettings['text_color']) ? $tooltipSettings['text_color'] : '#000000',
+            'border_radius'  => isset($tooltipSettings['border_radius']) && !empty($tooltipSettings['border_radius']) ? $tooltipSettings['border_radius'] : '5',
+            'font_size'      => isset($tooltipSettings['font_size']) && !empty($tooltipSettings['font_size']) ? $tooltipSettings['font_size'] : '16',
+            'tooltip_height' => isset($tooltipSettings['tooltip_height']) && !empty($tooltipSettings['tooltip_height']) ? $tooltipSettings['tooltip_height'] : '20',
+            'bg_color'       => isset($tooltipSettings['bg_color']) && !empty($tooltipSettings['bg_color']) ? $tooltipSettings['bg_color'] : '#ffffff',
+            'text_color'     => isset($tooltipSettings['text_color']) && !empty($tooltipSettings['text_color']) ? $tooltipSettings['text_color'] : '#000000',
         ];
 
         // Set border radius.
@@ -373,7 +393,8 @@ class GP_Front_Sticky_Chat_Buttons
         $widgetSettings['border_radius'] = $borderRadius;
 
         return $widgetSettings;
-    }
+
+    }//end get_setting()
 
 
     /**
@@ -386,7 +407,7 @@ class GP_Front_Sticky_Chat_Buttons
      * than or equal to 0, and if not, it sets 'after_seconds' to 'no'. It performs similar checks for 'page_scroll',
      * 'browser', 'on_inactivity', and 'exit_intent' options.
      *
-     * @since 1.1.2
+     * @since  1.1.2
      * @param  integer $postId The ID of the widget.
      * @return array The customized trigger settings of the widget.
      */
@@ -415,7 +436,8 @@ class GP_Front_Sticky_Chat_Buttons
         }
 
         return $triggerSettings;
-    }
+
+    }//end get_trigger()
 
 
     /**
@@ -425,7 +447,7 @@ class GP_Front_Sticky_Chat_Buttons
      * custom CSS from the database using the 'button_css' meta key. If custom CSS is set for the widget, it is returned;
      * otherwise, an empty string is returned.
      *
-     * @since 1.1.2
+     * @since  1.1.2
      * @param  integer $postId The ID of the widget.
      * @return string The custom CSS of the widget.
      */
@@ -443,7 +465,8 @@ class GP_Front_Sticky_Chat_Buttons
         }
 
         return $css;
-    }
+
+    }//end get_custom_css()
 
 
     /**
@@ -454,7 +477,7 @@ class GP_Front_Sticky_Chat_Buttons
      * retrieve and process the channel settings, applying necessary transformations and validations. The final settings are
      * returned as an array.
      *
-     * @since 1.1.2
+     * @since  1.1.2
      * @param  integer $postId The ID of the widget.
      * @return array The selected channel settings of the widget.
      */
@@ -477,14 +500,14 @@ class GP_Front_Sticky_Chat_Buttons
             'ol'      => [],
             'li'      => [],
             'span'    => [
-                'style' => []
+                'style' => [],
             ],
             'p'       => [],
             'br'      => [],
             'img'     => [
                 'src' => [],
-                'alt' => []
-            ]
+                'alt' => [],
+            ],
         ];
 
         $isActive = get_post_meta($postId, "widget_status", true);
@@ -497,10 +520,10 @@ class GP_Front_Sticky_Chat_Buttons
             $device = "desktop";
         }
 
-        $pageURL = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $pageURL = (empty($_SERVER['HTTPS']) ? 'http' : 'https')."://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         global $wp_query;
         $pageTitle = "";
-        if(isset($wp_query->post->post_title)) {
+        if (isset($wp_query->post->post_title)) {
             $pageTitle = $wp_query->post->post_title;
         }
 
@@ -513,21 +536,22 @@ class GP_Front_Sticky_Chat_Buttons
             if (!empty($channelsSetting)) {
                 $socialIcons = Ginger_Social_Icons::icon_list();
                 foreach ($channelsSetting as $key => $channel) {
-                    if($key == "contact_form") {
+                    if ($key == "contact_form") {
                         $channel['value'] = "123";
                     }
+
                     if (isset($socialIcons[$key]) && ($channel['for_desktop'] || $channel['for_mobile']) && !empty($channel['value'])) {
                         $channels = $socialIcons[$key];
 
-                        $defaultChannelSettings = Ginger_Social_Icons::get_channel_setting($channels);
+                        $defaultChannelSettings    = Ginger_Social_Icons::get_channel_setting($channels);
                         $defaultContactFormSetting = Ginger_Social_Icons::get_contact_form_setting($channels);
-                        $channelsSetting        = shortcode_atts($defaultChannelSettings, $channel);
-                        $contact_form_setting  = get_post_meta($postId, "contact_form_settings", true);
-                        $contact_form_setting  = isset($contact_form_setting)&&is_array($contact_form_setting) ? $contact_form_setting : [];
-                        $contact_form_setting  = shortcode_atts($defaultContactFormSetting, $contact_form_setting);
+                        $channelsSetting           = shortcode_atts($defaultChannelSettings, $channel);
+                        $contactFormSetting        = get_post_meta($postId, "contact_form_settings", true);
+                        $contactFormSetting        = isset($contactFormSetting)&&is_array($contactFormSetting) ? $contactFormSetting : [];
+                        $contactFormSetting        = shortcode_atts($defaultContactFormSetting, $contactFormSetting);
                         $visibleCount = 0;
-                        foreach($contact_form_setting['fields'] as $field) {
-                            if($field['is_visible'] == 1) {
+                        foreach ($contactFormSetting['fields'] as $field) {
+                            if ($field['is_visible'] == 1) {
                                 $visibleCount++;
                             }
                         }
@@ -541,23 +565,24 @@ class GP_Front_Sticky_Chat_Buttons
                             }
                         }
 
-                        if($key == "contact_form") {
+                        if ($key == "contact_form") {
                             $value = "";
                         }
+
                         if (!empty($value)  || ($key == "contact_form" && $visibleCount > 0)) {
                             $whatsapp_message = "";
                             $href   = "javascript:;";
                             $target = "";
                             if ($key == "whatsapp") {
-                                $value = trim($value, "+");
-                                $value = str_replace([" ","-","_"],["","",""],$value);
+                                $value  = trim($value, "+");
+                                $value  = str_replace([" ", "-", "_"], ["", "", ""], $value);
                                 $href   = esc_url("https://web.whatsapp.com/send?phone=".$value);
                                 $target = "_blank";
                                 $whatsapp_message = isset($channelsSetting['whatsapp_message']) && !empty($channelsSetting['whatsapp_message']) ? $channelsSetting['whatsapp_message'] : "";
                                 $whatsapp_message = str_replace(['{page_url}', '{page_title}'], [$pageURL, $pageTitle], $whatsapp_message);
                                 if (!empty($whatsapp_message)) {
-                                    $href  = $href."&text=".esc_attr(trim($whatsapp_message));
-//                                    $value = $value."?text=".esc_attr(trim($whatsapp_message));
+                                    $href = $href."&text=".esc_attr(trim($whatsapp_message));
+                                    // $value = $value."?text=".esc_attr(trim($whatsapp_message));
                                 }
                             } else if ($key == "facebook_messenger") {
                                 $href   = esc_url("https://m.me/".$value);
@@ -569,13 +594,14 @@ class GP_Front_Sticky_Chat_Buttons
                                 } else {
                                     $href = "+".$value;
                                 }
+
                                 $target = "";
                                 $href   = "viber://chat?number=".$href;
                             } else if ($key == "line") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
                             } else if ($key == "phone") {
-                                $value = str_replace([" ","-","_"],["","",""],$value);
+                                $value  = str_replace([" ", "-", "_"], ["", "", ""], $value);
                                 $href   = "tel:".$value;
                                 $target = "";
                             } else if ($key == "mail") {
@@ -592,15 +618,15 @@ class GP_Front_Sticky_Chat_Buttons
                                 $href   = esc_url("https://vk.me/".$value);
                                 $target = "_blank";
                             } else if ($key == "sms") {
-                                $value = str_replace([" ","-","_"],["","",""],$value);
-                                $href = "sms:".$value;
+                                $value       = str_replace([" ", "-", "_"], ["", "", ""], $value);
+                                $href        = "sms:".$value;
                                 $sms_message = isset($channelsSetting['sms_message']) && !empty($channelsSetting['sms_message']) ? $channelsSetting['sms_message'] : "";
                                 $sms_message = str_replace(['{page_url}', '{page_title}'], [$pageURL, $pageTitle], $sms_message);
                                 if (!empty($sms_message)) {
-                                    $href  = $href.";?&body=".esc_attr(trim($sms_message));
+                                    $href = $href.";?&body=".esc_attr(trim($sms_message));
                                 }
                             } else if ($key == "wechat") {
-                                $channelsSetting['title'] = $channelsSetting['title'] . ": " . $channelsSetting['value'];
+                                $channelsSetting['title'] = $channelsSetting['title'].": ".$channelsSetting['value'];
                             } else if ($key == "skype") {
                                 $href = "skype:".$value."?chat";
                             } else if ($key == "snapchat") {
@@ -647,10 +673,10 @@ class GP_Front_Sticky_Chat_Buttons
                                 $href   = esc_url($value);
                                 $target = "_blank";
                             } else if ($key == "microsoft_teams") {
-                                $href = esc_url($value);
+                                $href   = esc_url($value);
                                 $target = "_blank";
                             } else if ($key == "zalo") {
-                                $href = esc_url($value);
+                                $href   = esc_url($value);
                                 $target = "_blank";
                             }//end if
 
@@ -670,84 +696,85 @@ class GP_Front_Sticky_Chat_Buttons
                                 'value'            => esc_attr($value),
                                 'custom_id'        => $channelsSetting['custom_id'],
                                 'custom_class'     => $channelsSetting['custom_class'],
-                                'whatsapp_message' => $whatsapp_message
+                                'whatsapp_message' => $whatsapp_message,
                             ];
 
                             $wechatPopupSetting = [
                                 'wechat_qr_popup_heading' => esc_attr($channelsSetting['wechat_qr_popup_heading']),
-                                'wechat_qr_bg_color' => $channelsSetting['wechat_qr_bg_color'],
-                                'wechat_qr_heading' => esc_attr($channelsSetting['wechat_qr_heading']),
-                                'wechat_qr_img' => esc_url($channelsSetting['wechat_qr_img'])
+                                'wechat_qr_bg_color'      => $channelsSetting['wechat_qr_bg_color'],
+                                'wechat_qr_heading'       => esc_attr($channelsSetting['wechat_qr_heading']),
+                                'wechat_qr_img'           => esc_url($channelsSetting['wechat_qr_img']),
                             ];
-                            if($key == "wechat") {
+                            if ($key == "wechat") {
                                 $channelSetting['wechat_popup_setting'] = $wechatPopupSetting;
                             }
 
                             $whatsappPopupSetting = [
-                                'show_whatsapp_popup' => $channelsSetting['show_whatsapp_popup'],
-                                'custom_whatsapp_profile' => $channelsSetting['custom_whatsapp_profile'],
-                                'whatsapp_popup_title' => esc_attr($channelsSetting['whatsapp_popup_title']),
+                                'show_whatsapp_popup'      => $channelsSetting['show_whatsapp_popup'],
+                                'custom_whatsapp_profile'  => $channelsSetting['custom_whatsapp_profile'],
+                                'whatsapp_popup_title'     => esc_attr($channelsSetting['whatsapp_popup_title']),
                                 'whatsapp_popup_sub_title' => esc_attr($channelsSetting['whatsapp_popup_sub_title']),
-                                'whatsapp_popup_text' => wp_kses($channelsSetting['whatsapp_popup_text'], $allowedTags),
-                                'user_profile_image' => $channelsSetting['whatsapp_user_profile_img'],
-                                'user_name_to_display' => esc_attr($channelsSetting['whatsapp_name_to_display'])
+                                'whatsapp_popup_text'      => wp_kses($channelsSetting['whatsapp_popup_text'], $allowedTags),
+                                'user_profile_image'       => $channelsSetting['whatsapp_user_profile_img'],
+                                'user_name_to_display'     => esc_attr($channelsSetting['whatsapp_name_to_display']),
                             ];
 
-                            if($key == "whatsapp") {
+                            if ($key == "whatsapp") {
                                 $channelSetting['whatsapp_popup_setting'] = $whatsappPopupSetting;
                             }
 
-                            $contact_form_setting = [
-                                'btn_bg_hover_color' => esc_attr($contact_form_setting['btn_bg_hover_color']),
-                                'btn_bg_color' => esc_attr($contact_form_setting['btn_bg_color']),
-                                'btn_color' => esc_attr($contact_form_setting['btn_color']),
-                                'btn_hover_color' => esc_attr($contact_form_setting['btn_hover_color']),
-                                'success_msg' => esc_attr($contact_form_setting['success_msg']),
-                                'btn_text' => esc_attr($contact_form_setting['btn_text']),
-                                'form_title' => esc_attr($contact_form_setting['form_title']),
-                                'is_redirect' => esc_attr($contact_form_setting['is_redirect']),
-                                'redirect_url' => esc_url($contact_form_setting['redirect_url']),
-                                'is_redirect_new_tab' => esc_attr($contact_form_setting['is_redirect_new_tab']),
-                                'is_close_aftr_submit' => esc_attr($contact_form_setting['is_close_aftr_submit']),
-                                'close_after_sec' => esc_attr($contact_form_setting['close_after_sec']),
-                                'is_send_leads' => esc_attr($contact_form_setting['is_send_leads']),
-                                'auto_responder' => esc_attr($contact_form_setting['auto_responder']),
-                                'fields' => [
-                                    'name' => [
-                                        'label' => esc_attr($contact_form_setting['fields']['name']['label']),
-                                        'placeholder_text' => esc_attr($contact_form_setting['fields']['name']['placeholder_text']),
-                                        'is_visible' => esc_attr($contact_form_setting['fields']['name']['is_visible']),
-                                        'is_required' => esc_attr($contact_form_setting['fields']['name']['is_required']),
-                                        'required_msg' => esc_attr($contact_form_setting['fields']['name']['required_msg'])
+                            $contactFormSetting = [
+                                'btn_bg_hover_color'   => esc_attr($contactFormSetting['btn_bg_hover_color']),
+                                'btn_bg_color'         => esc_attr($contactFormSetting['btn_bg_color']),
+                                'btn_color'            => esc_attr($contactFormSetting['btn_color']),
+                                'btn_hover_color'      => esc_attr($contactFormSetting['btn_hover_color']),
+                                'success_msg'          => esc_attr($contactFormSetting['success_msg']),
+                                'btn_text'             => esc_attr($contactFormSetting['btn_text']),
+                                'form_title'           => esc_attr($contactFormSetting['form_title']),
+                                'is_redirect'          => esc_attr($contactFormSetting['is_redirect']),
+                                'redirect_url'         => esc_url($contactFormSetting['redirect_url']),
+                                'is_redirect_new_tab'  => esc_attr($contactFormSetting['is_redirect_new_tab']),
+                                'is_close_aftr_submit' => esc_attr($contactFormSetting['is_close_aftr_submit']),
+                                'close_after_sec'      => esc_attr($contactFormSetting['close_after_sec']),
+                                'is_send_leads'        => esc_attr($contactFormSetting['is_send_leads']),
+                                'auto_responder'       => esc_attr($contactFormSetting['auto_responder']),
+                                'fields'               => [
+                                    'name'    => [
+                                        'label'            => esc_attr($contactFormSetting['fields']['name']['label']),
+                                        'placeholder_text' => esc_attr($contactFormSetting['fields']['name']['placeholder_text']),
+                                        'is_visible'       => esc_attr($contactFormSetting['fields']['name']['is_visible']),
+                                        'is_required'      => esc_attr($contactFormSetting['fields']['name']['is_required']),
+                                        'required_msg'     => esc_attr($contactFormSetting['fields']['name']['required_msg']),
                                     ],
-                                    'email' => [
-                                        'label' => esc_attr($contact_form_setting['fields']['email']['label']),
-                                        'placeholder_text' => esc_attr($contact_form_setting['fields']['email']['placeholder_text']),
-                                        'is_visible' => esc_attr($contact_form_setting['fields']['email']['is_visible']),
-                                        'is_required' => esc_attr($contact_form_setting['fields']['email']['is_required']),
-                                        'required_msg' => esc_attr($contact_form_setting['fields']['email']['required_msg'])
+                                    'email'   => [
+                                        'label'            => esc_attr($contactFormSetting['fields']['email']['label']),
+                                        'placeholder_text' => esc_attr($contactFormSetting['fields']['email']['placeholder_text']),
+                                        'is_visible'       => esc_attr($contactFormSetting['fields']['email']['is_visible']),
+                                        'is_required'      => esc_attr($contactFormSetting['fields']['email']['is_required']),
+                                        'required_msg'     => esc_attr($contactFormSetting['fields']['email']['required_msg']),
                                     ],
-                                    'phone' => [
-                                        'label' => esc_attr($contact_form_setting['fields']['phone']['label']),
-                                        'placeholder_text' => esc_attr($contact_form_setting['fields']['phone']['placeholder_text']),
-                                        'is_visible' => esc_attr($contact_form_setting['fields']['phone']['is_visible']),
-                                        'is_required' => esc_attr($contact_form_setting['fields']['phone']['is_required']),
-                                        'required_msg' => esc_attr($contact_form_setting['fields']['phone']['required_msg'])
+                                    'phone'   => [
+                                        'label'            => esc_attr($contactFormSetting['fields']['phone']['label']),
+                                        'placeholder_text' => esc_attr($contactFormSetting['fields']['phone']['placeholder_text']),
+                                        'is_visible'       => esc_attr($contactFormSetting['fields']['phone']['is_visible']),
+                                        'is_required'      => esc_attr($contactFormSetting['fields']['phone']['is_required']),
+                                        'required_msg'     => esc_attr($contactFormSetting['fields']['phone']['required_msg']),
                                     ],
                                     'message' => [
-                                        'label' => esc_attr($contact_form_setting['fields']['message']['label']),
-                                        'placeholder_text' => esc_attr($contact_form_setting['fields']['message']['placeholder_text']),
-                                        'is_visible' => esc_attr($contact_form_setting['fields']['message']['is_visible']),
-                                        'is_required' => esc_attr($contact_form_setting['fields']['message']['is_required']),
-                                        'required_msg' => esc_attr($contact_form_setting['fields']['message']['required_msg'])
+                                        'label'            => esc_attr($contactFormSetting['fields']['message']['label']),
+                                        'placeholder_text' => esc_attr($contactFormSetting['fields']['message']['placeholder_text']),
+                                        'is_visible'       => esc_attr($contactFormSetting['fields']['message']['is_visible']),
+                                        'is_required'      => esc_attr($contactFormSetting['fields']['message']['is_required']),
+                                        'required_msg'     => esc_attr($contactFormSetting['fields']['message']['required_msg']),
                                     ],
-                                ]
+                                ],
                             ];
 
-                            if($key == "contact_form") {
-                                $channelSetting['contact_form_setting'] = $contact_form_setting;
+                            if ($key == "contact_form") {
+                                $channelSetting['contact_form_setting'] = $contactFormSetting;
                             }
-                            $settings[]     = $channelSetting;
+
+                            $settings[] = $channelSetting;
                         }//end if
                     }//end if
                 }//end foreach

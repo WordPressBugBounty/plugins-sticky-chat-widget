@@ -9,8 +9,8 @@
 defined('ABSPATH') or die('Direct Access is not allowed');
 
 $getSelectedChannels = get_post_meta($postId, "selected_channels", true);
-$widgetStatus = get_post_meta($postId, "widget_status", true);
-$widgetStatus = isset($widgetStatus) && !empty($widgetStatus) ? $widgetStatus : "yes";
+$widgetStatus        = get_post_meta($postId, "widget_status", true);
+$widgetStatus        = isset($widgetStatus) && !empty($widgetStatus) ? $widgetStatus : "yes";
 $icons = Ginger_Social_Icons::svg_icons();
 ?>
 <div style="display: none">
@@ -102,4 +102,4 @@ $icons = Ginger_Social_Icons::svg_icons();
         <button type="button" class="preview-btn"><?php esc_html_e("Preview", "sticky-chat-widget") ?></button>
     </div>
 <?php require_once dirname(__FILE__)."/premium-features.php"; ?>
-<?php require_once dirname(__FILE__)."/common.php" ?>
+<?php require_once dirname(__FILE__)."/common.php";

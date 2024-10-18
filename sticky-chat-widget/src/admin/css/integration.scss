@@ -1,0 +1,430 @@
+body, #wpcontent {
+    background-color: #F7F7FF ;
+}
+.scw-mail-integration, .scw-mailchimp-setting, .scw-mailpoet-setting, .scw-gcaptcha-setting {
+  color: #564632;
+  line-height: 20px;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 50px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.scw-mail-integration, .scw-mail-integration * {
+    box-sizing: border-box;
+}
+.scw-mailchimp-setting , .scw-mailchimp-setting * {
+  box-sizing: border-box;
+}
+#wpcontent {
+    padding-left: 0 !important;
+}
+.scw-integration-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.scw-integration-subtitle {
+    font-size: 14px;
+}
+.mail-integrations {
+    display: flex;
+    align-items: flex-start;
+    margin: 30px 0 0;
+    flex-wrap: wrap;
+    gap: 30px
+}
+.scw-mailchimp-integration-box, .scw-mailpoet-integration-box, .scw-gcaptcha-integration-box {
+    padding: 20px 25px;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #eaeff2;
+    border-radius: 6px;
+    box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+    -webkit-box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+    -moz-box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+    min-width: 318px;
+
+}
+.scw-mailchimp-integration-img, .scw-mailpoet-integration-img {
+    margin-top: 40px;
+}
+.scw-mailchimp-integration-img img, .scw-mailpoet-integration-img img {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+}
+.scw-mailchimp-integration-title, .scw-mailpoet-integration-title {
+    font-size: 22px;
+    font-weight: 600;
+    padding-top: 20px;
+}
+.scw-mailchimp-integration-subtitle, .scw-mailpoet-integration-subtitle {
+    font-size: 14px;
+    padding: 25px 0 15px;
+}
+.scw-mailchimp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.scw-mailchimp-header-img {
+    margin-right: 10px;
+}
+.scw-mailchimp-header-img img {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: top;
+}
+.scw-mailchimp-setting-box {
+    background-color: #ffffff;
+    margin-top: 15px;
+    color: #3E4652;
+    border: 1px solid #eaeff2;
+    border-radius: 6px;
+    box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+    -webkit-box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+    -moz-box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+}
+.scw-mailchimp-first-section {
+    border-bottom: 2px solid #EBEDF2;
+    padding: 15px 20px;
+}
+.scw-mailchimp-second-section {
+    padding: 15px 20px;
+}
+.scw-mailchimp-first-section p {
+    line-height: 24px;
+    font-size: 14px;
+    margin: 0;
+}
+.scw-mailchimp-first-section p a {
+    text-decoration: none;
+    color: #0099FF;
+}
+a:focus {
+    outline: none;
+    box-shadow: none;
+}
+.scw-mailchimp-first-section ul {
+    margin: 0 0 0 25px;
+    list-style-type: disc;
+    font-size: 14px;
+    line-height: 20px;
+}
+.scw-integration-help-link {
+    padding: 10px 0 0px;
+    font-size: 14px;
+    line-height: 24px;
+}
+.scw-integration-help-link a {
+    text-decoration: none;
+    color: #0099FF;
+}
+.scw-mailchimp-auth-title {
+    font-size: 20px;
+    line-height: 24px;
+    color: #596066;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.scw-mailchimp-auth-subtitle {
+    font-size: 14px;
+    line-height: 24px;
+}
+.scw-mailchimp-auth-form {
+    margin: 30px 0 15px 0;
+}
+.scw-mailchimp-auth-label {
+    font-size: 14px;
+    line-height: 24px;
+}
+.scw-mailchimp-auth-input {
+    width: 360px;
+}
+.scw-mailchimp-auth-input input {
+    border: 1px solid #d3d3d3;
+    width: 100%;
+    height: 36px;
+    border-radius: 4px;
+}
+.scw-mailchimp-auth-btn {
+    margin-top: 15px;
+}
+.scw-mailchimp-auth-btn button, .scw-mailpoet-btn a:not(.scw-mailchimp-disconnect) {
+    background-color: #d3d3d3;
+    cursor: pointer;
+    color: #333;
+    border: 1px solid #d3d3d3;
+    padding: 3px 25px;
+    border-radius: 4px;
+    line-height: 24px;
+    font-size: 14px;
+}
+.scw-mailpoet-btn a {
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+.scw-mailchimp-third-section .scw-integration-help-link {
+    padding: 0;
+}
+.scw-mailchimp-auth-input input:focus {
+    border-color: #d3d3d3 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.mailchimp-not-connected, .scw-mailchimp-setting, .scw-mail-integration, .mailpoet-installation, .mailpoet-activation, .mailpoet-connect, .mailpoet-not-connected, .scw-mailpoet-setting, .scw-gcaptcha-setting, .v2-captcha-setting, .v3-captcha-setting {
+    display: none;
+}
+.mailchimp-not-connected.active, .scw-mailchimp-setting.active, .scw-mail-integration.active, .mailpoet-installation.active, .mailpoet-activation.active, .mailpoet-connect.active, .mailpoet-not-connected.active, .scw-mailpoet-setting.active, .scw-gcaptcha-setting.active, .v2-captcha-setting.active, .v3-captcha-setting.active {
+    display: block;
+}
+.pb-5 {
+    padding-bottom: 5px;
+}
+.scw-mailchimp-title-section {
+    flex: 1;
+}
+.scw-integration-back-btn {
+    justify-content: center;
+    text-align: right;
+    align-items: center;
+    display: flex;
+    padding: 5px 10px;
+    background: #ffffff;
+    color: #3E4652;
+    cursor: pointer;
+    flex: 0 0 100px;
+    border: 1px solid #eaeff2;
+    border-radius: 6px;
+    box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+    -webkit-box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+    -moz-box-shadow: 0 0 10px -3px rgba(34, 68, 136, .2);
+}
+.scw-integration-back-btn span {
+    padding-left: 5px;
+}
+.scw-mailchimp-header-left {
+    display: flex;
+    align-items: center;
+}
+.mailchimp-error-message {
+    color: #ff0000;
+    display: none;
+}
+.mailchimp-error-message.active {
+    display: block;
+}
+.scw-integration-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 9;
+}
+a.new-upgrade-button {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #efa83c;
+}
+a.new-upgrade-button svg {
+    width: 100%;
+    height: 100%;
+}
+a.new-upgrade-button svg path {
+    stroke: #fff;
+    fill: #fff;
+}
+.mail-integrations .scw-mailchimp-integration-box:not(.is-pro):hover .scw-integration-button, .mail-integrations .scw-mailpoet-integration-box:not(.is-pro):hover .scw-integration-button, .mail-integrations .scw-gcaptcha-integration-box:not(.is-pro):hover .scw-integration-button {
+    display: block;
+}
+.scw-mailchimp-auth-field {
+    display: flex;
+    align-items: center;
+}
+.scw-mailchimp-auth-field .scw-mailchimp-auth-label {
+    flex: 0 0 130px;
+}
+.scw-mailchimp-auth-field + .scw-mailchimp-auth-field {
+    margin-top: 15px;
+}
+.gp-radio-buttons.in-flex {
+    display: inline-flex;
+}
+.gp-radio-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    height: 30px;
+    line-height: 20px;
+    border-radius: 4px;
+    background: #e9e9e9;
+    padding: 3px;
+}
+.gp-radio-buttons .gp-radio-button {
+    display: inline-flex;
+}
+.gp-radio-buttons .gp-radio-button input:checked + label {
+    background-color: #ffffff;
+}
+.gp-radio-buttons .gp-radio-button label {
+    padding: 4px 10px;
+    display: inline-flex;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+.gp-radio-buttons .gp-radio-button + .gp-radio-button {
+    margin-left: 4px;
+}
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+.v2-captcha-setting, .v3-captcha-setting {
+    margin-top: 15px;
+}
+.dashboard-switch.in-flex {
+    display: inline-block;
+    height: 28px;
+}
+.dashboard-switch label {
+    position: relative;
+    display: inline-block;
+    padding-left: 50px;
+    min-height: 21px;
+    cursor: pointer;
+    background: #d9d9d9;
+    margin: auto 0;
+    border-radius: 20px;
+    /*width: 40px;*/
+    height: 28px;
+}
+.dashboard-switch input:checked + label {
+    background-color: #59BA77;
+}
+.dashboard-switch label:before {
+    content: "DISABLED";
+    position: absolute;
+    left: 55px;
+    color: #9C9C9C;
+    top: 4px;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+}
+.dashboard-switch label:after {
+    content: "ENABLED";
+    position: absolute;
+    left: 55px;
+    color: #59BA77;
+    top: 4px;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0, -10px);
+}
+
+.dashboard-switch input:checked + label:after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+}
+
+.dashboard-switch input:checked + label:before {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(0, 10px);
+}
+
+.dashboard-switch label span {
+    content: "";
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    margin: auto 0;
+    left: 4px;
+    background: #fff;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    transition: all 0.2s ease-in-out;
+}
+.dashboard-switch input:checked + label span {
+    left: 25px;
+}
+.scw-error-msg {
+    color: #ff0000;
+}
+/*input.has-error {*/
+/*    border: 1px solid #ff0000;*/
+/*}*/
+.upgrade-link {
+    display: inline-block;
+    color: #ffffff;
+    position: unset;
+    transform: none;
+    height: auto;
+    width: 22px;
+}
+
+.upgrade-link svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.upgrade-link-btn {
+  background-color: #4f46e5;
+  border-radius: 8px;
+  color: #fff !important;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  height: auto;
+  line-height: 1;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+.upgrade-link-btn:not(.active) {
+  display: none;
+}
+.upgrade-link-btn:hover {
+    background-color: #4f46e5;
+    color: #ffffff;
+}
+.email-integration-container {
+  text-align: center;
+}
+.scw-mail-integration , .scw-mailchimp-setting  , .scw-mailpoet-setting , .scw-gcaptcha-setting  {
+    text-align: left;
+}
+@media only screen and (max-width: 420px) {
+    .scw-mailchimp-auth-field {
+        display: block;
+    }
+    .scw-mailchimp-auth-input {
+        width: 100%;
+    }
+}

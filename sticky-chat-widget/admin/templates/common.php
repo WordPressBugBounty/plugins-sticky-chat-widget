@@ -14,7 +14,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             <div class="gp-modal-data">
                 <button class="gp-modal-close-btn">
                     <span class="svg-icon">
-                        <?php echo $formIcons['close'] ?>
+                        <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
                 </button>
                 <div class="gp-modal-header">
@@ -46,7 +46,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             <div class="gp-modal-data">
                 <button class="gp-modal-close-btn">
                     <span class="svg-icon">
-                        <?php echo $formIcons['close'] ?>
+                        <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
                 </button>
                 <div class="gp-modal-header">
@@ -78,7 +78,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             <div class="gp-modal-data">
                 <button class="gp-modal-close-btn">
                     <span class="svg-icon">
-                        <?php echo $formIcons['close'] ?>
+                        <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
                 </button>
                 <div class="gp-modal-header">
@@ -110,7 +110,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             <div class="gp-modal-data">
                 <button class="gp-modal-close-btn">
                     <span class="svg-icon">
-                        <?php echo $formIcons['close'] ?>
+                        <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
                 </button>
                 <div class="gp-modal-header">
@@ -135,7 +135,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             <div class="gp-modal-data">
                 <button class="gp-modal-close-btn">
                     <span class="svg-icon">
-                        <?php echo $formIcons['close'] ?>
+                        <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
                 </button>
                 <div class="gp-modal-header">
@@ -161,6 +161,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M18.83 16l8.6-8.6a2 2 0 0 0-2.83-2.83l-8.6 8.6L7.4 4.6a2 2 0 0 0-2.82 2.82l8.58 8.6-8.58 8.6a2 2 0 1 0 2.83 2.83l8.58-8.6 8.6 8.6a2 2 0 0 0 2.83-2.83z"/></svg>
                                                         </a>
                                                     </div>
+
                                                 </div>
                                                 <div class="single-btn"></div>
                                             </div>

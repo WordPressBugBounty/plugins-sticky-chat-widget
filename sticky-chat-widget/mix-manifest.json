@@ -11,6 +11,7 @@
     "/dist/admin/css/custom.css": "/dist/admin/css/custom.css",
     "/dist/admin/css/style.css": "/dist/admin/css/style.css",
     "/dist/front/css/front.css": "/dist/front/css/front.css",
+    "/dist/admin/css/integration.css": "/dist/admin/css/integration.css",
     "/dist/admin/css/deactivate-plugin.css": "/dist/admin/css/deactivate-plugin.css",
     "/dist/admin/css/leads-css.css": "/dist/admin/css/leads-css.css"
 }

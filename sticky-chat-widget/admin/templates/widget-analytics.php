@@ -17,7 +17,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
         </div>
 
         <div class="analytics-data-list">
-            <img src="<?php echo esc_url(GSB_PLUGIN_URL . 'dist/admin/images/analytics-table.png') ?>" alt="analytics table">
+            <img src="<?php echo esc_url(GSB_PLUGIN_URL.'dist/admin/images/analytics-table.png') ?>" alt="analytics table">
         </div>
         <div class="analytics-about-section">
             <div class="analytics-about-section-header"><?php esc_html_e("What can you use it for?", "sticky-chat-widget") ?></div>

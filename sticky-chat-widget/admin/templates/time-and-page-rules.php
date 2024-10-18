@@ -29,26 +29,26 @@ if (!empty($disabled)) {
             <input class="sr-only page-rule-type" type="radio" name="display_rules[page_rule]" id="page_rules_custom" value="custom_pages" <?php checked($displayRuleSettings['page_rule'], "custom_pages") ?>>
             <label for="page_rules_custom"><?php esc_html_e("On selected pages only ", "sticky-chat-widget") ?></label>
             <?php if (!empty($disabled)) { ?>
-                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php echo $icons['pro'] ?></a>
+                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
             <?php } ?>
         </div>
     </div>
     <?php
 
     $pageRules = get_post_meta($postId, "page_rules", true);
-    if(!isset($pageRules['show_on_pages'])) {
-        $showChecked = "yes";
+    if (!isset($pageRules['show_on_pages'])) {
+        $showChecked  = "yes";
         $isShowActive = "active";
     } else {
-        $showChecked = !empty($pageRules['show_on_pages']) ? $pageRules['show_on_pages'] : "yes";
+        $showChecked  = !empty($pageRules['show_on_pages']) ? $pageRules['show_on_pages'] : "yes";
         $isShowActive = ($pageRules['show_on_pages'] == "yes") ? "active" : "";
     }
 
-    if(!isset($pageRules['hide_on_pages'])) {
-        $hideChecked = "yes";
+    if (!isset($pageRules['hide_on_pages'])) {
+        $hideChecked  = "yes";
         $isHideActive = "active";
     } else {
-        $hideChecked = !empty($pageRules['hide_on_pages']) ? $pageRules['hide_on_pages'] : "yes";
+        $hideChecked  = !empty($pageRules['hide_on_pages']) ? $pageRules['hide_on_pages'] : "yes";
         $isHideActive = ($pageRules['hide_on_pages'] == "yes") ? "active" : "";
     }
 
@@ -81,13 +81,14 @@ if (!empty($disabled)) {
                                     <input type="text" data-label="<?php esc_attr_e("page rule", "sticky-chat-widget") ?>" name="page_rules[show_rules][<?php echo esc_attr($count) ?>][value]" class="is-required" value="<?php echo esc_attr($rule['value']) ?>" id="show_rules_<?php echo esc_attr($count) ?>_value">
                                 </div>
                                 <div class="remove-rule rule-remove" id="show_rule_remove">
-                                    <?php echo $formIcons['trash'] ?>
+                                    <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['trash']); ?>
                                 </div>
                             </div>
                             <?php
                             $count++;
-                        }
-                    } ?>
+                        }//end foreach
+                    }//end if
+                    ?>
                 </div>
                 <div class="page-rules-btn">
                     <a href="javascript:;" role="button" class="add-condition <?php echo (empty($upgrade)) ? "show-rule" : "" ?>"><?php esc_html_e("+ Add another condition", "sticky-chat-widget") ?></a>
@@ -117,12 +118,13 @@ if (!empty($disabled)) {
                                     <input type="text" class="is-required" data-label="<?php esc_attr_e("page rule", "sticky-chat-widget") ?>" name="page_rules[hide_rules][<?php echo esc_attr($count) ?>][value]" value="<?php echo esc_attr($rule['value']) ?>">
                                 </div>
                                 <div class="remove-rule rule-remove" id="hide_rule_remove">
-                                    <?php echo $formIcons['trash'] ?>
+                                    <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['trash']); ?>
                                 </div>
                             </div>
                             <?php $count++;
-                        }
-                    } ?>
+                        }//end foreach
+                    }//end if
+                    ?>
                 </div>
                 <div class="page-rules-btn">
                     <a href="javascript:;" role="button" class="add-condition <?php echo (empty($upgrade)) ? "hide-rule" : "" ?>"><?php esc_html_e("+ Add another condition", "sticky-chat-widget") ?></a>
@@ -145,17 +147,17 @@ if (!empty($disabled)) {
             <input class="sr-only time-rule-type" type="radio" name="display_rules[time_rule]" id="time_rules_custom" value="custom_time" <?php checked($displayRuleSettings['time_rule'], "custom_time") ?>>
             <label for="time_rules_custom"><?php esc_html_e("On selected days only ", "sticky-chat-widget") ?></label>
             <?php if (!empty($disabled)) { ?>
-                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php echo $icons['pro'] ?></a>
+                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
             <?php } ?>
         </div>
     </div>
     <?php
     $defaultgsbWeekDays = [
         'timezone' => 0,
-        'schedule' => []
+        'schedule' => [],
     ];
-    $gsbWeekdays = get_post_meta($postId, "weekdays", true);
-    $gsbWeekdays = shortcode_atts($defaultgsbWeekDays, $gsbWeekdays);
+    $gsbWeekdays        = get_post_meta($postId, "weekdays", true);
+    $gsbWeekdays        = shortcode_atts($defaultgsbWeekDays, $gsbWeekdays);
 
     ?>
     <div class="custom-time-rules pro-content <?php echo esc_attr($disabled) ?> <?php echo ($displayRuleSettings['time_rule'] == "custom_time") ? "active" : "" ?>">
@@ -176,7 +178,7 @@ if (!empty($disabled)) {
                 </div>
                 <?php $schedule = $gsbWeekdays['schedule']; ?>
                 <div class="gp-form-input weekdays">
-                    <?php for ($i=0; $i<7; $i++) { ?>
+                    <?php for ($i = 0; $i < 7; $i++) { ?>
                         <div class="timezone-setting weekday-input <?php echo esc_attr(($i == 6) ? "last" : "") ?>" data-index="<?php echo esc_attr($i) ?>">
                             <div class="d-flex">
                                 <span class="dashboard-switch in-flex on-off">
@@ -215,7 +217,7 @@ if (!empty($disabled)) {
             <input class="sr-only" type="radio" name="display_rules[dates_rule]" id="date_rules_custom" value="custom_dates" <?php checked($displayRuleSettings['dates_rule'], "custom_dates") ?>>
             <label for="date_rules_custom"><?php esc_html_e("For selected dates ", "sticky-chat-widget") ?></label>
             <?php if (!empty($disabled)) { ?>
-                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php echo $icons['pro'] ?></a>
+                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
             <?php } ?>
         </div>
     </div>
@@ -266,7 +268,7 @@ if (!empty($disabled)) {
             <input class="sr-only" type="radio" name="display_rules[country_rule]" id="country_rules_custom" value="custom_country" <?php checked($displayRuleSettings['country_rule'], "custom_country") ?>>
             <label for="country_rules_custom"><?php esc_html_e("For selected countries ", "sticky-chat-widget") ?></label>
             <?php if (!empty($disabled)) { ?>
-                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php echo $icons['pro'] ?></a>
+                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
             <?php } ?>
         </div>
     </div>
@@ -300,7 +302,7 @@ if (!empty($disabled)) {
             <input class="sr-only" type="radio" name="display_rules[user_rule]" id="user_rules_custom" value="custom_user" <?php checked($displayRuleSettings['user_rule'], "custom_user") ?>>
             <label for="user_rules_custom"><?php esc_html_e("For selected users ", "sticky-chat-widget") ?></label>
             <?php if (!empty($disabled)) { ?>
-                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php echo $icons['pro'] ?></a>
+                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
             <?php } ?>
         </div>
     </div>

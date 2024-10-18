@@ -54,7 +54,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                 type: 'post',
                 success: function(responseText) {
                     $(".sign-up-data").removeClass("form-loading");
-                    window.location = '<?php echo admin_url("admin.php?page=sticky-chat-widget&get_popup=1") ?>'
+                    window.location = '<?php echo esc_url(admin_url())."admin.php?page=sticky-chat-widget&get_popup=1" ?>'
                 }
             });
         });
@@ -72,7 +72,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                 type: 'post',
                 success: function(responseText) {
                     $(".sign-up-data").removeClass("form-loading");
-                    window.location = '<?php echo admin_url("admin.php?page=sticky-chat-widget&get_popup=1") ?>'
+                    window.location = '<?php echo esc_url(admin_url())."admin.php?page=sticky-chat-widget&get_popup=1" ?>'
                 }
             });
         });
