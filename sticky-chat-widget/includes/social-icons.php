@@ -2139,6 +2139,7 @@ class Ginger_Social_Icons
             'custom_id'                 => '',
             'custom_class'              => '',
             'whatsapp_message'          => '',
+            'is_mobile_link'            => 'no',
             'email_subject'             => '',
             'sms_message'               => '',
             'show_whatsapp_popup'       => 'no',
@@ -2152,6 +2153,7 @@ class Ginger_Social_Icons
             'wechat_qr_bg_color'        => '#00C80F',
             'wechat_qr_heading'         => 'Scan QR Code',
             'wechat_qr_img'             => '',
+            'is_ig_link'                => 'no'
         ];
 
     }//end get_channel_setting()

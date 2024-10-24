@@ -719,6 +719,18 @@ class GP_Admin_Sticky_Chat_Buttons
                                                 <span class="scw-badges wp-badges"><?php esc_html_e("{page_title}", "sticky-chat-widget") ?></span>
                                             </div>
                                         </div>
+                                        <div class="gp-form-field in-flex mobile-link-settings <?php echo ($channelSetting['show_whatsapp_popup'] == "yes") ? "" : "active" ?>">
+                                            <span class="dashboard-switch in-flex on-off">
+                                                <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][is_mobile_link]" value="no">
+                                                <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_mobile_link"
+                                                       name="channel_settings[<?php echo esc_attr($button) ?>][is_mobile_link]" value="yes"
+                                                       class="sr-only" <?php checked($channelSetting['is_mobile_link'], "yes") ?>>
+                                                <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_mobile_link">
+                                                    <?php esc_html_e("Use ", "sticky-chat-widget") ?><span class="link-color"><?php esc_html_e("whatsapp://send ", "sticky-chat-widget") ?></span><?php esc_html_e("as a link in mobile", "sticky-chat-widget") ?>
+                                                    <span aria-hidden="true" class="ginger-info" data-ginger-tooltip="<?php esc_html_e("when this option is enabled, it will open WhatsApp app in mobile if installed , if WhatsApp app is not installed this option will not work.", 'sticky-chat-widget') ?>"><span class="dashicons dashicons-editor-help"></span></span>
+                                                </label>
+                                            </span>
+                                        </div>
                                         <div class="gp-form-field in-flex">
                                             <div class="gp-form-label"><label for="custom_id_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Custom ID", "sticky-chat-widget") ?></label></div>
                                             <div class="gp-form-input">
@@ -1269,6 +1281,19 @@ class GP_Admin_Sticky_Chat_Buttons
                                         </div>
                                     </div>
                                 </div>
+                                <?php if($icon['label'] == "instagram") { ?>
+                                    <div class="gp-form-field in-flex instagram-link-settings">
+                                        <span class="dashboard-switch in-flex on-off">
+                                            <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][is_ig_link]" value="no">
+                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_ig_link"
+                                                   name="channel_settings[<?php echo esc_attr($button) ?>][is_ig_link]" value="yes"
+                                                   class="sr-only" <?php checked($channelSetting['is_ig_link'], "yes") ?>>
+                                            <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_ig_link">
+                                                <?php esc_html_e("Use ", "sticky-chat-widget") ?><span class="link-color"><?php esc_html_e("https://ig.me/m ", "sticky-chat-widget") ?></span><?php esc_html_e("as a link", "sticky-chat-widget") ?>
+                                            </label>
+                                        </span>
+                                    </div>
+                                <?php } ?>
                                 <?php if ($icon['label'] == "mail") {
                                     $emailSubject = isset($channelSetting['email_subject']) ? $channelSetting['email_subject'] : ""; ?>
                                     <div class="gp-form-field in-flex">
@@ -1334,8 +1359,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                             </div>
                                         </div>
                                     </div>
-                                <?php }//end if
-                                ?>
+                                <?php }//end if ?>
                                 <div class="gp-form-field in-flex">
                                     <div class="gp-form-label"><label for="custom_id_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Custom ID", "sticky-chat-widget") ?></label></div>
                                     <div class="gp-form-input">

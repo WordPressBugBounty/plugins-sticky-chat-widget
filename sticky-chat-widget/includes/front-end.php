@@ -594,7 +594,6 @@ class GP_Front_Sticky_Chat_Buttons
                                 } else {
                                     $href = "+".$value;
                                 }
-
                                 $target = "";
                                 $href   = "viber://chat?number=".$href;
                             } else if ($key == "line") {
@@ -639,7 +638,11 @@ class GP_Front_Sticky_Chat_Buttons
                                 $href   = esc_url("https://twitter.com/".$value);
                                 $target = "_blank";
                             } else if ($key == "instagram") {
-                                $href   = esc_url("https://www.instagram.com/".$value);
+                                if($channelsSetting['is_ig_link'] == "yes") {
+                                    $href = esc_url("https://ig.me/m/" . $value);
+                                } else {
+                                    $href = esc_url("https://www.instagram.com/".$value);
+                                }
                                 $target = "_blank";
                             } else if ($key == "waze") {
                                 $href   = esc_url($value);
@@ -721,6 +724,7 @@ class GP_Front_Sticky_Chat_Buttons
 
                             if ($key == "whatsapp") {
                                 $channelSetting['whatsapp_popup_setting'] = $whatsappPopupSetting;
+                                $channelSetting['is_mobile_link'] = $channelsSetting['is_mobile_link'];
                             }
 
                             $contactFormSetting = [
@@ -772,6 +776,10 @@ class GP_Front_Sticky_Chat_Buttons
 
                             if ($key == "contact_form") {
                                 $channelSetting['contact_form_setting'] = $contactFormSetting;
+                            }
+
+                            if($key == "instagram") {
+                                $channelSetting['is_ig_link'] = $channelsSetting['is_ig_link'];
                             }
 
                             $settings[] = $channelSetting;
