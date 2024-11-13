@@ -252,6 +252,54 @@ if (!empty($widgetSettings['custom_icon'])) {
             </span>
         </div>
     </div>
+    <div class="gp-form-field mt-20">
+        <div class="gp-form-label">
+        </div>
+        <div class="gp-form-input d-flex">
+            <span class="dashboard-switch in-flex on-off">
+                <input type="hidden" name="widget_settings[show_greeting_message]" value="no">
+                <input type="checkbox" id="show_greeting_message" name="widget_settings[show_greeting_message]" value="yes" class="sr-only" <?php checked($widgetSettings['show_greeting_message'], "yes") ?>>
+                <label for="show_greeting_message"><?php esc_html_e("Show greeting message", "sticky-chat-widget") ?></label>
+            </span>
+        </div>
+    </div>
+    <div class="greeting-message-setting <?php echo ($widgetSettings['show_greeting_message'] == "yes") ? "" : "hidden" ?>">
+        <div class="gp-form-field">
+            <div class="gp-form-label">
+                <label for="ginger_sb_greeting_text"><?php esc_html_e("Greeting text", "sticky-chat-widget") ?></label>
+            </div>
+            <div class="gp-form-input medium-input">
+                <textarea name="widget_settings[greeting_text]" id="ginger_sb_greeting_text"><?php echo esc_attr($widgetSettings['greeting_text']) ?></textarea>
+            </div>
+        </div>
+        <div class="gp-form-field">
+            <div class="gp-form-label">
+                <span class="dashboard-switch in-flex greeting-timer-box">
+                    <?php esc_html_e("Show Greeting message after ", "sticky-chat-widget") ?>
+                    <input class="tiny-input only-numeric" type="text" name="widget_settings[greeting_after]" value="<?php echo esc_attr($widgetSettings['greeting_after']) ?>">
+                    <?php esc_html_e("  seconds", "sticky-chat-widget") ?>
+                </span>
+            </div>
+        </div>
+        <div class="flex-input mt-20">
+            <div class="gp-form-field">
+                <div class="gp-form-label">
+                    <label for="greeting-bg-color"><?php esc_html_e("Greeting background color:", "sticky-chat-widget") ?></label>
+                </div>
+                <div class="gp-form-input ginger-color-list">
+                    <input id="greeting-bg-color" class="custom-color-picker" type="text" name="widget_settings[greeting_bg_color]" value="<?php echo esc_attr($widgetSettings['greeting_bg_color']) ?>" style="background: <?php echo esc_attr($widgetSettings['greeting_bg_color']) ?>">
+                </div>
+            </div>
+            <div class="gp-form-field">
+                <div class="gp-form-label">
+                    <label for="greeting-text-color"><?php esc_html_e("Greeting text color:", "sticky-chat-widget") ?></label>
+                </div>
+                <div class="gp-form-input ginger-color-list">
+                    <input id="greeting-text-color" class="custom-color-picker" type="text" name="widget_settings[greeting_text_color]" value="<?php echo esc_attr($widgetSettings['greeting_text_color']) ?>" style="background: <?php echo esc_attr($widgetSettings['greeting_text_color']) ?>">
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="gp-form-field mt-20 menu-view icon-view-field <?php echo ($widgetSettings['view'] == "icon_view") ? "active activate" : "" ?>">
         <div class="gp-form-label">
             <label><?php esc_html_e("Icons view: ", "sticky-chat-widget") ?><span class="ginger-info" data-ginger-tooltip="<?php esc_html_e("You can display chat buttons menu by vertical or horizontal", 'sticky-chat-widget') ?>"><span class="dashicons dashicons-editor-help"></span></span></label>

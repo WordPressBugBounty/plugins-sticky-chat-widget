@@ -2,8 +2,8 @@
 Contributors: gingerplugins
 Tags: whatsapp widget, chat button, facebook messenger, chat widget, contact form
 Requires at least: 5.0
-Tested up to: 6.6
-Stable tag: 1.3.3
+Tested up to: 6.7
+Stable tag: 1.3.4
 Requires PHP: 5.4
 Plugin URI: https://www.gingerplugins.com/downloads/sticky-chat-widget/
 License: GPL3
@@ -178,6 +178,11 @@ You can enjoy all the features of Sticky Chat Widget at $25/year only. Once you 
 7. Select pages where you like to show sticky chat widget
 
 == Changelog ==
+
+= 1.3.4 =
+- Concent checkbox in contact form
+- Open link in a new tab option for custom links
+- Greeting message
 
 = 1.3.3 =
 - WhatsApp issue in Mobile

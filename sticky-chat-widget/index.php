@@ -2,7 +2,7 @@
 /**
     Plugin Name: Sticky Chat Widget
     Description: Connect with your valuable website visitors through Sticky Chat Widget that consist of current trendy chat options
-    Version:     1.3.3
+    Version:     1.3.4
     Author: Ginger Plugins
     Author URI: https://www.gingerplugins.com/downloads/sticky-chat-widget/
     Text Domain: sticky-chat-widget
@@ -21,7 +21,7 @@ if (!defined('GSB_PLUGIN_URL')) {
 }
 
 if (!defined('GSB_PLUGIN_VERSION')) {
-    define("GSB_PLUGIN_VERSION", "1.3.3");
+    define("GSB_PLUGIN_VERSION", "1.3.4");
 }
 
 if (!defined('GSB_PLUGIN_BASE')) {

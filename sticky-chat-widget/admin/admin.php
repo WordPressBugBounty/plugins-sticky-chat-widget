@@ -408,8 +408,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                     <a href="javascript:;" class="remove-channel-img"><span class="dashicons dashicons-no-alt"></span></a>
                                 </span>
                             </div>
-                            <?php if ($key != "contact_form") {
-                                ?>
+                            <?php if ($key != "contact_form") { ?>
                             <div class="gsb-input-value">
                                 <div class="gp-form-field channel-input">
                                     <div class="gp-form-label">
@@ -886,7 +885,18 @@ class GP_Admin_Sticky_Chat_Buttons
                                     </div>
                                     <div id="form_fields" class="tab-setting-section active">
                                         <div class="toggle-fields contact-form-toggle-fields">
-                                            <?php foreach ($contact_form_setting['fields'] as $key1 => $field) { ?>
+                                            <?php
+                                            $fields = $contact_form_setting['fields'];
+                                            if(!isset($fields['consent_checkbox'])) {
+                                                $fields['consent_checkbox'] = [
+                                                    'label'            => esc_html__('Consent Checkbox', 'sticky-chat-widget'),
+                                                    'placeholder_text' => esc_html__('I accept terms & conditions', 'sticky-chat-widget'),
+                                                    'is_visible'       => 1,
+                                                    'is_required'      => 1,
+                                                    'required_msg'     => esc_html__('This field is required', 'sticky-chat-widget')
+                                                ];
+                                            }
+                                            foreach ($fields as $key1 => $field) { ?>
                                                 <div class="toggle-field" data-type="<?php echo esc_attr($key1); ?>">
                                                     <div class="toggle-field-title <?php echo ($field['is_visible'] == 1) ? "toggle-field-clickable" : "" ?>">
                                                         <span class="dashboard-switch in-flex on-off visible_check_toggle">
@@ -908,10 +918,29 @@ class GP_Admin_Sticky_Chat_Buttons
                                                         </div>
                                                         <div class="gp-form-field channel-input in-flex">
                                                             <div class="gp-form-label">
-                                                                <label for="contact_form_<?php echo esc_attr($key1) ?>_placeholder"><?php esc_html_e("Field placeholder text", "sticky-chat-widget") ?></label>
+                                                                <label for="contact_form_<?php echo esc_attr($key1) ?>_placeholder"><?php esc_html_e("Field message text", "sticky-chat-widget") ?></label>
                                                             </div>
                                                             <div class="gp-form-input">
-                                                                <input class="contact_form_custom_value" type="text" id="contact_form_<?php echo esc_attr($key1) ?>_placeholder" name="contact_form_settings[fields][<?php echo esc_attr($key1) ?>][placeholder_text]" value="<?php echo esc_attr($field['placeholder_text']) ?>" placeholder="<?php esc_html_e("Enter placeholder text", "sticky-chat-widget") ?>">
+                                                                <?php
+                                                                if($key1 == "consent_checkbox") {
+                                                                    $consentSettings = [
+                                                                        'media_buttons' => false,
+                                                                        'wpautop' => false,
+                                                                        'drag_drop_upload' => false,
+                                                                        'textarea_name' => 'contact_form_settings[fields][' . $key1 . '][placeholder_text]',
+                                                                        'textarea_rows' => 4,
+                                                                        'quicktags' => false,
+                                                                        'tinymce' => [
+                                                                            'toolbar1' => 'bold, italic, underline, link, forecolor, backcolor',
+                                                                            'toolbar2' => '',
+                                                                            'toolbar3' => '',
+                                                                            'content_css' => GSB_PLUGIN_URL . 'dist/admin/css/myEditorCSS.css',
+                                                                        ],
+                                                                    ];
+                                                                    wp_editor($field['placeholder_text'], "consent_message_text", $consentSettings);
+                                                                } else { ?>
+                                                                    <input class="contact_form_custom_value" type="text" id="contact_form_<?php echo esc_attr($key1) ?>_placeholder" name="contact_form_settings[fields][<?php echo esc_attr($key1) ?>][placeholder_text]" value="<?php echo esc_attr($field['placeholder_text']) ?>" placeholder="<?php esc_html_e("Enter placeholder text", "sticky-chat-widget") ?>">
+                                                                <?php } ?>
                                                             </div>
                                                         </div>
                                                         <div class="gp-form-field channel-input in-flex">
@@ -1318,6 +1347,19 @@ class GP_Admin_Sticky_Chat_Buttons
                                     </div>
                                 <?php }//end if
                                 ?>
+                                <?php if($icon['label'] == "link" || $icon['label'] == "custom-link") { ?>
+                                    <div class="gp-form-field in-flex instagram-link-settings">
+                                        <div class="kl-checkbox">
+                                            <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][open_in_new_tab]" value="no">
+                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_open_in_new_tab"
+                                                   name="channel_settings[<?php echo esc_attr($button) ?>][open_in_new_tab]" value="yes"
+                                                   class="sr-only" <?php checked($channelSetting['open_in_new_tab'], "yes") ?>>
+                                            <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_open_in_new_tab">
+                                                <?php esc_html_e("Open in a new tab", "sticky-chat-widget") ?>
+                                            </label>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                                 <?php if ($icon['label'] == "wechat") { ?>
                                     <div class="gp-form-field in-flex mb-20">
                                         <div class="gp-form-label">
@@ -2103,6 +2145,7 @@ class GP_Admin_Sticky_Chat_Buttons
             setcookie("scw-status", -1, (time() - 3600), "/");
             setcookie("gsb-button-view-".$postId, -1, time(), "/");
             setcookie("gsb-button-click-".$postId, -1, time(), "/");
+            setcookie("gsb-greeting-".$postId, -1, time(), "/");
 
             // Trigger action to clear the cache for the plugin.
             do_action("clear_cache_for_scw_plugin");

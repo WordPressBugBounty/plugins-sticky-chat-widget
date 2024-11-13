@@ -2052,6 +2052,12 @@ class Ginger_Social_Icons
             'message_bg_color'            => '#e64056',
             'message_text_color'          => '#ffffff',
             'widget_analytics'            => 'no',
+            'show_greeting_message'       => 'no',
+            'greeting_text'               => 'Hi there! How can we help you?
+Tap here to start chat with us.',
+            'greeting_after'              => '3',
+            'greeting_bg_color'           => '#ffffff',
+            'greeting_text_color'         => '#000000'
         ];
 
     }//end get_customize_widget_setting()
@@ -2153,7 +2159,8 @@ class Ginger_Social_Icons
             'wechat_qr_bg_color'        => '#00C80F',
             'wechat_qr_heading'         => 'Scan QR Code',
             'wechat_qr_img'             => '',
-            'is_ig_link'                => 'no'
+            'is_ig_link'                => 'no',
+            'open_in_new_tab'           => 'yes'
         ];
 
     }//end get_channel_setting()
@@ -2215,6 +2222,13 @@ class Ginger_Social_Icons
                     'is_required'      => 1,
                     'required_msg'     => esc_html__('This field is required', 'sticky-chat-widget'),
                 ],
+                'consent_checkbox' => [
+                    'label'            => esc_html__('Consent Checkbox', 'sticky-chat-widget'),
+                    'placeholder_text' => esc_html__('I accept terms & conditions', 'sticky-chat-widget'),
+                    'is_visible'       => 1,
+                    'is_required'      => 1,
+                    'required_msg'     => esc_html__('This field is required', 'sticky-chat-widget')
+                ]
             ],
         ];
 

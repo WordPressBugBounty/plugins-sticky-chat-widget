@@ -139,6 +139,7 @@ class GP_Front_Sticky_Chat_Buttons
         if (!empty($nonce) && wp_verify_nonce($nonce, "form_data_nonce")) {
             // Retrieve form data from the POST request.
             $formData = filter_input(INPUT_POST, 'scw_form_fields', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+            $consentCheckbox = sanitize_text_field(filter_input(INPUT_POST, 'scw_consent_checkbox'));
 
             // Retrieve the client's IP address.
             $ip = $this->get_client_ip();
@@ -154,20 +155,27 @@ class GP_Front_Sticky_Chat_Buttons
             // Validate form field values based on form settings.
             foreach ($formSettings as $formSetting) {
                 foreach ($formSetting['fields'] as $key => $field) {
-                    if ($field['is_visible'] == 1 && $field['is_required'] == 1 && $formData[$key] == "") {
-                        $isValid = 0;
-                        $response['has_error'][] = $key;
-                    } else if ($field['is_visible'] == 1 && $formData[$key] != "") {
-                        if ($key == "email") {
-                            if (!filter_var($formData[$key], FILTER_VALIDATE_EMAIL)) {
-                                $isValid = 0;
-                                $response['has_error_valid'][] = $key;
+                    if($key != "consent_checkbox") {
+                        if ($field['is_visible'] == 1 && $field['is_required'] == 1 && $formData[$key] == "") {
+                            $isValid = 0;
+                            $response['has_error'][] = $key;
+                        } else if ($field['is_visible'] == 1 && $formData[$key] != "") {
+                            if ($key == "email") {
+                                if (!filter_var($formData[$key], FILTER_VALIDATE_EMAIL)) {
+                                    $isValid = 0;
+                                    $response['has_error_valid'][] = $key;
+                                }
+                            } else if ($key == "phone") {
+                                if (!preg_match('/^[0-9]*$/', $formData[$key])) {
+                                    $isValid = 0;
+                                    $response['has_error_valid'][] = $key;
+                                }
                             }
-                        } else if ($key == "phone") {
-                            if (!preg_match('/^[0-9]*$/', $formData[$key])) {
-                                $isValid = 0;
-                                $response['has_error_valid'][] = $key;
-                            }
+                        }
+                    } else {
+                        if(!isset($consentCheckbox)) {
+                            $isValid = 0;
+                            $response['has_error_valid'][] = $key;
                         }
                     }
                 }
@@ -481,7 +489,7 @@ class GP_Front_Sticky_Chat_Buttons
      * @param  integer $postId The ID of the widget.
      * @return array The selected channel settings of the widget.
      */
-    public  function check_for_channels($postId)
+    public function check_for_channels($postId)
     {
 
         $allowedTags = [
@@ -649,7 +657,9 @@ class GP_Front_Sticky_Chat_Buttons
                                 $target = "_blank";
                             } else if ($key == "link") {
                                 $href   = esc_url($value);
-                                $target = "_blank";
+                                if($channelsSetting['open_in_new_tab'] == "yes") {
+                                    $target = "_blank";
+                                }
                             } else if ($key == "slack") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
@@ -658,7 +668,9 @@ class GP_Front_Sticky_Chat_Buttons
                                 $target = "_blank";
                             } else if ($key == "custom-link") {
                                 $href   = esc_url($value);
-                                $target = "_blank";
+                                if($channelsSetting['open_in_new_tab'] == "yes") {
+                                    $target = "_blank";
+                                }
                             } else if ($key == "signal") {
                                 $value  = trim($value, "https://signal.group/");
                                 $value  = trim($value, "http://signal.group/");
@@ -770,6 +782,13 @@ class GP_Front_Sticky_Chat_Buttons
                                         'is_visible'       => esc_attr($contactFormSetting['fields']['message']['is_visible']),
                                         'is_required'      => esc_attr($contactFormSetting['fields']['message']['is_required']),
                                         'required_msg'     => esc_attr($contactFormSetting['fields']['message']['required_msg']),
+                                    ],
+                                    'consent_checkbox' => [
+                                        'label'            => esc_attr($contactFormSetting['fields']['consent_checkbox']['label']),
+                                        'placeholder_text' => $contactFormSetting['fields']['consent_checkbox']['placeholder_text'],
+                                        'is_visible'       => esc_attr($contactFormSetting['fields']['consent_checkbox']['is_visible']),
+                                        'is_required'      => esc_attr($contactFormSetting['fields']['consent_checkbox']['is_required']),
+                                        'required_msg'     => esc_attr($contactFormSetting['fields']['consent_checkbox']['required_msg']),
                                     ],
                                 ],
                             ];
