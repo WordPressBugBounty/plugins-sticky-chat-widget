@@ -370,7 +370,7 @@ class GP_Front_Sticky_Chat_Buttons
         $widgetSettings['list_view_title'] = esc_attr($widgetSettings['list_view_title']);
         $list_view_subtitle = wp_kses($widgetSettings['list_view_subtitle'], $allowedTags);
         $widgetSettings['list_view_subtitle'] = str_replace(['{page_url}', '{page_title}'], [$pageURL, $pageTitle], $list_view_subtitle);
-        $widgetSettings['call_to_action']     = esc_attr($widgetSettings['call_to_action']);
+//        $widgetSettings['call_to_action']     = esc_attr($widgetSettings['call_to_action']);
 
         // Check if WooCommerce customization is enabled and the current page is a product page.
         if (function_exists('is_product') && isset($widgetSettings['woocommerce_customization']) && $widgetSettings['woocommerce_customization'] == "yes" && is_product()) {
@@ -548,8 +548,10 @@ class GP_Front_Sticky_Chat_Buttons
                         $channel['value'] = "123";
                     }
 
-                    if (isset($socialIcons[$key]) && ($channel['for_desktop'] || $channel['for_mobile']) && !empty($channel['value'])) {
-                        $channels = $socialIcons[$key];
+                    $channelKey = preg_replace('/_\d+$/', '', $key);
+
+                    if (isset($socialIcons[$channelKey]) && ($channel['for_desktop'] || $channel['for_mobile']) && !empty($channel['value'])) {
+                        $channels = $socialIcons[$channelKey];
 
                         $defaultChannelSettings    = Ginger_Social_Icons::get_channel_setting($channels);
                         $defaultContactFormSetting = Ginger_Social_Icons::get_contact_form_setting($channels);
@@ -581,7 +583,7 @@ class GP_Front_Sticky_Chat_Buttons
                             $whatsapp_message = "";
                             $href   = "javascript:;";
                             $target = "";
-                            if ($key == "whatsapp") {
+                            if ($channelKey == "whatsapp") {
                                 $value  = trim($value, "+");
                                 $value  = str_replace([" ", "-", "_"], ["", "", ""], $value);
                                 $href   = esc_url("https://web.whatsapp.com/send?phone=".$value);
@@ -592,10 +594,10 @@ class GP_Front_Sticky_Chat_Buttons
                                     $href = $href."&text=".esc_attr(trim($whatsapp_message));
                                     // $value = $value."?text=".esc_attr(trim($whatsapp_message));
                                 }
-                            } else if ($key == "facebook_messenger") {
+                            } else if ($channelKey == "facebook_messenger") {
                                 $href   = esc_url("https://m.me/".$value);
                                 $target = "_blank";
-                            } else if ($key == "viber") {
+                            } else if ($channelKey == "viber") {
                                 $value = trim($value, "+");
                                 if ($device == "mobile") {
                                     $href = $value;
@@ -604,27 +606,27 @@ class GP_Front_Sticky_Chat_Buttons
                                 }
                                 $target = "";
                                 $href   = "viber://chat?number=".$href;
-                            } else if ($key == "line") {
+                            } else if ($channelKey == "line") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
-                            } else if ($key == "phone") {
+                            } else if ($channelKey == "phone") {
                                 $value  = str_replace([" ", "-", "_"], ["", "", ""], $value);
                                 $href   = "tel:".$value;
                                 $target = "";
-                            } else if ($key == "mail") {
+                            } else if ($channelKey == "mail") {
                                 $href   = "mailto:".trim($value);
                                 $others = isset($channelsSetting['email_subject']) && !empty($channelsSetting['email_subject']) ? $channelsSetting['email_subject'] : "";
                                 $others = str_replace(['{page_url}', '{page_title}'], [$pageURL, $pageTitle], $others);
                                 if (!empty($others)) {
                                     $href = $href."?subject=".esc_attr($others);
                                 }
-                            } else if ($key == "telegram") {
+                            } else if ($channelKey == "telegram") {
                                 $href   = esc_url("https://telegram.me/".$value);
                                 $target = "_blank";
-                            } else if ($key == "vkontakte") {
+                            } else if ($channelKey == "vkontakte") {
                                 $href   = esc_url("https://vk.me/".$value);
                                 $target = "_blank";
-                            } else if ($key == "sms") {
+                            } else if ($channelKey == "sms") {
                                 $value       = str_replace([" ", "-", "_"], ["", "", ""], $value);
                                 $href        = "sms:".$value;
                                 $sms_message = isset($channelsSetting['sms_message']) && !empty($channelsSetting['sms_message']) ? $channelsSetting['sms_message'] : "";
@@ -632,65 +634,65 @@ class GP_Front_Sticky_Chat_Buttons
                                 if (!empty($sms_message)) {
                                     $href = $href.";?&body=".esc_attr(trim($sms_message));
                                 }
-                            } else if ($key == "wechat") {
+                            } else if ($channelKey == "wechat") {
                                 $channelsSetting['title'] = $channelsSetting['title'].": ".$channelsSetting['value'];
-                            } else if ($key == "skype") {
+                            } else if ($channelKey == "skype") {
                                 $href = "skype:".$value."?chat";
-                            } else if ($key == "snapchat") {
+                            } else if ($channelKey == "snapchat") {
                                 $href   = esc_url("https://www.snapchat.com/add/".$value);
                                 $target = "_blank";
-                            } else if ($key == "linkedin") {
+                            } else if ($channelKey == "linkedin") {
                                 $href   = esc_url("https://www.linkedin.com/".$value);
                                 $target = "_blank";
-                            } else if ($key == "twitter") {
+                            } else if ($channelKey == "twitter") {
                                 $href   = esc_url("https://twitter.com/".$value);
                                 $target = "_blank";
-                            } else if ($key == "instagram") {
+                            } else if ($channelKey == "instagram") {
                                 if($channelsSetting['is_ig_link'] == "yes") {
                                     $href = esc_url("https://ig.me/m/" . $value);
                                 } else {
                                     $href = esc_url("https://www.instagram.com/".$value);
                                 }
                                 $target = "_blank";
-                            } else if ($key == "waze") {
+                            } else if ($channelKey == "waze") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
-                            } else if ($key == "link") {
+                            } else if ($channelKey == "link") {
                                 $href   = esc_url($value);
                                 if($channelsSetting['open_in_new_tab'] == "yes") {
                                     $target = "_blank";
                                 }
-                            } else if ($key == "slack") {
+                            } else if ($channelKey == "slack") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
-                            } else if ($key == "google-map") {
+                            } else if ($channelKey == "google-map") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
-                            } else if ($key == "custom-link") {
+                            } else if ($channelKey == "custom-link") {
                                 $href   = esc_url($value);
                                 if($channelsSetting['open_in_new_tab'] == "yes") {
                                     $target = "_blank";
                                 }
-                            } else if ($key == "signal") {
+                            } else if ($channelKey == "signal") {
                                 $value  = trim($value, "https://signal.group/");
                                 $value  = trim($value, "http://signal.group/");
                                 $value  = "https://signal.group/".$value;
                                 $href   = esc_url($value);
                                 $target = "_blank";
-                            } else if ($key == "tiktok") {
+                            } else if ($channelKey == "tiktok") {
                                 $value  = trim($value, "https://tiktok.com/");
                                 $value  = trim($value, "http://tiktok.com/");
                                 $value  = trim($value, "@");
                                 $value  = "https://tiktok.com/@".$value;
                                 $href   = esc_url($value);
                                 $target = "_blank";
-                            } else if ($key == "discord") {
+                            } else if ($channelKey == "discord") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
-                            } else if ($key == "microsoft_teams") {
+                            } else if ($channelKey == "microsoft_teams") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
-                            } else if ($key == "zalo") {
+                            } else if ($channelKey == "zalo") {
                                 $href   = esc_url($value);
                                 $target = "_blank";
                             }//end if
@@ -712,6 +714,7 @@ class GP_Front_Sticky_Chat_Buttons
                                 'custom_id'        => $channelsSetting['custom_id'],
                                 'custom_class'     => $channelsSetting['custom_class'],
                                 'whatsapp_message' => $whatsapp_message,
+                                'channelName'      => $channelKey
                             ];
 
                             $wechatPopupSetting = [
@@ -720,7 +723,7 @@ class GP_Front_Sticky_Chat_Buttons
                                 'wechat_qr_heading'       => esc_attr($channelsSetting['wechat_qr_heading']),
                                 'wechat_qr_img'           => esc_url($channelsSetting['wechat_qr_img']),
                             ];
-                            if ($key == "wechat") {
+                            if ($channelKey == "wechat") {
                                 $channelSetting['wechat_popup_setting'] = $wechatPopupSetting;
                             }
 
@@ -734,7 +737,7 @@ class GP_Front_Sticky_Chat_Buttons
                                 'user_name_to_display'     => esc_attr($channelsSetting['whatsapp_name_to_display']),
                             ];
 
-                            if ($key == "whatsapp") {
+                            if ($channelKey == "whatsapp") {
                                 $channelSetting['whatsapp_popup_setting'] = $whatsappPopupSetting;
                                 $channelSetting['is_mobile_link'] = $channelsSetting['is_mobile_link'];
                             }
@@ -797,7 +800,7 @@ class GP_Front_Sticky_Chat_Buttons
                                 $channelSetting['contact_form_setting'] = $contactFormSetting;
                             }
 
-                            if($key == "instagram") {
+                            if($channelKey == "instagram") {
                                 $channelSetting['is_ig_link'] = $channelsSetting['is_ig_link'];
                             }
 

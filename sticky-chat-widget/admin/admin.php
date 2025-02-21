@@ -354,9 +354,10 @@ class GP_Admin_Sticky_Chat_Buttons
         $formIcons   = Ginger_Social_Icons::svg_icons();
 
         $disabled = "disabled";
+        $baseButton = preg_replace('/_\d+$/', '', $button);
 
         foreach ($socialIcons as $key => $icon) {
-            if ($key == $button) {
+            if ($key == $baseButton) {
                 ob_start();
                 $defaultChannelSettings = Ginger_Social_Icons::get_channel_setting($icon);
 
@@ -389,12 +390,17 @@ class GP_Admin_Sticky_Chat_Buttons
                 } else if (!empty($channelSetting['icon_class'])) {
                     $imageClass = "has-icon";
                 }
+
+                $instagramClass = "";
+                if($key == "instagram" && ($channelSetting['bg_color'] == "#df0079" || $channelSetting['bg_color'] == "#DF0079")){
+                    $instagramClass = "channel-instagram-default-bg";
+                }
                 ?>
-                <li class="gsb-settings <?php echo ($key == "contact_form") ? "contact-form-li" : "" ?>" id="social-buttons-<?php echo esc_attr($icon['label']) ?>-settings" data-button="<?php echo esc_attr($icon['label']) ?>">
+                <li class="gsb-settings <?php echo ($key == "contact_form") ? "contact-form-li" : "" ?>" id="social-buttons-<?php echo esc_attr($button) ?>-settings" data-button="<?php echo esc_attr($button) ?>" data-label="<?php echo esc_attr($icon['label']) ?>">
                     <div class="gsb-settings-top">
                         <div class="gsb-free-settings">
                             <div class="gsb-input-icon">
-                                <span class="ginger-button-icon <?php echo esc_attr($imageClass) ?> ssb-btn-bg-<?php echo esc_attr($icon['label']) ?>"
+                                <span class="ginger-button-icon <?php echo esc_attr($imageClass) ?> <?php echo esc_attr($instagramClass) ?> ssb-btn-bg-<?php echo esc_attr($button) ?>"
                                       data-ginger-tooltip="<?php echo esc_attr($icon['title']) ?>">
                                     <?php if (!empty($imageUrl)) { ?>
                                         <img src="<?php echo esc_url($imageUrl) ?>"
@@ -412,7 +418,7 @@ class GP_Admin_Sticky_Chat_Buttons
                             <div class="gsb-input-value">
                                 <div class="gp-form-field channel-input">
                                     <div class="gp-form-label">
-                                        <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_value"><?php echo esc_attr($icon['value']) ?>
+                                        <label for="ginger_sb_<?php echo esc_attr($button) ?>_value"><?php echo esc_attr($icon['value']) ?>
                                             <?php if ($icon['label'] == "whatsapp") { ?>
                                                 <a data-ginger-tooltip="Fill in your Phone number without any spaces and symbols"
                                                    href="https://faq.whatsapp.com/en/android/26000030/" target="_blank"><span
@@ -435,8 +441,8 @@ class GP_Admin_Sticky_Chat_Buttons
                                     <div class="gp-form-input">
                                         <input placeholder="<?php echo esc_attr($icon['example']) ?>"
                                                data-label="<?php echo esc_attr($icon['value']) ?>"
-                                               class="setting-input <?php echo esc_attr($icon['class_name']) ?>"
-                                               type="text" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_value"
+                                               class="setting-input channel-value-input <?php echo esc_attr($icon['class_name']) ?>"
+                                               type="text" id="ginger_sb_<?php echo esc_attr($button) ?>_value"
                                                name="channel_settings[<?php echo esc_attr($button) ?>][value]"
                                                value="<?php echo esc_attr($channelSetting['value']); ?>">
                                     </div>
@@ -448,12 +454,12 @@ class GP_Admin_Sticky_Chat_Buttons
                             <div class="gsb-title">
                                 <div class="gp-form-field channel-input">
                                     <div class="gp-form-label">
-                                        <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_title"><?php esc_html_e("On hover text", "sticky-chat-widget") ?></label>
+                                        <label for="ginger_sb_<?php echo esc_attr($button) ?>_title"><?php esc_html_e("On hover text", "sticky-chat-widget") ?></label>
                                     </div>
                                     <div class="gp-form-input">
-                                        <input data-label="<?php esc_html_e('Title', 'sticky-chat-widget') ?>" data-channel="<?php echo esc_attr($icon['label']) ?>"
+                                        <input data-label="<?php esc_html_e('Title', 'sticky-chat-widget') ?>" data-channel="<?php echo esc_attr($button) ?>"
                                                class="setting-input channel-title is-required"
-                                               type="text" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_title"
+                                               type="text" id="ginger_sb_<?php echo esc_attr($button) ?>_title"
                                                name="channel_settings[<?php echo esc_attr($button) ?>][title]"
                                                value="<?php echo esc_attr($channelSetting['title']) ?>">
                                     </div>
@@ -469,13 +475,13 @@ class GP_Admin_Sticky_Chat_Buttons
                             <div class="display-flex">
                                 <?php if ($key == "whatsapp") { ?>
                                     <div class="load-more-setting">
-                                        <a class="whatsapp-channel-widget-settings" href="javascript:;" data-tab="whatsapp_widget_setting">
+                                        <a class="whatsapp-channel-widget-settings" href="javascript:;" data-tab="whatsapp_widget_setting" data-tabid="<?php echo esc_attr($button) ?>_widget_setting">
                                             <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['setting']); ?>
                                             <span class="setting-label"><?php esc_html_e("WhatsApp Widget", "sticky-chat-widget"); ?></span>
                                         </a>
                                     </div>
                                     <div class="load-more-setting">
-                                        <a class="whatsapp-channel-widget-settings" href="javascript:;" data-tab="whatsapp_general_setting">
+                                        <a class="whatsapp-channel-widget-settings" href="javascript:;" data-tab="whatsapp_general_setting" data-tabid="<?php echo esc_attr($button) ?>_general_setting">
                                             <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['setting']); ?>
                                             <span class="setting-label"><?php esc_html_e("Settings", "sticky-chat-widget"); ?></span>
                                         </a>
@@ -518,17 +524,17 @@ class GP_Admin_Sticky_Chat_Buttons
                         <?php if ($key == "whatsapp") { ?>
                             <div class="whatsapp-form-setting">
                                 <div class="contact-form-setting-tabs">
-                                    <div class="contact-form-setting-tab tab-section whatsapp_widget_setting active" data-id="whatsapp_widget_setting"><?php esc_html_e("Whatsapp Widget", "sticky-chat-widget") ?></div>
-                                    <div class="contact-form-setting-tab tab-section whatsapp_general_setting" data-id="whatsapp_general_setting"><?php esc_html_e("Icon Setting", "sticky-chat-widget") ?></div>
+                                    <div class="contact-form-setting-tab tab-section whatsapp_widget_setting active" data-id="<?php echo esc_attr($button) ?>_widget_setting"><?php esc_html_e("Whatsapp Widget", "sticky-chat-widget") ?></div>
+                                    <div class="contact-form-setting-tab tab-section whatsapp_general_setting" data-id="<?php echo esc_attr($button) ?>_general_setting"><?php esc_html_e("Icon Setting", "sticky-chat-widget") ?></div>
                                 </div>
                                 <div class="contact-form-setting-body">
-                                    <div class="tab-setting-section" id="whatsapp_widget_setting">
+                                    <div class="tab-setting-section whatsapp_widget_setting_set" id="<?php echo esc_attr($button) ?>_widget_setting">
                                         <div class="whatsapp-popup-settings">
                                             <div class="show-wt-popup-box">
                                                 <span class="dashboard-switch in-flex on-off">
-                                                    <input type="hidden" name="channel_settings[<?php echo esc_attr($key); ?>][show_whatsapp_popup]" value="no">
-                                                    <input type="checkbox" id="show_whatsapp_popup" name="channel_settings[<?php echo esc_attr($key) ?>][show_whatsapp_popup]" value="yes" class="sr-only show-whatsapp-popup" <?php checked($channelSetting['show_whatsapp_popup'], 'yes') ?>>
-                                                    <label for="show_whatsapp_popup"><?php esc_html_e("Show WhatsApp chat widget 🗨️", "sticky-chat-widget") ?></label>
+                                                    <input type="hidden" name="channel_settings[<?php echo esc_attr($button); ?>][show_whatsapp_popup]" value="no">
+                                                    <input type="checkbox" id="show_<?php echo esc_attr($button) ?>_popup" name="channel_settings[<?php echo esc_attr($button) ?>][show_whatsapp_popup]" value="yes" class="sr-only show-whatsapp-popup" <?php checked($channelSetting['show_whatsapp_popup'], 'yes') ?>>
+                                                    <label for="show_<?php echo esc_attr($button) ?>_popup"><?php esc_html_e("Show WhatsApp chat widget 🗨️", "sticky-chat-widget") ?></label>
                                                 </span>
                                             </div>
                                             <div class="<?php echo ($channelSetting['show_whatsapp_popup'] == "yes") ? "" : "add-blur-bg" ?> whatsapp-widget-setting">
@@ -546,30 +552,31 @@ class GP_Admin_Sticky_Chat_Buttons
                                                             <?php } ?>
                                                         </div>
                                                         <div class="remove-whatsapp-profile <?php echo (!empty($channelSetting['custom_whatsapp_profile'])) ? "active" : "" ?>"><?php esc_html_e("Remove", "sticky-chat-widget") ?></div>
-                                                        <input type="hidden" name="channel_settings[<?php echo esc_attr($key); ?>][custom_whatsapp_profile]" id="custom_whatsapp_profile" value="<?php echo esc_attr($channelSetting['custom_whatsapp_profile']) ?>">
+                                                        <input type="hidden" name="channel_settings[<?php echo esc_attr($button); ?>][custom_whatsapp_profile]" id="custom_<?php echo esc_attr($button) ?>_profile" value="<?php echo esc_attr($channelSetting['custom_whatsapp_profile']) ?>">
                                                     </div>
                                                 </div>
                                                 <div class="gp-form-field in-flex">
-                                                    <div class="gp-form-label"><label for="whatsapp_popup_title"><?php esc_html_e('Header title', 'sticky-chat-widget') ?></label></div>
+                                                    <div class="gp-form-label"><label for="<?php echo esc_attr($button) ?>_popup_title"><?php esc_html_e('Header title', 'sticky-chat-widget') ?></label></div>
                                                     <div class="gp-form-input">
-                                                        <input id="whatsapp_popup_title" type="text" name="channel_settings[<?php echo esc_attr($key) ?>][whatsapp_popup_title]" value="<?php echo esc_attr($channelSetting['whatsapp_popup_title']) ?>">
+                                                        <input id="<?php echo esc_attr($button) ?>_popup_title" type="text" name="channel_settings[<?php echo esc_attr($button) ?>][whatsapp_popup_title]" value="<?php echo esc_attr($channelSetting['whatsapp_popup_title']) ?>">
                                                     </div>
                                                 </div>
                                                 <div class="gp-form-field in-flex">
-                                                    <div class="gp-form-label"><label for="whatsapp_popup_sub_title"><?php esc_html_e('Sub header title', 'sticky-chat-widget') ?></label></div>
+                                                    <div class="gp-form-label"><label for="<?php echo esc_attr($button) ?>_popup_sub_title"><?php esc_html_e('Sub header title', 'sticky-chat-widget') ?></label></div>
                                                     <div class="gp-form-input">
-                                                        <input id="whatsapp_popup_sub_title" type="text" name="channel_settings[<?php echo esc_attr($key) ?>][whatsapp_popup_sub_title]" value="<?php echo esc_attr($channelSetting['whatsapp_popup_sub_title']) ?>">
+                                                        <input id="<?php echo esc_attr($button) ?>_popup_sub_title" type="text" name="channel_settings[<?php echo esc_attr($button) ?>][whatsapp_popup_sub_title]" value="<?php echo esc_attr($channelSetting['whatsapp_popup_sub_title']) ?>">
                                                     </div>
                                                 </div>
                                                 <div class="gp-form-field in-flex">
                                                     <div class="gp-form-label"><label><?php esc_html_e("Welcome message", "sticky-chat-widget") ?></label></div>
                                                     <div class="gp-form-input">
                                                         <?php
+                                                        $popup_id = $button.'_popup_text';
                                                         $settings = [
                                                             'media_buttons'    => false,
                                                             'wpautop'          => false,
                                                             'drag_drop_upload' => false,
-                                                            'textarea_name'    => 'channel_settings['.$key.'][whatsapp_popup_text]',
+                                                            'textarea_name'    => 'channel_settings['.$button.'][whatsapp_popup_text]',
                                                             'textarea_rows'    => 4,
                                                             'quicktags'        => false,
                                                             'tinymce'          => [
@@ -579,7 +586,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                                 'content_css' => GSB_PLUGIN_URL.'dist/admin/css/myEditorCSS.css',
                                                             ],
                                                         ];
-                                                        wp_editor($channelSetting['whatsapp_popup_text'], "whatsapp_popup_text", $settings);
+                                                        wp_editor($channelSetting['whatsapp_popup_text'], $popup_id, $settings);
                                                         ?>
                                                     </div>
                                                 </div>
@@ -597,13 +604,13 @@ class GP_Admin_Sticky_Chat_Buttons
                                                             <?php } ?>
                                                         </div>
                                                         <div class="remove-whatsapp-user-profile <?php echo (!empty($channelSetting['whatsapp_user_profile_img'])) ? "active" : "" ?>"><?php esc_html_e("Remove", "sticky-chat-widget") ?></div>
-                                                        <input type="hidden" name="channel_settings[<?php echo esc_attr($key); ?>][whatsapp_user_profile_img]" id="whatsapp_user_profile_img" value="<?php echo esc_attr($channelSetting['whatsapp_user_profile_img']) ?>">
+                                                        <input type="hidden" name="channel_settings[<?php echo esc_attr($button); ?>][whatsapp_user_profile_img]" id="<?php echo esc_attr($button) ?>_user_profile_img" value="<?php echo esc_attr($channelSetting['whatsapp_user_profile_img']) ?>">
                                                     </div>
                                                 </div>
                                                 <div class="gp-form-field in-flex">
-                                                    <div class="gp-form-label"><label for="wp_name_to_display"><?php esc_html_e('Name to display', 'sticky-chat-widget') ?></label></div>
+                                                    <div class="gp-form-label"><label for="<?php echo esc_attr($button) ?>_name_to_display"><?php esc_html_e('Name to display', 'sticky-chat-widget') ?></label></div>
                                                     <div class="gp-form-input">
-                                                        <input id="wp_name_to_display" type="text" name="channel_settings[<?php echo esc_attr($key) ?>][whatsapp_name_to_display]" value="<?php echo esc_attr($channelSetting['whatsapp_name_to_display']) ?>">
+                                                        <input id="<?php echo esc_attr($button) ?>_name_to_display" type="text" name="channel_settings[<?php echo esc_attr($button) ?>][whatsapp_name_to_display]" value="<?php echo esc_attr($channelSetting['whatsapp_name_to_display']) ?>">
                                                     </div>
                                                 </div>
                                                 <div class="blur-overlay">
@@ -616,22 +623,22 @@ class GP_Admin_Sticky_Chat_Buttons
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-setting-section" id="whatsapp_general_setting">
+                                    <div class="tab-setting-section whatsapp_general_setting_set" id="<?php echo esc_attr($button) ?>_general_setting">
                                         <div class="input-settings device-img-option">
                                             <div class="input-setting for-mobile-desktop device-option-responsive">
                                                 <span class="dashboard-switch in-flex on-off">
                                                     <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][for_desktop]" value="no">
-                                                    <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_for_desktop"
+                                                    <input type="checkbox" id="ginger_sb_<?php echo esc_attr($button) ?>_for_desktop"
                                                            name="channel_settings[<?php echo esc_attr($button) ?>][for_desktop]" value="yes"
                                                            class="sr-only btn-for-desktop" <?php checked($channelSetting['for_desktop'], "yes") ?>>
-                                                    <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_for_desktop"><?php esc_html_e("Desktop", "sticky-chat-widget") ?></label>
+                                                    <label for="ginger_sb_<?php echo esc_attr($button) ?>_for_desktop"><?php esc_html_e("Desktop", "sticky-chat-widget") ?></label>
                                                 </span>
                                                 <span class="dashboard-switch in-flex on-off">
                                                     <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][for_mobile]" value="no">
-                                                    <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_for_mobile"
+                                                    <input type="checkbox" id="ginger_sb_<?php echo esc_attr($button) ?>_for_mobile"
                                                            name="channel_settings[<?php echo esc_attr($button) ?>][for_mobile]" value="yes"
                                                            class="sr-only btn-for-mobile" <?php checked($channelSetting['for_mobile'], "yes") ?>>
-                                                    <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_for_mobile"><?php esc_html_e("Mobile", "sticky-chat-widget") ?></label>
+                                                    <label for="ginger_sb_<?php echo esc_attr($button) ?>_for_mobile"><?php esc_html_e("Mobile", "sticky-chat-widget") ?></label>
                                                 </span>
                                             </div>
                                             <div class="input-setting gp-form-field in-flex custom-img content-center">
@@ -710,9 +717,9 @@ class GP_Admin_Sticky_Chat_Buttons
                                         </div>
                                         <?php $whatsappMessage = isset($channelSetting['whatsapp_message']) ? $channelSetting['whatsapp_message'] : ""; ?>
                                         <div class="gp-form-field in-flex">
-                                            <div class="gp-form-label"><label for="whatsapp_message"><?php esc_html_e("Pre defined message", "sticky-chat-widget") ?></label></div>
+                                            <div class="gp-form-label"><label for="<?php echo esc_attr($button) ?>_message"><?php esc_html_e("Pre defined message", "sticky-chat-widget") ?></label></div>
                                             <div class="gp-form-input">
-                                                <input type="text" id="whatsapp_message" value="<?php echo esc_attr($whatsappMessage) ?>" class="medium-input"
+                                                <input type="text" id="<?php echo esc_attr($button) ?>_message" value="<?php echo esc_attr($whatsappMessage) ?>" class="medium-input"
                                                        name="channel_settings[<?php echo esc_attr($button) ?>][whatsapp_message]">
                                                 <span class="scw-badges wp-badges"><?php esc_html_e("{page_url}", "sticky-chat-widget") ?></span>
                                                 <span class="scw-badges wp-badges"><?php esc_html_e("{page_title}", "sticky-chat-widget") ?></span>
@@ -721,22 +728,22 @@ class GP_Admin_Sticky_Chat_Buttons
                                         <div class="gp-form-field in-flex mobile-link-settings <?php echo ($channelSetting['show_whatsapp_popup'] == "yes") ? "" : "active" ?>">
                                             <span class="dashboard-switch in-flex on-off">
                                                 <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][is_mobile_link]" value="no">
-                                                <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_mobile_link"
+                                                <input type="checkbox" id="ginger_sb_<?php echo esc_attr($button) ?>_mobile_link"
                                                        name="channel_settings[<?php echo esc_attr($button) ?>][is_mobile_link]" value="yes"
                                                        class="sr-only" <?php checked($channelSetting['is_mobile_link'], "yes") ?>>
-                                                <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_mobile_link">
+                                                <label for="ginger_sb_<?php echo esc_attr($button) ?>_mobile_link">
                                                     <?php esc_html_e("Use ", "sticky-chat-widget") ?><span class="link-color"><?php esc_html_e("whatsapp://send ", "sticky-chat-widget") ?></span><?php esc_html_e("as a link in mobile", "sticky-chat-widget") ?>
                                                     <span aria-hidden="true" class="ginger-info" data-ginger-tooltip="<?php esc_html_e("when this option is enabled, it will open WhatsApp app in mobile if installed , if WhatsApp app is not installed this option will not work.", 'sticky-chat-widget') ?>"><span class="dashicons dashicons-editor-help"></span></span>
                                                 </label>
                                             </span>
                                         </div>
                                         <div class="gp-form-field in-flex">
-                                            <div class="gp-form-label"><label for="custom_id_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Custom ID", "sticky-chat-widget") ?></label></div>
+                                            <div class="gp-form-label"><label for="custom_id_<?php echo esc_attr($button) ?>"><?php esc_html_e("Custom ID", "sticky-chat-widget") ?></label></div>
                                             <div class="gp-form-input">
-                                                <input <?php echo esc_attr($disabled) ?> id="custom_id_<?php echo esc_attr($icon['label']) ?>" type="text"
+                                                <input <?php echo esc_attr($disabled) ?> id="custom_id_<?php echo esc_attr($button) ?>" type="text"
                                                                                          name="channel_settings[<?php echo esc_attr($button) ?>][custom_id]" value="<?php echo esc_attr($channelSetting['custom_id']) ?>">
                                                 <?php if (!empty($disabled)) { ?>
-                                                    <a class="upgrade-link" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                    <a class="upgrade-link" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -744,10 +751,10 @@ class GP_Admin_Sticky_Chat_Buttons
                                             <div class="gp-form-label"><label for="custom_class_<?php echo esc_attr($button) ?>"><?php esc_html_e("Custom class", "sticky-chat-widget") ?></label>
                                             </div>
                                             <div class="gp-form-input">
-                                                <input <?php echo esc_attr($disabled) ?> id="custom_class_<?php echo esc_attr($icon['label']) ?>" type="text"
+                                                <input <?php echo esc_attr($disabled) ?> id="custom_class_<?php echo esc_attr($button) ?>" type="text"
                                                                                          name="channel_settings[<?php echo esc_attr($button) ?>][custom_class]" value="<?php echo esc_attr($channelSetting['custom_class']) ?>">
                                                 <?php if (!empty($disabled)) { ?>
-                                                    <a class="upgrade-link" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                    <a class="upgrade-link" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -863,9 +870,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                 <input <?php echo esc_attr($disabled) ?> id="custom_id_<?php echo esc_attr($icon['label']) ?>" type="text"
                                                                                          name="channel_settings[<?php echo esc_attr($button) ?>][custom_id]" value="<?php echo esc_attr($channelSetting['custom_id']) ?>">
                                                 <?php if (!empty($disabled)) { ?>
-                                                    <a class="upgrade-link"
-                                                       href="javascript:;"
-                                                       target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                    <a class="upgrade-link" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -876,9 +881,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                 <input <?php echo esc_attr($disabled) ?> id="custom_class_<?php echo esc_attr($icon['label']) ?>" type="text"
                                                                                          name="channel_settings[<?php echo esc_attr($button) ?>][custom_class]" value="<?php echo esc_attr($channelSetting['custom_class']) ?>">
                                                 <?php if (!empty($disabled)) { ?>
-                                                    <a class="upgrade-link"
-                                                       href="javascript:;"
-                                                       target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                    <a class="upgrade-link" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -973,7 +976,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                                         <input type="checkbox" id="contact_form_<?php echo esc_attr($key1) ?>_email_suggestion" name="" value="1" class="sr-only" disabled>
                                                                         <label for="contact_form_<?php echo esc_attr($key1) ?>_email_suggestion"></label>
                                                                     </span>
-                                                                    <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                                    <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                                 </div>
                                                             </div>
                                                         <?php } ?>
@@ -987,7 +990,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                                         <input type="checkbox" id="contact_form_<?php echo esc_attr($key1) ?>_country_dropdown" name="" value="1" class="sr-only" disabled>
                                                                         <label for="contact_form_<?php echo esc_attr($key1) ?>_country_dropdown"></label>
                                                                     </span>
-                                                                    <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                                    <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                                 </div>
                                                             </div>
                                                         <?php } ?>
@@ -1003,7 +1006,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                 <?php esc_html_e("Add custom field", "sticky-chat-widget") ?>
                                             </a>
                                             <?php if (!empty($disabled)) { ?>
-                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                             <?php } ?>
                                         </div>
                                     </div>
@@ -1070,7 +1073,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                         <input type="checkbox" id="send_leads_<?php echo esc_attr($icon['label']) ?>" disabled name="contact_form_settings[is_send_leads]" value="1" class="sr-only send_leads_to_mail" <?php checked($contact_form_setting['is_send_leads'], "1") ?>>
                                                         <label for="send_leads_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Send leads to mail", "sticky-chat-widget") ?></label>
                                                         <?php if (!empty($disabled)) { ?>
-                                                            <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                            <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                         <?php } ?>
                                                     </span>
                                                     </div>
@@ -1082,7 +1085,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                             <input type="checkbox" id="auto_responder_<?php echo esc_attr($icon['label']) ?>" disabled name="contact_form_settings[auto_responder]" value="1" class="sr-only auto_responder" <?php checked($contact_form_setting['auto_responder'], 1) ?>>
                                                             <label for="auto_responder_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Auto responder", "sticky-chat-widget") ?></label>
                                                             <?php if (!empty($disabled)) { ?>
-                                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                             <?php } ?>
                                                         </span>
                                                     </div>
@@ -1094,7 +1097,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                             <input type="checkbox" id="google_captcha_<?php echo esc_attr($icon['label']) ?>" disabled name="contact_form_settings[google_captcha]" value="1" class="sr-only" <?php checked($contact_form_setting['google_captcha'], 1) ?>>
                                                             <label for="google_captcha_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Enable reCAPTCHA", "sticky-chat-widget") ?></label>
                                                             <?php if (!empty($disabled)) { ?>
-                                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                             <?php } ?>
                                                         </span>
                                                     </div>
@@ -1106,7 +1109,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                             <input type="checkbox" id="sends_leads_to_mailchimp_<?php echo esc_attr($icon['label']) ?>" disabled name="contact_form_settings[sends_leads_to_mailchimp]" value="1" class="sr-only" <?php checked($contact_form_setting['sends_leads_to_mailchimp'], 1) ?>>
                                                             <label for="sends_leads_to_mailchimp_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Sends leads to mailchimp", "sticky-chat-widget") ?></label>
                                                             <?php if (!empty($disabled)) { ?>
-                                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                             <?php } ?>
                                                         </span>
                                                     </div>
@@ -1118,7 +1121,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                             <input type="checkbox" id="sends_leads_to_mailpoet_<?php echo esc_attr($icon['label']) ?>" disabled name="contact_form_settings[sends_leads_to_mailpoet]" value="1" class="sr-only" <?php checked($contact_form_setting['sends_leads_to_mailpoet'], 1) ?>>
                                                             <label for="sends_leads_to_mailpoet_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Sends leads to mailpoet", "sticky-chat-widget") ?></label>
                                                             <?php if (!empty($disabled)) { ?>
-                                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                                                <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                                             <?php } ?>
                                                         </span>
                                                     </div>
@@ -1205,17 +1208,17 @@ class GP_Admin_Sticky_Chat_Buttons
                                     <div class="input-setting for-mobile-desktop device-option-responsive">
                                         <span class="dashboard-switch in-flex on-off">
                                             <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][for_desktop]" value="no">
-                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_for_desktop"
+                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($button) ?>_for_desktop"
                                                    name="channel_settings[<?php echo esc_attr($button) ?>][for_desktop]" value="yes"
                                                    class="sr-only btn-for-desktop" <?php checked($channelSetting['for_desktop'], "yes") ?>>
-                                            <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_for_desktop"><?php esc_html_e("Desktop", "sticky-chat-widget") ?></label>
+                                            <label for="ginger_sb_<?php echo esc_attr($button) ?>_for_desktop"><?php esc_html_e("Desktop", "sticky-chat-widget") ?></label>
                                         </span>
                                         <span class="dashboard-switch in-flex on-off">
                                             <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][for_mobile]" value="no">
-                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_for_mobile"
+                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($button) ?>_for_mobile"
                                                    name="channel_settings[<?php echo esc_attr($button) ?>][for_mobile]" value="yes"
                                                    class="sr-only btn-for-mobile" <?php checked($channelSetting['for_mobile'], "yes") ?>>
-                                            <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_for_mobile"><?php esc_html_e("Mobile", "sticky-chat-widget") ?></label>
+                                            <label for="ginger_sb_<?php echo esc_attr($button) ?>_for_mobile"><?php esc_html_e("Mobile", "sticky-chat-widget") ?></label>
                                         </span>
                                     </div>
                                     <div class="input-setting gp-form-field in-flex custom-img content-center">
@@ -1235,7 +1238,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                     <div class="upload-image-selection">
                                                         <ul>
                                                             <li class="image-upload-gallery"><a href="javascript:;"><?php esc_html_e("Media library", "sticky-chat-widget") ?></a></li>
-                                                            <li class="image-select-icon <?php echo esc_attr($disabled) ?> " id="<?php echo esc_attr($icon['label']) ?>-icon-picker"><a <?php if (!empty($disabled)) { ?>
+                                                            <li class="image-select-icon <?php echo esc_attr($disabled) ?> " id="<?php echo esc_attr($button) ?>-icon-picker"><a <?php if (!empty($disabled)) { ?>
                                                                     data-ginger-tooltip="<?php esc_html_e("Upgrade to Pro", 'sticky-chat-widget') ?>" target="_blank" href="<?php echo esc_url(self::upgrade_url()) ?>"
                                                            <?php } else { ?>
                                                                     href="javascript:;"
@@ -1245,7 +1248,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                 </div>
                                                 <div class="upload-image-selection-overlay"></div>
                                                 <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][image_id]"
-                                                       id="image_for_<?php echo esc_attr($icon['label']) ?>"
+                                                       id="image_for_<?php echo esc_attr($button) ?>"
                                                        value="<?php echo esc_attr($imageId) ?>">
                                             <?php } ?>
                                         </div>
@@ -1314,10 +1317,10 @@ class GP_Admin_Sticky_Chat_Buttons
                                     <div class="gp-form-field in-flex instagram-link-settings">
                                         <span class="dashboard-switch in-flex on-off">
                                             <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][is_ig_link]" value="no">
-                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_ig_link"
+                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($button) ?>_ig_link"
                                                    name="channel_settings[<?php echo esc_attr($button) ?>][is_ig_link]" value="yes"
                                                    class="sr-only" <?php checked($channelSetting['is_ig_link'], "yes") ?>>
-                                            <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_ig_link">
+                                            <label for="ginger_sb_<?php echo esc_attr($button) ?>_ig_link">
                                                 <?php esc_html_e("Use ", "sticky-chat-widget") ?><span class="link-color"><?php esc_html_e("https://ig.me/m ", "sticky-chat-widget") ?></span><?php esc_html_e("as a link", "sticky-chat-widget") ?>
                                             </label>
                                         </span>
@@ -1326,9 +1329,9 @@ class GP_Admin_Sticky_Chat_Buttons
                                 <?php if ($icon['label'] == "mail") {
                                     $emailSubject = isset($channelSetting['email_subject']) ? $channelSetting['email_subject'] : ""; ?>
                                     <div class="gp-form-field in-flex">
-                                        <div class="gp-form-label"><label for="email_subject"><?php esc_html_e("Email subject", "sticky-chat-widget") ?></label></div>
+                                        <div class="gp-form-label"><label for="<?php echo esc_attr($button) ?>_subject"><?php esc_html_e("Email subject", "sticky-chat-widget") ?></label></div>
                                         <div class="gp-form-input">
-                                            <input type="text" id="email_subject" value="<?php echo esc_attr($emailSubject) ?>"
+                                            <input type="text" id="<?php echo esc_attr($button) ?>_subject" value="<?php echo esc_attr($emailSubject) ?>"
                                                    name="channel_settings[<?php echo esc_attr($button) ?>][email_subject]">
                                             <span class="scw-badges mail-badges"><?php esc_html_e("{page_url}", "sticky-chat-widget") ?></span>
                                             <span class="scw-badges mail-badges"><?php esc_html_e("{page_title}", "sticky-chat-widget") ?></span>
@@ -1337,9 +1340,9 @@ class GP_Admin_Sticky_Chat_Buttons
                                 <?php } else if ($icon['label'] == "sms") {
                                     $smsMessage = isset($channelSetting['sms_message']) ? $channelSetting['sms_message'] : ''; ?>
                                     <div class="gp-form-field in-flex">
-                                        <div class="gp-form-label"><label for="sms_message"><?php esc_html_e("Pre defined message", "sticky-chat-widget") ?></label></div>
+                                        <div class="gp-form-label"><label for="<?php echo esc_attr($button) ?>_message"><?php esc_html_e("Pre defined message", "sticky-chat-widget") ?></label></div>
                                         <div class="gp-form-input">
-                                            <input type="text" id="sms_message" value="<?php echo esc_attr($smsMessage) ?>" class="medium-input"
+                                            <input type="text" id="<?php echo esc_attr($button) ?>_message" value="<?php echo esc_attr($smsMessage) ?>" class="medium-input"
                                                    name="channel_settings[<?php echo esc_attr($button) ?>][sms_message]">
                                             <span class="scw-badges sms-badges"><?php esc_html_e("{page_url}", "sticky-chat-widget") ?></span>
                                             <span class="scw-badges sms-badges"><?php esc_html_e("{page_title}", "sticky-chat-widget") ?></span>
@@ -1351,10 +1354,10 @@ class GP_Admin_Sticky_Chat_Buttons
                                     <div class="gp-form-field in-flex instagram-link-settings">
                                         <div class="kl-checkbox">
                                             <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][open_in_new_tab]" value="no">
-                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($icon['label']) ?>_open_in_new_tab"
+                                            <input type="checkbox" id="ginger_sb_<?php echo esc_attr($button) ?>_open_in_new_tab"
                                                    name="channel_settings[<?php echo esc_attr($button) ?>][open_in_new_tab]" value="yes"
                                                    class="sr-only" <?php checked($channelSetting['open_in_new_tab'], "yes") ?>>
-                                            <label for="ginger_sb_<?php echo esc_attr($icon['label']) ?>_open_in_new_tab">
+                                            <label for="ginger_sb_<?php echo esc_attr($button) ?>_open_in_new_tab">
                                                 <?php esc_html_e("Open in a new tab", "sticky-chat-widget") ?>
                                             </label>
                                         </div>
@@ -1370,7 +1373,7 @@ class GP_Admin_Sticky_Chat_Buttons
                                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 13V14.2C19 15.8802 19 16.7202 18.673 17.362C18.3854 17.9265 17.9265 18.3854 17.362 18.673C16.7202 19 15.8802 19 14.2 19H5.8C4.11984 19 3.27976 19 2.63803 18.673C2.07354 18.3854 1.6146 17.9265 1.32698 17.362C1 16.7202 1 15.8802 1 14.2V13M15 6L10 1M10 1L5 6M10 1V13" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                                                 <span> Upload</span>
                                             </a>
-                                            <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][wechat_qr_img]" id="wechat_qr_code_input" value="<?php echo esc_attr($channelSetting['wechat_qr_img']) ?>">
+                                            <input type="hidden" name="channel_settings[<?php echo esc_attr($button) ?>][wechat_qr_img]" id="<?php echo esc_attr($button) ?>_qr_code_input" value="<?php echo esc_attr($channelSetting['wechat_qr_img']) ?>">
                                             <div class="wechat-qr-code-img">
                                                 <img src="<?php echo esc_url($channelSetting['wechat_qr_img']) ?>" alt="Wechat QR code">
                                             </div>
@@ -1379,38 +1382,36 @@ class GP_Admin_Sticky_Chat_Buttons
                                     </div>
                                     <div class="wechat-qr-setting-box <?php echo (!empty($channelSetting['wechat_qr_img'])) ? "active" : ""; ?>">
                                         <div class="gp-form-field in-flex">
-                                            <div class="gp-form-label"><label for="wechat_qr_popup_heading"><?php esc_html_e("Heading", "sticky-chat-widget") ?></label></div>
+                                            <div class="gp-form-label"><label for="<?php echo esc_attr($button) ?>_qr_popup_heading"><?php esc_html_e("Heading", "sticky-chat-widget") ?></label></div>
                                             <div class="gp-form-input">
-                                                <input type="text" id="wechat_qr_popup_heading" value="<?php echo esc_attr($channelSetting['wechat_qr_popup_heading']) ?>" class="medium-input"
+                                                <input type="text" id="<?php echo esc_attr($button) ?>_qr_popup_heading" value="<?php echo esc_attr($channelSetting['wechat_qr_popup_heading']) ?>" class="medium-input"
                                                        name="channel_settings[<?php echo esc_attr($button) ?>][wechat_qr_popup_heading]">
                                             </div>
                                         </div>
                                         <div class="gp-form-field in-flex">
                                             <div class="gp-form-label">
-                                                <label for="wechat_qr_popup_bg_color"><?php esc_html_e("Header background", "sticky-chat-widget") ?></label>
+                                                <label for="<?php echo esc_attr($button) ?>_qr_popup_bg_color"><?php esc_html_e("Header background", "sticky-chat-widget") ?></label>
                                             </div>
                                             <div class="gp-form-input ginger-color-list">
-                                                <input id="wechat_qr_popup_bg_color" class="color-picker" type="text" name="channel_settings[<?php echo esc_attr($button) ?>][wechat_qr_bg_color]" value="<?php echo esc_attr($channelSetting['wechat_qr_bg_color']) ?>" style="background: <?php echo esc_attr($channelSetting['wechat_qr_bg_color']) ?>">
+                                                <input id="<?php echo esc_attr($button) ?>_qr_popup_bg_color" class="color-picker" type="text" name="channel_settings[<?php echo esc_attr($button) ?>][wechat_qr_bg_color]" value="<?php echo esc_attr($channelSetting['wechat_qr_bg_color']) ?>" style="background: <?php echo esc_attr($channelSetting['wechat_qr_bg_color']) ?>">
                                             </div>
                                         </div>
                                         <div class="gp-form-field in-flex">
-                                            <div class="gp-form-label"><label for="wechat_qr_heading"><?php esc_html_e("QR code heading", "sticky-chat-widget") ?></label></div>
+                                            <div class="gp-form-label"><label for="<?php echo esc_attr($button) ?>_qr_heading"><?php esc_html_e("QR code heading", "sticky-chat-widget") ?></label></div>
                                             <div class="gp-form-input">
-                                                <input type="text" id="wechat_qr_heading" value="<?php echo esc_attr($channelSetting['wechat_qr_heading']) ?>" class="medium-input"
+                                                <input type="text" id="<?php echo esc_attr($button) ?>_qr_heading" value="<?php echo esc_attr($channelSetting['wechat_qr_heading']) ?>" class="medium-input"
                                                        name="channel_settings[<?php echo esc_attr($button) ?>][wechat_qr_heading]">
                                             </div>
                                         </div>
                                     </div>
                                 <?php }//end if ?>
                                 <div class="gp-form-field in-flex">
-                                    <div class="gp-form-label"><label for="custom_id_<?php echo esc_attr($icon['label']) ?>"><?php esc_html_e("Custom ID", "sticky-chat-widget") ?></label></div>
+                                    <div class="gp-form-label"><label for="custom_id_<?php echo esc_attr($button) ?>"><?php esc_html_e("Custom ID", "sticky-chat-widget") ?></label></div>
                                     <div class="gp-form-input">
-                                        <input <?php echo esc_attr($disabled) ?> id="custom_id_<?php echo esc_attr($icon['label']) ?>" type="text"
+                                        <input <?php echo esc_attr($disabled) ?> id="custom_id_<?php echo esc_attr($button) ?>" type="text"
                                          name="channel_settings[<?php echo esc_attr($button) ?>][custom_id]" value="<?php echo esc_attr($channelSetting['custom_id']) ?>">
                                         <?php if (!empty($disabled)) { ?>
-                                            <a class="upgrade-link"
-                                               href="javascript:;"
-                                               target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                            <a class="upgrade-link" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -1418,12 +1419,10 @@ class GP_Admin_Sticky_Chat_Buttons
                                     <div class="gp-form-label"><label for="custom_class_<?php echo esc_attr($button) ?>"><?php esc_html_e("Custom class", "sticky-chat-widget") ?></label>
                                     </div>
                                     <div class="gp-form-input">
-                                        <input <?php echo esc_attr($disabled) ?> id="custom_class_<?php echo esc_attr($icon['label']) ?>" type="text"
+                                        <input <?php echo esc_attr($disabled) ?> id="custom_class_<?php echo esc_attr($button) ?>" type="text"
                                          name="channel_settings[<?php echo esc_attr($button) ?>][custom_class]" value="<?php echo esc_attr($channelSetting['custom_class']) ?>">
                                         <?php if (!empty($disabled)) { ?>
-                                            <a class="upgrade-link"
-                                               href="javascript:;"
-                                               target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
+                                            <a class="upgrade-link" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['pro']); ?></a>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -1648,9 +1647,9 @@ class GP_Admin_Sticky_Chat_Buttons
             if (!empty($socialIcons)) {
                 foreach ($socialIcons as $icon) {
                     if ($icon['label'] != "instagram") {
-                        $css .= ".social-icon.active .ssb-btn-".esc_attr($icon['label']).", .social-icon:hover .ssb-btn-".esc_attr($icon['label'])." {background-color: ".esc_attr($icon['color'])."; border-color: ".esc_attr($icon['color'])."; color: #ffffff;}";
-                        $css .= ".social-icon.active .ssb-btn-".esc_attr($icon['label'])." svg, .social-icon:hover .ssb-btn-".esc_attr($icon['label'])." svg {color: #ffffff; fill: #ffffff;}";
-                        $css .= ".ssb-btn-bg-".esc_attr($icon['label'])." {background-color: ".esc_attr($icon['color']).";}";
+                        $css .= "#social-links-options .social-icon.active .ssb-btn-".esc_attr($icon['label']).", #social-links-options .social-icon:hover .ssb-btn-".esc_attr($icon['label']).", #more_channel_list .ssb-btn-".esc_attr($icon['label'])." span {background-color: ".esc_attr($icon['color'])."; border-color: ".esc_attr($icon['color'])."; color: #ffffff;}";
+                        $css .= "#social-links-options .social-icon.active .ssb-btn-".esc_attr($icon['label'])." svg, #social-links-options .social-icon:hover .ssb-btn-".esc_attr($icon['label'])." svg, #more_channel_list .ssb-btn-".esc_attr($icon['label'])." span svg {color: #ffffff; fill: #ffffff;}";
+                        $css .= "#social-links-options .ssb-btn-bg-".esc_attr($icon['label'])." {background-color: ".esc_attr($icon['color']).";}";
                     }
                 }
             }

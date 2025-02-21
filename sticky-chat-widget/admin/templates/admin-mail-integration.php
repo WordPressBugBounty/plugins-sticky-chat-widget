@@ -142,6 +142,7 @@ if (isset($installed_plugins[$plugin]) && !is_plugin_active($plugin)) {
                     <input type="text" id="scw-mc-api-key" name="scw_mc_api_key" value="" style="width: 100%;"  disabled="disabled" >
                     <span class="mailchimp-error-message"><?php esc_html_e("This field is required", "sticky-chat-widget") ?></span>
                 </div>
+                <div class="clear"></div>
                 <div class="scw-mailchimp-auth-btn">
                     <button type="button" class="btn-mailchimp-integration" disabled >Connect</button>
                 </div>

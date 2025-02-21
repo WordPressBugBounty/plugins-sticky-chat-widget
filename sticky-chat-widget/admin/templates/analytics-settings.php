@@ -23,7 +23,7 @@ $inputValue = empty($inputValue) ? "no" : $inputValue;
             <input type="checkbox" id="gsb_google_analytics" name="gsb_google_analytics" <?php echo esc_attr($disabled) ?> value="yes" class="sr-only" <?php checked($inputValue, "yes") ?>>
             <label for="gsb_google_analytics"><?php esc_html_e("Google analytics", "sticky-chat-widget") ?></label>
             <?php if (!empty($disabled)) { ?>
-                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
+                <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
             <?php } ?>
         </span>
     </div>
@@ -38,9 +38,9 @@ $inputValue = empty($inputValue) ? "no" : $inputValue;
             <input type="checkbox" id="gsb_widget_analytics" name="widget_settings[widget_analytics]" <?php echo esc_attr($disabled) ?> value="yes" class="sr-only" <?php checked($widgetSettings['widget_analytics'], "yes") ?>>
             <label for="gsb_widget_analytics"><?php esc_html_e("Widget analytics", "sticky-chat-widget") ?></label>
             <?php if (!empty($disabled)) { ?>
-                <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
+                <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
             <?php } ?>
         </span>
-        <a href="<?php echo esc_url(admin_url("admin.php?page=sticky-chat-widget-analytics")) ?>" target="_blank" class="view-widget-analytics">View widget analytics</a>
+        <a href="<?php echo esc_url(admin_url("admin.php?page=sticky-chat-widget-analytics")) ?>" target="_blank" class="view-widget-analytics">View widget analytics <span class="dashicons dashicons-external"></span></a>
     </div>
 </div>

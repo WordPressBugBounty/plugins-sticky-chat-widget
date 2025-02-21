@@ -229,7 +229,7 @@ if (!empty($widgetSettings['custom_icon'])) {
                     <input id="position_custom" type="radio" class="sr-only" <?php echo esc_attr($disabled) ?> name="widget_settings[position]" value="custom" <?php checked($widgetSettings['position'], "custom") ?>>
                     <label for="position_custom">
                         <?php if (!empty($disabled)) { ?>
-                            <a href="javascript:;" class="upgrade-link-btn" target="_blank"><?php esc_html_e("Custom (Pro)", "sticky-chat-widget") ?></a>
+                            <a href="javascript:;" class="upgrade-link-btn" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php esc_html_e("Custom (Pro)", "sticky-chat-widget") ?></a>
                         <?php } else { ?>
                             <?php esc_html_e("Custom", "sticky-chat-widget") ?>
                         <?php } ?>
@@ -247,9 +247,51 @@ if (!empty($widgetSettings['custom_icon'])) {
                 <input type="checkbox" id="position_in_mobile" name="widget_settings[position_in_mobile]" <?php echo esc_attr($disabled) ?> value="yes" class="sr-only" <?php checked($widgetSettings['position_in_mobile'], "yes") ?>>
                 <label for="position_in_mobile"><?php esc_html_e("Position in mobile", "sticky-chat-widget") ?></label>
                 <?php if (!empty($disabled)) { ?>
-                    <a class="upgrade-link in-block" href="javascript:;" target="_blank"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
+                    <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
                 <?php } ?>
             </span>
+        </div>
+    </div>
+    <div class="gp-form-field mt-20 menu-view icon-view-field <?php echo ($widgetSettings['view'] == "icon_view") ? "active activate" : "" ?>">
+        <div class="gp-form-label">
+            <label><?php esc_html_e("Icons view: ", "sticky-chat-widget") ?><span class="ginger-info" data-ginger-tooltip="<?php esc_html_e("You can display chat buttons menu by vertical or horizontal", 'sticky-chat-widget') ?>"><span class="dashicons dashicons-editor-help"></span></span></label>
+        </div>
+        <div class="gp-form-input medium-input">
+            <div class="gp-radio-buttons in-flex">
+                <div class="gp-radio-button">
+                    <input id="menu_view_vertical" type="radio" class="sr-only" name="widget_settings[menu_view]" value="vertical" <?php checked($widgetSettings['menu_view'], "vertical") ?>>
+                    <label for="menu_view_vertical"><?php esc_html_e("Vertical", "sticky-chat-widget") ?></label>
+                </div>
+                <div class="gp-radio-button">
+                    <input id="menu_view_horizontal" type="radio" class="sr-only" name="widget_settings[menu_view]" value="horizontal" <?php checked($widgetSettings['menu_view'], "horizontal") ?>>
+                    <label for="menu_view_horizontal"><?php esc_html_e("Horizontal", "sticky-chat-widget") ?></label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gp-form-field mt-20">
+        <div class="gp-form-label">
+            <label for="call_to_action"><?php esc_html_e("Call to action:", "sticky-chat-widget") ?></label>
+        </div>
+        <div class="gp-form-input medium-input">
+            <?php
+            $settings = [
+                'media_buttons'    => false,
+                'wpautop'          => false,
+                'drag_drop_upload' => false,
+                'textarea_name'    => 'widget_settings[call_to_action]',
+                'textarea_rows'    => 4,
+                'quicktags'        => false,
+                'tinymce'          => [
+                    'toolbar1'    => 'bold, italic, underline',
+                    'toolbar2'    => '',
+                    'toolbar3'    => '',
+                    'content_css' => GSB_PLUGIN_URL.'dist/admin/css/myEditorCSS.css',
+                ],
+            ];
+            wp_editor($widgetSettings['call_to_action'], "ginger_sb_call_to_action", $settings);
+            ?>
+<!--            <textarea name="widget_settings[call_to_action]" id="ginger_sb_call_to_action">--><?php //echo esc_attr($widgetSettings['call_to_action']) ?><!--</textarea>-->
         </div>
     </div>
     <div class="gp-form-field mt-20">
@@ -269,7 +311,24 @@ if (!empty($widgetSettings['custom_icon'])) {
                 <label for="ginger_sb_greeting_text"><?php esc_html_e("Greeting text", "sticky-chat-widget") ?></label>
             </div>
             <div class="gp-form-input medium-input">
-                <textarea name="widget_settings[greeting_text]" id="ginger_sb_greeting_text"><?php echo esc_attr($widgetSettings['greeting_text']) ?></textarea>
+                <?php
+                $settings = [
+                    'media_buttons'    => false,
+                    'wpautop'          => false,
+                    'drag_drop_upload' => false,
+                    'textarea_name'    => 'widget_settings[greeting_text]',
+                    'textarea_rows'    => 4,
+                    'quicktags'        => false,
+                    'tinymce'          => [
+                        'toolbar1'    => 'bold, italic, underline',
+                        'toolbar2'    => '',
+                        'toolbar3'    => '',
+                        'content_css' => GSB_PLUGIN_URL.'dist/admin/css/myEditorCSS.css',
+                    ],
+                ];
+                wp_editor($widgetSettings['greeting_text'], "ginger_sb_greeting_text", $settings);
+                ?>
+<!--                <textarea name="widget_settings[greeting_text]" id="ginger_sb_greeting_text">--><?php //echo esc_attr($widgetSettings['greeting_text']) ?><!--</textarea>-->
             </div>
         </div>
         <div class="gp-form-field">
@@ -298,31 +357,6 @@ if (!empty($widgetSettings['custom_icon'])) {
                     <input id="greeting-text-color" class="custom-color-picker" type="text" name="widget_settings[greeting_text_color]" value="<?php echo esc_attr($widgetSettings['greeting_text_color']) ?>" style="background: <?php echo esc_attr($widgetSettings['greeting_text_color']) ?>">
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="gp-form-field mt-20 menu-view icon-view-field <?php echo ($widgetSettings['view'] == "icon_view") ? "active activate" : "" ?>">
-        <div class="gp-form-label">
-            <label><?php esc_html_e("Icons view: ", "sticky-chat-widget") ?><span class="ginger-info" data-ginger-tooltip="<?php esc_html_e("You can display chat buttons menu by vertical or horizontal", 'sticky-chat-widget') ?>"><span class="dashicons dashicons-editor-help"></span></span></label>
-        </div>
-        <div class="gp-form-input medium-input">
-            <div class="gp-radio-buttons in-flex">
-                <div class="gp-radio-button">
-                    <input id="menu_view_vertical" type="radio" class="sr-only" name="widget_settings[menu_view]" value="vertical" <?php checked($widgetSettings['menu_view'], "vertical") ?>>
-                    <label for="menu_view_vertical"><?php esc_html_e("Vertical", "sticky-chat-widget") ?></label>
-                </div>
-                <div class="gp-radio-button">
-                    <input id="menu_view_horizontal" type="radio" class="sr-only" name="widget_settings[menu_view]" value="horizontal" <?php checked($widgetSettings['menu_view'], "horizontal") ?>>
-                    <label for="menu_view_horizontal"><?php esc_html_e("Horizontal", "sticky-chat-widget") ?></label>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="gp-form-field mt-20">
-        <div class="gp-form-label">
-            <label for="call_to_action"><?php esc_html_e("Call to action:", "sticky-chat-widget") ?></label>
-        </div>
-        <div class="gp-form-input medium-input">
-            <textarea name="widget_settings[call_to_action]" id="ginger_sb_call_to_action"><?php echo esc_attr($widgetSettings['call_to_action']) ?></textarea>
         </div>
     </div>
     <div class="gp-form-field mt-20">

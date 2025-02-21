@@ -2053,8 +2053,7 @@ class Ginger_Social_Icons
             'message_text_color'          => '#ffffff',
             'widget_analytics'            => 'no',
             'show_greeting_message'       => 'no',
-            'greeting_text'               => 'Hi there! How can we help you?
-Tap here to start chat with us.',
+            'greeting_text'               => '<p>Hi there! How can we help you?</p><p>Tap here to start chat with us.</p>',
             'greeting_after'              => '3',
             'greeting_bg_color'           => '#ffffff',
             'greeting_text_color'         => '#000000'

@@ -6,6 +6,7 @@
  * @license : GPL2
  * */
 defined('ABSPATH') or die('Direct Access is not allowed');
+
 ?>
 <div class="gp-modal" id="create-widget">
     <div class="gp-modal-bg"></div>

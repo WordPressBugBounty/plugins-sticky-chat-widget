@@ -60,7 +60,8 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                                     $count         = 0;
                                     $channelTitles = [];
                                     foreach ($channels as $key => $channel) {
-                                        $setting = $icons[$key];
+                                        $baseButton = preg_replace('/_\d+$/', '', $key);
+                                        $setting = $icons[$baseButton];
                                         $defaultChannelSetting = [
                                             'value'            => '',
                                             'title'            => $setting['title'],
@@ -78,7 +79,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                                         ];
                                         $channelSetting        = shortcode_atts($defaultChannelSetting, $channel);
 
-                                        if ($key == "twitter" && ($channelSetting['bg_color'] == "#65BBF2" || $channelSetting['bg_color'] == '#65bbf2')) {
+                                        if ($baseButton == "twitter" && ($channelSetting['bg_color'] == "#65BBF2" || $channelSetting['bg_color'] == '#65bbf2')) {
                                             $channelSetting['bg_color'] = "#000000";
                                         }
 
@@ -96,24 +97,24 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                                         $count++;
                                         if (count($channels) > 5) {
                                             if ($count <= 4) { ?>
-                                                <span class="channel-icons <?php echo ($key == "instagram" && $channels['instagram']['bg_color'] != "#df0079") ? "" : "channel-slug-".esc_attr($key) ?>"
+                                                <span class="channel-icons <?php echo ($baseButton == "instagram" && $channels[$key]['bg_color'] == "#df0079") ? "channel-slug-instagram-bg" : "channel-slug-".esc_attr($key) ?>"
                                                       data-ginger-tooltip="<?php echo esc_attr($channelSetting['title']) ?>"
                                                       style="background-color: <?php echo esc_attr($channelSetting['bg_color']) ?>;">
                                                     <?php if (!empty($imageUrl)) {?>
                                                         <img src="<?php echo esc_attr($imageUrl) ?>">
                                                     <?php } else { ?>
-                                                        <?php Ginger_Social_Icons::load_and_sanitize_svg($icons[$key]['icon']); ?>
+                                                        <?php Ginger_Social_Icons::load_and_sanitize_svg($icons[$baseButton]['icon']); ?>
                                                     <?php } ?>
                                                 </span>
                                             <?php }
                                         } else if (count($channels) == 5 || count($channels) < 5) { ?>
-                                            <span class="channel-icons <?php echo ($key == "instagram" && $channels['instagram']['bg_color'] != "#df0079") ? "" : "channel-slug-".esc_attr($key) ?>"
+                                            <span class="channel-icons <?php echo ($baseButton == "instagram" && $channels[$key]['bg_color'] == "#df0079") ? "channel-slug-instagram-bg" : "channel-slug-".esc_attr($key) ?>"
                                                   data-ginger-tooltip="<?php echo esc_attr($channelSetting['title']) ?>"
                                                   style="background-color: <?php echo esc_attr($channelSetting['bg_color']) ?>;">
                                                     <?php if (!empty($imageUrl)) {?>
                                                         <img src="<?php echo esc_attr($imageUrl) ?>">
                                                     <?php } else { ?>
-                                                        <?php Ginger_Social_Icons::load_and_sanitize_svg($icons[$key]['icon']); ?>
+                                                        <?php Ginger_Social_Icons::load_and_sanitize_svg($icons[$baseButton]['icon']); ?>
                                                     <?php } ?>
                                             </span>
                                         <?php }//end if
@@ -166,10 +167,11 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                     $icons    = Ginger_Social_Icons::icon_list();
                     $channels = get_post_meta($post->ID, "channel_settings", true);
                     if (isset($channels) && !empty($channels)) {
-                        foreach ($channels as $key => $value) {?>
+                        foreach ($channels as $key => $value) {
+                            $baseButton = preg_replace('/_\d+$/', '', $key);?>
                             <style>
                                 .widget-<?php echo esc_attr($post->ID) ?> .channel-slug-<?php echo esc_attr($key) ?> svg { fill: <?php echo esc_attr($value['text_color']) ?> !important;}
-                                <?php if ($key == "slack" && $channels['slack']['text_color'] != "#ffffff") { ?>
+                                <?php if ($baseButton == "slack" && $channels[$key]['text_color'] != "#ffffff") { ?>
                                 .widget-<?php echo esc_attr($post->ID) ?> .channel-slug-<?php echo esc_attr($key) ?> svg path { fill: <?php echo esc_attr($value['text_color']) ?> !important;}
                                 <?php } ?>
                             </style>
