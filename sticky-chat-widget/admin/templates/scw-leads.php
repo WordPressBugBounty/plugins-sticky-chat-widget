@@ -234,8 +234,8 @@ $totalCount = $wpdb->get_results("SELECT * FROM $tableName");
                                 'format'    => '&paged=%#%',
                                 'current'   => $currentPage,
                                 'total'     => $totalPages,
-                                'prev_text' => '<i class="fas fa-angle-left"></i> '.esc_html__("Prev"),
-                                'next_text' => esc_html__("Next ").'<i class="fas fa-angle-right"></i>',
+                                'prev_text' => $formIcons['prev'] . esc_html__("Prev"),
+                                'next_text' => esc_html__("Next ") . $formIcons['next'],
                                 'type'      => 'list',
                             ]
                         );

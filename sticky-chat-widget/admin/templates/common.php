@@ -182,7 +182,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                         </div>
                         <div class="device-option mobile">
                             <input class="sr-only preview-button preview-mobile-btn" id="preview_device_mobile" type="radio" name="preview_device_switch" value="mobile">
-                            <label for="preview_device_mobile"><i class="fa fa-mobile-alt"></i> Mobile</label>
+                            <label for="preview_device_mobile"><span class="dashicons dashicons-smartphone"></span> Mobile</label>
                         </div>
                     </div>
                 </div>

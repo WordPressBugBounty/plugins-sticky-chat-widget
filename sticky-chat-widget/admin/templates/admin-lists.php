@@ -6,6 +6,7 @@
  * @license : GPL2
  * */
 defined('ABSPATH') or die('Direct Access is not allowed');
+
 ?>
 <?php if (isset($posts) && !empty($posts)) { ?>
     <div class="gp-box mt-40">
@@ -300,6 +301,18 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             margin-left: 15px;
         }
 
+        .gp-no-records-bottom .gp-action-button svg {
+            width: 14px;
+            height: 16px;
+            margin-left: 10px;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        .gp-no-records-bottom .gp-action-button svg path {
+            stroke: #ffffff;
+        }
+
         .text-color {
             color: #4F46E5;
         }
@@ -346,7 +359,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             </div>
             <div class="gp-no-records-bottom">
                 <a href="javascript:;"
-                   class="gp-action-button add-new-widget"><?php esc_html_e(" Create Your First Widget", "sticky-chat-widget"); ?> <i class="fas fa-plus"></i>
+                    class="gp-action-button add-new-widget"><?php esc_html_e(" Create Your First Widget", "sticky-chat-widget"); ?><?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['plus']); ?>
                 </a>
             </div>
         </div>
