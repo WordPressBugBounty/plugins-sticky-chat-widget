@@ -15,7 +15,7 @@ $triggerRulesSettings       = shortcode_atts($defaultTriggerRuleSettings, $trigg
 ?>
 
 <div id="triggers-settings" class="setting-tab">
-    <div class="setting-title"><?php esc_html_e("Triggers", "sticky-chat-widget") ?></div>
+    <div class="setting-title setting-title-text"><?php esc_html_e("Triggers", "sticky-chat-widget") ?></div>
     <div class="gp-step-sub-title"><?php esc_html_e("When should it show?", "sticky-chat-widget") ?></div>
     <div class="gp-form-field">
         <div class="gp-form-label">

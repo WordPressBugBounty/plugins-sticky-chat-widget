@@ -205,7 +205,7 @@ $formIcons = Ginger_Social_Icons::svg_icons();
     <div class="review-modal-container">
         <div class="review-modal-content">
             <div class="review-modal-data">
-                <button class="review-modal-close-btn">
+                <button class="review-modal-close-btn" type="button">
                     <span class="svg-icon">
                         <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
@@ -249,7 +249,7 @@ $formIcons = Ginger_Social_Icons::svg_icons();
     <div class="review-modal-container">
         <div class="review-modal-content">
             <div class="review-modal-data">
-                <button class="review-modal-close-btn">
+                <button class="review-modal-close-btn" type="button">
                     <span class="svg-icon">
                         <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>

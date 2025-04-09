@@ -28,7 +28,7 @@ if (!empty($channels)) {
 
 <div id="channel-settings" class="setting-tab active">
     <div class="setting-title d-flex">
-        <span class="channel-title"><?php esc_html_e("Select Channels", "sticky-chat-widget") ?></span>
+        <span class="channel-title setting-title-text"><?php esc_html_e("Select Channels", "sticky-chat-widget") ?></span>
         <div class="search-channel-box">
             <input type="text" class="input-search" id="input_channel_search" placeholder="Search...">
         </div>
@@ -85,7 +85,7 @@ if (!empty($channels)) {
     <div class="gp-modal-container">
         <div class="gp-modal-content">
             <div class="gp-modal-data">
-                <button class="gp-modal-close-btn">
+                <button class="gp-modal-close-btn" type="button">
                     <span class="svg-icon">
                         <?php Ginger_Social_Icons::load_and_sanitize_svg($icons['close']); ?>
                     </span>

@@ -24,7 +24,7 @@ if (!empty($widgetSettings['custom_icon'])) {
 ?>
 
 <div id="icon-settings" class="setting-tab">
-    <div class="setting-title"><?php esc_html_e("Customize Widget", "sticky-chat-widget") ?></div>
+    <div class="setting-title setting-title-text"><?php esc_html_e("Customize Widget", "sticky-chat-widget") ?></div>
     <div class="gp-form-field">
         <div class="gp-form-label">
             <label><?php esc_html_e("Select view:", "sticky-chat-widget") ?></label>

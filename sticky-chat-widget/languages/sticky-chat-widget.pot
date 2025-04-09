@@ -2,10 +2,10 @@
 # This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sticky Chat Widget 1.3.7\n"
+"Project-Id-Version: Sticky Chat Widget 1.3.8\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/sticky-chat-widget-free\n"
-"POT-Creation-Date: 2025-03-25 04:07:30+00:00\n"
+"POT-Creation-Date: 2025-04-09 05:05:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Your comment is required"
 msgstr ""
 
-#: admin/admin-common.php:583 admin/admin.php:1676
+#: admin/admin-common.php:583 admin/admin.php:1678
 msgid "%s is required"
 msgstr ""
 
@@ -558,7 +558,7 @@ msgstr ""
 msgid "Sticky Widget"
 msgstr ""
 
-#: admin/admin.php:1677
+#: admin/admin.php:1679
 msgid "Font size must be smaller than icon size"
 msgstr ""
 
@@ -566,42 +566,42 @@ msgstr ""
 msgid "Sticky Chat Widget"
 msgstr ""
 
-#: admin/admin.php:1777 admin/admin.php:1779 admin/templates/admin-lists.php:16
+#: admin/admin.php:1779 admin/admin.php:1781 admin/templates/admin-lists.php:16
 msgid "Dashboard"
 msgstr ""
 
-#: admin/admin.php:1796 admin/admin.php:1798
+#: admin/admin.php:1798 admin/admin.php:1800
 msgid "Analytics"
 msgstr ""
 
-#: admin/admin.php:1815 admin/admin.php:1817
+#: admin/admin.php:1817 admin/admin.php:1819
 msgid "Form Leads"
 msgstr ""
 
-#: admin/admin.php:1834 admin/admin.php:1836
+#: admin/admin.php:1836 admin/admin.php:1838
 #: admin/templates/admin-mail-integration.php:35
 msgid "Integrations"
 msgstr ""
 
-#: admin/admin.php:2058 admin/admin.php:2287 includes/front-end.php:123
+#: admin/admin.php:2060 admin/admin.php:2289 includes/front-end.php:123
 #: includes/front-end.php:219
 msgid "Invalid Request, Please try again"
 msgstr ""
 
-#: admin/admin.php:2127
+#: admin/admin.php:2129
 msgid "Widget is updated successfully"
 msgstr ""
 
-#: admin/admin.php:2138
+#: admin/admin.php:2140
 msgid "Please select at least one field for the contact form"
 msgstr ""
 
-#: admin/admin.php:2231
+#: admin/admin.php:2233
 msgid "Widget is removed successfully"
 msgstr ""
 
-#: admin/admin.php:2339 admin/admin.php:2389 admin/admin.php:2562
-#: admin/admin.php:2615 admin/admin.php:2660
+#: admin/admin.php:2341 admin/admin.php:2391 admin/admin.php:2564
+#: admin/admin.php:2617 admin/admin.php:2662
 msgid "Invalid request, Please try again"
 msgstr ""
 
@@ -622,7 +622,8 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: admin/templates/admin-lists.php:30
+#: admin/templates/admin-lists.php:30 admin/templates/admin-settings.php:46
+#: admin/templates/admin-settings.php:74
 msgid "Channels"
 msgstr ""
 
@@ -906,7 +907,7 @@ msgid "Secret Key"
 msgstr ""
 
 #: admin/templates/admin-mail-integration.php:327
-#: admin/templates/admin-settings.php:58
+#: admin/templates/admin-settings.php:59
 msgid "Save Changes"
 msgstr ""
 
@@ -933,57 +934,69 @@ msgstr ""
 msgid "Never show again"
 msgstr ""
 
-#: admin/templates/admin-settings.php:40 admin/templates/social-channels.php:31
+#: admin/templates/admin-settings.php:45
+msgid "Social Channels"
+msgstr ""
+
+#: admin/templates/admin-settings.php:50
+msgid "Back"
+msgstr ""
+
+#: admin/templates/admin-settings.php:54
+msgid "Next"
+msgstr ""
+
+#: admin/templates/admin-settings.php:60
+msgid "Save"
+msgstr ""
+
+#: admin/templates/admin-settings.php:63
+msgid "Save and View Dashboard"
+msgstr ""
+
+#: admin/templates/admin-settings.php:73 admin/templates/social-channels.php:31
 msgid "Select Channels"
 msgstr ""
 
-#: admin/templates/admin-settings.php:41
+#: admin/templates/admin-settings.php:81
 #: admin/templates/customize-widget-button.php:27
 msgid "Customize Widget"
 msgstr ""
 
-#: admin/templates/admin-settings.php:42 admin/templates/triggers.php:18
+#: admin/templates/admin-settings.php:82
+msgid "Customize"
+msgstr ""
+
+#: admin/templates/admin-settings.php:89 admin/templates/triggers.php:18
 msgid "Triggers"
 msgstr ""
 
-#: admin/templates/admin-settings.php:43
+#: admin/templates/admin-settings.php:96
 #: admin/templates/time-and-page-rules.php:21
 msgid "Targeting"
 msgstr ""
 
-#: admin/templates/admin-settings.php:54
-msgid "Back"
-msgstr ""
-
-#: admin/templates/admin-settings.php:55
-msgid "Next"
-msgstr ""
-
-#: admin/templates/admin-settings.php:61
-msgid "Save and View Dashboard"
-msgstr ""
-
-#: admin/templates/admin-settings.php:86
+#: admin/templates/admin-settings.php:130
 msgid "Sticky Chat Widget is disabled"
 msgstr ""
 
-#: admin/templates/admin-settings.php:89
+#: admin/templates/admin-settings.php:133
 msgid "Sticky Chat Widget is currently disabled."
 msgstr ""
 
-#: admin/templates/admin-settings.php:90
+#: admin/templates/admin-settings.php:134
 msgid "Would you like to show it on your website?"
 msgstr ""
 
-#: admin/templates/admin-settings.php:93
+#: admin/templates/admin-settings.php:137
 msgid "Yes, enable and save it"
 msgstr ""
 
-#: admin/templates/admin-settings.php:94
+#: admin/templates/admin-settings.php:138
 msgid "No, just save changes"
 msgstr ""
 
-#: admin/templates/admin-settings.php:102 admin/templates/common.php:143
+#: admin/templates/admin-settings.php:147 admin/templates/common.php:143
 #: admin/templates/widget-preview.php:11
 msgid "Preview"
 msgstr ""

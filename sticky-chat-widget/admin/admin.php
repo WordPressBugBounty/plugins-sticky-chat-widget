@@ -1613,6 +1613,8 @@ class GP_Admin_Sticky_Chat_Buttons
             // Enqueue Font Awesome styles.
 //            wp_enqueue_style('ssb-font-awesome', GSB_PLUGIN_URL."dist/admin/css/fontwesome.all.min.css", [], GSB_PLUGIN_VERSION);
 
+            wp_enqueue_style('gsb-admin-tailwind-app-css', GSB_PLUGIN_URL."dist/admin/css/app.css", [], GSB_PLUGIN_VERSION);
+
             // Enqueue SumoSelect styles.
             wp_enqueue_style('gsb-sumo-select', GSB_PLUGIN_URL."dist/admin/css/sumoselect.css", [], GSB_PLUGIN_VERSION);
 

@@ -13,7 +13,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
     <div class="gp-modal-container small">
         <div class="gp-modal-content">
             <div class="gp-modal-data">
-                <button class="gp-modal-close-btn">
+                <button class="gp-modal-close-btn" type="button">
                     <span class="svg-icon">
                         <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
@@ -32,8 +32,8 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                     </div>
                 </div>
                 <div class="gp-modal-footer text-center">
-                    <button class="primary-btn" id="create_widget"><?php esc_html_e("Create Widget", "sticky-chat-widget"); ?></button>
-                    <button class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="primary-btn" id="create_widget"><?php esc_html_e("Create Widget", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
     <div class="gp-modal-container small">
         <div class="gp-modal-content">
             <div class="gp-modal-data">
-                <button class="gp-modal-close-btn">
+                <button class="gp-modal-close-btn" type="button">
                     <span class="svg-icon">
                         <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
@@ -64,8 +64,8 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                     </div>
                 </div>
                 <div class="gp-modal-footer text-center">
-                    <button class="primary-btn" id="rename_widget"><?php esc_html_e("Rename Widget", "sticky-chat-widget"); ?></button>
-                    <button class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="primary-btn" id="rename_widget"><?php esc_html_e("Rename Widget", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
     <div class="gp-modal-container small">
         <div class="gp-modal-content">
             <div class="gp-modal-data">
-                <button class="gp-modal-close-btn">
+                <button class="gp-modal-close-btn" type="button">
                     <span class="svg-icon">
                         <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
@@ -96,8 +96,8 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                     </div>
                 </div>
                 <div class="gp-modal-footer text-center">
-                    <button class="primary-btn" id="copy_widget"><?php esc_html_e("Clone Widget", "sticky-chat-widget"); ?></button>
-                    <button class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="primary-btn" id="copy_widget"><?php esc_html_e("Clone Widget", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
     <div class="gp-modal-container small">
         <div class="gp-modal-content">
             <div class="gp-modal-data">
-                <button class="gp-modal-close-btn">
+                <button class="gp-modal-close-btn" type="button">
                     <span class="svg-icon">
                         <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
@@ -121,8 +121,8 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                     <?php esc_html_e("Are you sure, you want to remove this widget?", "sticky-chat-widget") ?>
                 </div>
                 <div class="gp-modal-footer text-center">
-                    <button class="danger-btn" id="delete_widget"><?php esc_html_e("Remove", "sticky-chat-widget"); ?></button>
-                    <button class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="danger-btn" id="delete_widget"><?php esc_html_e("Remove", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
                 </div>
             </div>
         </div>
@@ -134,7 +134,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
     <div class="gp-modal-container small">
         <div class="gp-modal-content">
             <div class="gp-modal-data">
-                <button class="gp-modal-close-btn">
+                <button class="gp-modal-close-btn" type="button">
                     <span class="svg-icon">
                         <?php Ginger_Social_Icons::load_and_sanitize_svg($formIcons['close']); ?>
                     </span>
@@ -187,7 +187,7 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                     </div>
                 </div>
                 <div class="gp-modal-footer text-center">
-                    <button class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
+                    <button type="button" class="secondary-btn hide-gp-modal"><?php esc_html_e("Cancel", "sticky-chat-widget"); ?></button>
                 </div>
             </div>
         </div>

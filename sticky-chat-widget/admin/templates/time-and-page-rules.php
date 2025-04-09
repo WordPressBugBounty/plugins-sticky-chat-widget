@@ -18,7 +18,7 @@ if (!empty($disabled)) {
 ?>
 
 <div id="targeting-settings" class="setting-tab">
-    <div class="setting-title"><?php esc_html_e("Targeting", "sticky-chat-widget") ?></div>
+    <div class="setting-title setting-title-text"><?php esc_html_e("Targeting", "sticky-chat-widget") ?></div>
     <div class="gp-step-sub-title"><?php esc_html_e("On which pages should it show?", "sticky-chat-widget") ?></div>
     <div class="inline-radio-buttons">
         <div class="inline-radio-button">
