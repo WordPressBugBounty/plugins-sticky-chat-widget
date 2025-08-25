@@ -62,6 +62,9 @@ defined('ABSPATH') or die('Direct Access is not allowed');
                                     $channelTitles = [];
                                     foreach ($channels as $key => $channel) {
                                         $baseButton = preg_replace('/_\d+$/', '', $key);
+                                        if($baseButton == "skype") {
+                                            continue;
+                                        }
                                         $setting = $icons[$baseButton];
                                         $defaultChannelSetting = [
                                             'value'            => '',

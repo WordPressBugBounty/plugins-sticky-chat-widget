@@ -549,6 +549,9 @@ class GP_Front_Sticky_Chat_Buttons
                     }
 
                     $channelKey = preg_replace('/_\d+$/', '', $key);
+                    if ($channelKey == "skype") {
+                        continue;
+                    }
 
                     if (isset($socialIcons[$channelKey]) && ($channel['for_desktop'] || $channel['for_mobile']) && !empty($channel['value'])) {
                         $channels = $socialIcons[$channelKey];

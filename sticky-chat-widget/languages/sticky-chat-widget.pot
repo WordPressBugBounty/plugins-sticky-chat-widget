@@ -2,10 +2,10 @@
 # This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sticky Chat Widget 1.3.8\n"
+"Project-Id-Version: Sticky Chat Widget 1.3.9\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/sticky-chat-widget-free\n"
-"POT-Creation-Date: 2025-04-09 05:05:31+00:00\n"
+"POT-Creation-Date: 2025-08-25 13:20:12+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: admin/admin-common.php:284 admin/admin-common.php:401
 #: admin/templates/admin-help.php:40 admin/templates/admin-help.php:43
-#: admin/templates/scw-leads.php:148 includes/social-icons.php:2208
+#: admin/templates/scw-leads.php:148 includes/social-icons.php:2199
 msgid "Email"
 msgstr ""
 
@@ -31,7 +31,7 @@ msgstr ""
 
 #: admin/admin-common.php:299 admin/admin-common.php:414
 #: admin/templates/admin-help.php:48 admin/templates/admin-help.php:51
-#: admin/templates/scw-leads.php:150 includes/social-icons.php:2222
+#: admin/templates/scw-leads.php:150 includes/social-icons.php:2213
 msgid "Message"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 
 #: admin/admin-common.php:393 admin/templates/admin-help.php:32
 #: admin/templates/admin-help.php:35 admin/templates/scw-leads.php:147
-#: includes/social-icons.php:2201
+#: includes/social-icons.php:2192
 msgid "Name"
 msgstr ""
 
@@ -82,7 +82,7 @@ msgid "Widget customization"
 msgstr ""
 
 #: admin/admin-common.php:705
-msgid "Select from 26 channels also upload custom icon"
+msgid "Select from 25 channels also upload custom icon"
 msgstr ""
 
 #: admin/admin-common.php:706
@@ -269,7 +269,7 @@ msgstr ""
 msgid " Upload"
 msgstr ""
 
-#: admin/admin.php:554 admin/admin.php:606 admin/templates/admin-lists.php:161
+#: admin/admin.php:554 admin/admin.php:606 admin/templates/admin-lists.php:164
 #: admin/templates/common.php:124 admin/templates/scw-leads.php:249
 #: admin/templates/scw-leads.php:285 admin/templates/scw-leads.php:309
 #: admin/templates/scw-leads.php:333
@@ -391,18 +391,18 @@ msgstr ""
 msgid "Custom class"
 msgstr ""
 
-#: admin/admin.php:895 includes/social-icons.php:2229
+#: admin/admin.php:895 includes/social-icons.php:2220
 msgid "Consent Checkbox"
 msgstr ""
 
-#: admin/admin.php:896 includes/social-icons.php:2230
+#: admin/admin.php:896 includes/social-icons.php:2221
 msgid "I accept terms & conditions"
 msgstr ""
 
 #: admin/admin.php:899 admin/templates/admin-mail-integration.php:143
-#: includes/social-icons.php:2205 includes/social-icons.php:2212
-#: includes/social-icons.php:2219 includes/social-icons.php:2226
-#: includes/social-icons.php:2233
+#: includes/social-icons.php:2196 includes/social-icons.php:2203
+#: includes/social-icons.php:2210 includes/social-icons.php:2217
+#: includes/social-icons.php:2224
 msgid "This field is required"
 msgstr ""
 
@@ -639,83 +639,83 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-#: admin/templates/admin-lists.php:141
+#: admin/templates/admin-lists.php:144
 msgid "Edit"
 msgstr ""
 
-#: admin/templates/admin-lists.php:150
+#: admin/templates/admin-lists.php:153
 msgid "Clone (Pro)"
 msgstr ""
 
-#: admin/templates/admin-lists.php:154
+#: admin/templates/admin-lists.php:157
 msgid "Clone"
 msgstr ""
 
-#: admin/templates/admin-lists.php:158
+#: admin/templates/admin-lists.php:161
 msgid "Rename"
 msgstr ""
 
-#: admin/templates/admin-lists.php:343
+#: admin/templates/admin-lists.php:346
 msgid " Add and display "
 msgstr ""
 
-#: admin/templates/admin-lists.php:344
+#: admin/templates/admin-lists.php:347
 msgid "multi social"
 msgstr ""
 
-#: admin/templates/admin-lists.php:344
+#: admin/templates/admin-lists.php:347
 msgid " channels on your website so that your visitors can "
 msgstr ""
 
-#: admin/templates/admin-lists.php:345
+#: admin/templates/admin-lists.php:348
 msgid "quickly contact"
 msgstr ""
 
-#: admin/templates/admin-lists.php:345
+#: admin/templates/admin-lists.php:348
 msgid " you and share their "
 msgstr ""
 
-#: admin/templates/admin-lists.php:346
+#: admin/templates/admin-lists.php:349
 msgid "requirements."
 msgstr ""
 
-#: admin/templates/admin-lists.php:349
+#: admin/templates/admin-lists.php:352
 msgid " Customize"
 msgstr ""
 
-#: admin/templates/admin-lists.php:349
+#: admin/templates/admin-lists.php:352
 msgid " your "
 msgstr ""
 
-#: admin/templates/admin-lists.php:350
+#: admin/templates/admin-lists.php:353
 msgid "widget"
 msgstr ""
 
-#: admin/templates/admin-lists.php:350
+#: admin/templates/admin-lists.php:353
 msgid " channels style according to your "
 msgstr ""
 
-#: admin/templates/admin-lists.php:351
+#: admin/templates/admin-lists.php:354
 msgid "requirement."
 msgstr ""
 
-#: admin/templates/admin-lists.php:354
+#: admin/templates/admin-lists.php:357
 msgid " Display  your channels on "
 msgstr ""
 
-#: admin/templates/admin-lists.php:355
+#: admin/templates/admin-lists.php:358
 msgid "mobile, desktop"
 msgstr ""
 
-#: admin/templates/admin-lists.php:355
+#: admin/templates/admin-lists.php:358
 msgid " or "
 msgstr ""
 
-#: admin/templates/admin-lists.php:356
+#: admin/templates/admin-lists.php:359
 msgid "both."
 msgstr ""
 
-#: admin/templates/admin-lists.php:362
+#: admin/templates/admin-lists.php:365
 msgid " Create Your First Widget"
 msgstr ""
 
@@ -760,7 +760,7 @@ msgstr ""
 #: admin/templates/admin-mail-integration.php:112
 msgid ""
 " is a marketing automation platform designed to help small businesses. "
-"Integrate Contact form with Mailchimp to automatically send\r\n"
+"Integrate Contact form with Mailchimp to automatically send\n"
 "                new leads, customers, and subscribers to your mailing lists."
 msgstr ""
 
@@ -794,7 +794,7 @@ msgstr ""
 msgid ""
 "Your Mailchimp contacts will automatically be updated with each form "
 "submission, so you can spend less time manually transferring information "
-"and\r\n"
+"and\n"
 "                more time growing your business."
 msgstr ""
 
@@ -827,7 +827,7 @@ msgstr ""
 #: admin/templates/admin-mail-integration.php:175
 msgid ""
 " is a marketing automation platform designed to help small businesses. "
-"Integrate Contact form with Mailpoet to automatically send\r\n"
+"Integrate Contact form with Mailpoet to automatically send\n"
 "                new leads, customers, and subscribers to your mailing lists."
 msgstr ""
 
@@ -841,7 +841,7 @@ msgstr ""
 msgid ""
 "Your Mailpoet contacts will automatically be updated with each form "
 "submission, so you can spend less time manually transferring information "
-"and\r\n"
+"and\n"
 "                more time growing your business."
 msgstr ""
 
@@ -954,7 +954,7 @@ msgstr ""
 msgid "Save and View Dashboard"
 msgstr ""
 
-#: admin/templates/admin-settings.php:73 admin/templates/social-channels.php:31
+#: admin/templates/admin-settings.php:73 admin/templates/social-channels.php:35
 msgid "Select Channels"
 msgstr ""
 
@@ -1463,7 +1463,7 @@ msgstr ""
 msgid "Review (optional)"
 msgstr ""
 
-#: admin/templates/review-popup.php:284 includes/social-icons.php:2187
+#: admin/templates/review-popup.php:284 includes/social-icons.php:2178
 msgid "Submit"
 msgstr ""
 
@@ -1551,27 +1551,27 @@ msgstr ""
 msgid "Are you sure, you want to remove this record?"
 msgstr ""
 
-#: admin/templates/social-channels.php:61
+#: admin/templates/social-channels.php:65
 msgid "The channel '"
 msgstr ""
 
-#: admin/templates/social-channels.php:61
+#: admin/templates/social-channels.php:65
 msgid "', you are looking for is not available in Sticky Chat Widget."
 msgstr ""
 
-#: admin/templates/social-channels.php:63
+#: admin/templates/social-channels.php:67
 msgid "Please"
 msgstr ""
 
-#: admin/templates/social-channels.php:64
+#: admin/templates/social-channels.php:68
 msgid "contact us"
 msgstr ""
 
-#: admin/templates/social-channels.php:65
+#: admin/templates/social-channels.php:69
 msgid ", if we can help you 🙂"
 msgstr ""
 
-#: admin/templates/social-channels.php:94
+#: admin/templates/social-channels.php:101
 msgid "Select Channel"
 msgstr ""
 
@@ -1939,23 +1939,23 @@ msgstr ""
 msgid "Analyze the number of unique clicks and the click-through rate"
 msgstr ""
 
-#: includes/social-icons.php:2156
+#: includes/social-icons.php:2147
 msgid "Need any help?"
 msgstr ""
 
-#: includes/social-icons.php:2157
+#: includes/social-icons.php:2148
 msgid "Let's chat on WhatsApp"
 msgstr ""
 
-#: includes/social-icons.php:2186
+#: includes/social-icons.php:2177
 msgid "Form Submitted Successfully!"
 msgstr ""
 
-#: includes/social-icons.php:2188
+#: includes/social-icons.php:2179
 msgid "Contact Form"
 msgstr ""
 
-#: includes/social-icons.php:2215
+#: includes/social-icons.php:2206
 msgid "Mobile number"
 msgstr ""
 

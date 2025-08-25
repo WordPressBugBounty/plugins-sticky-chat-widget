@@ -24,6 +24,10 @@ if (!empty($channels)) {
     $channels         = trim($channels, ",");
     $selectedChannels = explode(",", $channels);
 }
+//$selectedChannels = array_filter($selectedChannels, function ($channel) {
+//    return strtolower(trim($channel)) !== "skype";
+//});
+//$selectedChannels = array_values($selectedChannels);
 ?>
 
 <div id="channel-settings" class="setting-tab active">
@@ -71,6 +75,9 @@ if (!empty($channels)) {
             <?php
             if (!empty($selectedChannels)) {
                 foreach ($selectedChannels as $channel) {
+                    if ($channel == "skype") {
+                        continue;
+                    }
                     echo self::get_channel_settings($channel, $postId);
                 }
             }

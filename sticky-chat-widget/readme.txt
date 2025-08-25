@@ -1,183 +1,196 @@
-=== Sticky Chat Widget: Chat Icons, Contact form, Email, SMS, Call Button, Click to Chat, Social Chat Widget, Sticky Chat Buttons ===
+=== Sticky Chat Widget – Floating Chat Icons, Contact Form, Call, Click to Chat, Email & Message Buttons ===
 Contributors: gingerplugins
 Tags: whatsapp widget, chat button, facebook messenger, chat widget, contact form
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.3.8
+Stable tag: 1.3.9
 Requires PHP: 5.4
 Plugin URI: https://www.gingerplugins.com/downloads/sticky-chat-widget/
 License: GPL3
 
-Social chat buttons, Whatsapp Chat, Facebook Messenger, WeChat, Telegram, Instagram, TikTok, SMS, Call Button, Contact Form + 20 chat icons
+Social chat buttons with WhatsApp, Messenger, WeChat, Telegram, Instagram, TikTok, Zalo & more — plus SMS, Call button, Contact form, and 20+ icons.
 
 == Description ==
 
-<strong>Connect with your valuable website visitors through Sticky Chat Widget that consist of current trendy chat options from Whatsapp, Facebook Messenger, Viber, Line, Email, Telegram, Vkontakte, SMS, WeChat, Skype, Snapchat, LinkedIn, Twitter, Instagram, Waze to Custom Link.. Show a list of chat buttons at any place on your website and give your customers or clients the freedom, so they can communicate with you within seconds.</strong>
-
-= Features =
-– Easy setup and configuration.
-– Customizable chat widget appearance.
-– Chat with website visitors via their populat chat app.
-– Get authentic calls or leads
-– Increase customer satisfaction ratio
+<strong>Engage your website visitors in seconds with Sticky Chat Widget. Add floating social chat buttons and contact options including WhatsApp, Messenger, Telegram, Instagram, LinkedIn, Twitter, Skype, WeChat, Viber, SMS, Email, Call Button, and more. Fully customizable and mobile-friendly, it helps businesses, blogs, and stores boost leads and customer satisfaction.</strong>
 
 = The most effective Click to Chat and Call to Action buttons for website =
+* <strong>Easy Setup & Configuration</strong> – Install the plugin and add chat buttons within minutes, no coding required.
+* <strong>Customizable Design</strong> – Change colors, icons, size, and position to match your website branding.
+* <strong>Multi-Channel Support</strong> – Connect with visitors via 20+ platforms including chat apps, email, SMS, and call buttons.
+* <strong>Lead Generation & Engagement</strong> – Get direct calls, messages, and inquiries that boost conversions.
+* <strong>Improved Customer Experience</strong> – Make it simple for visitors to contact you, increasing trust and satisfaction.
 
-<h2>Do you want to make direct contact with your customers or clients in a few seconds?</h2> Sticky Chat Widget makes it possible for your customers to contact you via their favorite chat messengers like Facebook, Instagram, Telegram, etc.
 
-<strong>Are you looking for the best chat plugin for WordPress?</strong> Then end your search at Sticky Chat Plugin. This widget offers a full range of features starting from Whatsapp, Facebook Messenger, Viber, Line, Email, Telegram, Vkontakte, SMS, WeChat, Skype, Snapchat, LinkedIn, Twitter, Instagram, Waze to Custom Link. This list consists of almost all the messenger apps that a common user uses. So he/she can contact you quickly via that installed app. Sticky Chat Widget is available in free as well as pro version.
+<h2>Want to connect with your customers in just a few seconds?</h2>
+Sticky Chat Widget makes it easy for your visitors to reach you instantly through their favorite messaging apps like Facebook, Instagram, Telegram, and more.
 
-= Importance of Sticky Chat Widget =
+<strong>Searching for the best chat plugin for WordPress?</strong> Your search ends here with Sticky Chat Widget. This powerful plugin supports 20+ platforms including WhatsApp, Facebook Messenger, Viber, Line, Email, Telegram, VKontakte, SMS, WeChat, Skype, Snapchat, LinkedIn, Twitter, Instagram, Waze, and even custom links. With support for almost every popular app, your customers can contact you directly using the channels they already have installed. Sticky Chat Widget is available in both Free and Pro versions.
 
-* <strong>Benefit of Sticky Chat Widget over Live Chat: </strong>In Live Chat option, the user only gets one option to contact you, but with our chat widget, users can contact you via the application that they are using on regular basis. In the Live Chat option, visitors have to stay on the website to get the answer from the other end but with the help of common messengers like Facebook, Instagram, Twitter, etc. the user can chat with you whenever he/she wants.
+= Why Choose Sticky Chat Widget? =
 
-* <strong>One Click Chat: </strong>Sticky Chat Widget gives full freedom to the user to select the channels. So put only those channels on your website in which you can stay available. If you are available on two to three platforms, then put only that many chat options on the website. And with the help of a single click, the user can contact you directly.
+* <strong>More Flexible than Live Chat:</strong> Unlike traditional live chat, which locks users into one channel and requires them to stay on your site, Sticky Chat Widget lets visitors connect via the apps they already use daily — Facebook, Instagram, Twitter, and more. They can message you anytime, even after leaving your website.
 
-* <strong>Share Your Physical Location: </strong>Channels like Waze is the best option to share your physical location if you have a physical store. Navigate user to your store and convert him/her with your range of products or services.
+* <strong>One-Click Chat:</strong> Give your users the freedom to choose how they reach you. Add only the chat platforms where you’re active, so you can stay available without overwhelming your visitors. With a single click, they can start a conversation instantly.
 
-* <strong>Days & Hour Selection: </strong>If you have specific opening and closing hours, then with the help of this plugin, you can set the days and hours. So, at that specific schedule, only the chat icons will be displayed on the website. This facility is available in our PRO version.
+* <strong>Share Your Location:</strong> Running a physical store? Platforms like Waze make it easy to share your location, guide customers directly to your shop, and convert visits into sales.
 
-Want to use our amazing plugin to chat with your website visitors, Please check out <a title="Sticky chat widget's Pro Plans" href="https://www.gingerplugins.com/downloads/sticky-chat-widget/"><strong>Pro Plans</strong></a>.
+* <strong>Business Hours Control (Pro):</strong> Set specific days and times when chat icons are displayed on your site. Perfect for businesses that want to show availability only during working hours — included in the Pro version.
 
-= Select from 26 different channels =
-Sticky Chat Widget seamlessly integrates with a variety of social channels, enhancing communication options for your users. Here are some of the supported channels:
 
-1. Whatsapp
-2. Facebook Messenger
-3. Viber
-4. Line
-5. Email
-6. Telegram
-7. Vkontakte
-8. SMS
-9. Phone
-10. WeChat
-11. Skype
-12. Snapchat
-13. LinkedIn
-14. Twitter
-15. Slack
-16. Instagram
-17. Waze
-18. Google Map
-19. Signal
-20. TikTok
-21. Contact Form
-22. Discord
-23. Microsoft Team
-24. Zalo
-25. Custom Links
+<p>Want to unlock the full power of our plugin and engage better with your website visitors? Check out our <a title="Sticky Chat Widget Pro Plans" href="https://www.gingerplugins.com/downloads/sticky-chat-widget/"><strong>Pro Plans</strong></a>.</p>
+
+= Connect via 25+ Popular Channels =  
+Sticky Chat Widget seamlessly integrates with a wide range of social and communication platforms, giving your visitors multiple ways to reach you. Supported channels include:
+
+1. WhatsApp  
+2. Facebook Messenger  
+3. Viber  
+4. Line  
+5. Email  
+6. Telegram  
+7. VKontakte  
+8. SMS  
+9. Phone Call  
+10. WeChat  
+11. Skype  
+12. Snapchat  
+13. LinkedIn  
+14. Twitter  
+15. Slack  
+16. Instagram  
+17. Waze  
+18. Google Maps  
+19. Signal  
+20. TikTok  
+21. Contact Form  
+22. Discord  
+23. Microsoft Teams  
+24. Zalo  
+25. Custom Link
+
 
 = Live Demo =
+Want to see Sticky Chat Widget in action?  
+Check out the <a title="Sticky Chat Widget Demo Site" href="https://demo.gingerplugins.com/sticky-chat-widget/"><strong>Live Demo</strong></a> on Ginger’s demo site.
 
-<strong>Sticky chat widget</strong> live demo is available at <a title="Sticky chat widget's demo site" href="https://demo.gingerplugins.com/sticky-chat-widget/"><strong>Ginger's demo site</strong></a>.
 
-= Sticky Chat Widget – What will you get in a free plan? =
+= Sticky Chat Widget – What’s Included in the Free Plan? =
 
-1. Unlimited Channels: Create an unlimited number of chat channels to cater to different aspects of your website or various support topics.
-2. Widget Position: Choose between left or right positioning for the chat widget, allowing flexibility based on your website layout and design.
-3. Widget Size: Customize the dimensions of the chat widget, ensuring it seamlessly integrates with your website's design and layout.
-4. Widget Color: Select a color scheme that aligns with your website's branding, creating a cohesive and visually appealing chat widget.
-5. Custom Color for Hover Text: Personalize the hover text color to capture the attention of your visitors and encourage interaction.
-6. Menu Animation: Enhance the user experience by choosing from various menu animations, including Fade, Slide, Spin, and Pop, adding a touch of interactivity.
-7. Attention Effects: Implement eye-catching effects like Bounce, Fade, Pulse, Spin, and Zoom to make your chat widget stand out and attract user attention.
-8. Contact Form: Allow users to send messages through a customizable contact form, providing an additional avenue for communication.
-9. Triggers: Utilize triggers such as on page scroll, on timeout, and on exit intent to prompt the chat widget at specific user interactions, ensuring timely engagement.
-10. Pending Messages Icon: Display an icon with the number of pending messages, encouraging users to click on the widget and engage in conversations.
-11. WhatsApp Widget: Integrate a dedicated WhatsApp widget, facilitating direct communication through WhatsApp for a seamless user experience.
-12. Icon Mode: Choose between vertical or horizontal icon mode, adapting the widget's appearance to suit your website's design.
-13. Hide/Show Channels on Desktop or Mobile: Control the visibility of channels on desktop or mobile devices, ensuring a responsive and optimized experience for all users.
-14. Change Font for Your Widget: Customize the font used in the chat widget to match your website's typography and enhance overall consistency.
-15. Custom Size for Widget: Specify a custom size for the chat widget, tailoring it to fit perfectly within your website layout.
-16. Custom Links: Include custom links within the chat widget, directing users to specific pages or resources relevant to their queries.
+With the free version of Sticky Chat Widget, you’ll enjoy powerful features to get started right away:
+1. **Unlimited Channels** – Add as many chat buttons as you need for different platforms or support topics.  
+2. **Flexible Position & Size** – Place the widget on the left or right, adjust size, and fit it seamlessly into your site design.  
+3. **Custom Colors & Fonts** – Match widget colors, hover text, and fonts with your website branding.  
+4. **Engaging Animations & Effects** – Choose from fade, slide, spin, pulse, bounce, and more to grab attention.  
+5. **Contact Form** – Allow visitors to reach you even outside chat apps with a simple built-in form.  
+6. **Smart Triggers** – Show the widget on scroll, after a delay, or when users try to exit.  
+7. **Pending Message Badge** – Display notification icons to nudge visitors into starting a chat.  
+8. **Dedicated WhatsApp Widget** – Connect directly with users via WhatsApp.  
+9. **Icon Modes** – Display channels vertically or horizontally.  
+10. **Device Control** – Show or hide channels separately on desktop or mobile.  
+11. **Custom Links** – Add links to specific pages or resources inside the widget.  
 
-= Sticky Chat Widget – What will you get in the PRO plan? =
-You will get all the features of the free plan, plus:
 
-1. Custom Image or Icon for Channel: Enhance the visual appeal of your chat channels by uploading custom images or icons, providing a distinctive and branded look.
-2. Custom Position: Achieve pixel-perfect placement by fine-tuning the position of the chat widget, ensuring a seamless and optimized user experience.
-3. Custom ID or Class: Apply custom identifiers or classes to the chat widget, offering advanced styling options for developers and designers to match your site's unique design.
-4. Page Targeting Rule: Display the chat widget based on specific page rules, ensuring targeted engagement and support tailored to different sections of your website.
-5. Day and Time Targeting Rule: Set specific days and times for the chat widget to appear, allowing you to optimize visibility based on user activity patterns.
-6. Date and Time Scheduling: Schedule the chat widget to appear on specific dates and times, enabling you to plan campaigns, promotions, or support availability in advance.
-7. Country Targeting: Tailor the visibility of the chat widget based on users' countries, providing region-specific support or promotions.
-8. Google Analytics: Integrate seamlessly with Google Analytics, gaining insightful tracking and analytics data to understand user behavior and optimize your engagement strategy.
-9. Custom Field for Contact Form: Collect additional and specific information from users by adding customizable form fields to the contact form. Options include: Text, Textarea, Number, Date, Website, Dropdown, File Upload
-10. Contact Form Lead Integration: Integrate with popular services such as Mailchimp, Mailjet, and more for lead capture, allowing you to build and nurture your email marketing lists.
-11. Send Contact Form Lead to Email: Receive contact form leads directly in your email inbox, ensuring prompt and efficient follow-up with users.
-12. Auto Responder for Contact Form: Set up automatic responses for the contact form, providing immediate acknowledgment to users and setting expectations for response times.
+= Sticky Chat Widget – What’s Included in the PRO Plan? =
 
-<a title="Sticky chat widget's Pro Plans" href="https://www.gingerplugins.com/downloads/sticky-chat-widget/?utm_source=wordpressorg" target="_blank" title="Pro plans"><strong>Upgrade to Pro</strong></a> only at $25/year to get all the amazing features of Sticky Chat Widget. Provide the quickest option to your website visitors to contact you.
+The PRO version includes everything from the Free Plan, plus powerful advanced features:
+1. **Custom Icons & Images** – Upload your own icons or images for a branded, professional look.  
+2. **Precise Positioning** – Fine-tune the widget’s placement anywhere on your site.  
+3. **Developer Controls** – Add custom IDs or classes for advanced styling and CSS tweaks.  
+4. **Page Targeting** – Show the widget only on selected pages for tailored engagement.  
+5. **Day & Time Rules** – Display chat icons only during business hours or custom schedules.  
+6. **Date Scheduling** – Plan widget visibility for campaigns, promotions, or events.  
+7. **Country Targeting** – Personalize chat visibility based on visitor location.  
+8. **Google Analytics Integration** – Track widget usage and measure engagement insights.  
+9. **Custom Contact Form Fields** – Collect detailed info with fields like text, dropdowns, file upload, and more.  
+10. **Lead Integrations** – Sync leads with Mailchimp, Mailjet, and other email marketing tools.  
+11. **Email Forwarding** – Receive contact form submissions directly in your inbox.  
+12. **Autoresponder** – Send instant automated replies to set response expectations.  
+
+
+<a title="Sticky Chat Widget Pro Plans" href="https://www.gingerplugins.com/downloads/sticky-chat-widget/?utm_source=wordpressorg" target="_blank"><strong>Upgrade to Pro</strong></a> for just $25/year and unlock all premium features of Sticky Chat Widget. Give your website visitors the fastest and easiest way to connect with you — and boost your leads, support, and sales.
 
 = How does each channel work? =
+* **WhatsApp:** Connect instantly with users through the world’s most popular messaging app, enabling fast conversations and customer support.  
+* **Facebook Messenger:** Engage directly with your audience on Facebook using Messenger for real-time communication and assistance.  
+* **Viber:** Allow users to chat and call you for free via Viber, enhancing accessibility and interaction.  
+* **Line:** Provide support through Line with free calls, messages, and multimedia sharing features.  
+* **Email:** Let visitors reach you via traditional email, offering a familiar and professional communication method.  
+* **Telegram:** Offer secure, fast, and private messaging for users who prefer Telegram.  
+* **VKontakte:** Reach audiences in Eastern Europe by integrating with VKontakte, a widely used social network.  
+* **SMS:** Enable direct text messaging for simple, quick, and convenient communication.  
+* **Phone Call:** Give users the option to call you directly for immediate voice support.  
+* **WeChat:** Tap into WeChat’s massive user base in China, providing chat and multimedia messaging.  
+* **Skype:** Offer voice calls, video calls, chat, and file sharing with Skype integration.  
+* **Snapchat:** Engage visually with users through Snapchat’s multimedia messaging and story features.  
+* **LinkedIn:** Connect with professionals on LinkedIn for business-related inquiries and support.  
+* **Twitter:** Provide fast support on Twitter, responding via direct messages or public tweets.  
+* **Slack:** Cater to teams and businesses by integrating with Slack for seamless collaboration and support.  
+* **Instagram:** Communicate visually with users on Instagram via direct messages and comments.  
+* **Waze:** Share your store location on Waze, making it easy for customers to navigate directly to you.  
+* **Google Maps:** Enhance accessibility by allowing visitors to find and contact you via Google Maps.  
+* **Signal:** Offer private and secure communication through Signal, ideal for users focused on privacy.  
+* **TikTok:** Use TikTok to engage with users through short-form video content and direct messaging.  
+* **Contact Form:** Provide a customizable contact form for inquiries, feedback, and support requests.  
+* **Discord:** Build community engagement with real-time chat and support on Discord.  
+* **Microsoft Teams:** Connect with business clients and teams through Microsoft Teams integration.  
+* **Zalo:** Engage with users in Vietnam using Zalo, a popular local chat and social networking platform.  
 
-* WhatsApp: Connect with users instantly through the popular messaging app, enabling real-time conversations and support.
-* Facebook Messenger: Engage with your audience directly on Facebook, fostering communication and providing assistance through the Messenger platform.
-* Viber: Enhance user interaction by offering Viber as a communication channel, enabling free messaging and calls.
-* Line: Provide support through Line, a versatile messaging app with features like free calls, messages, and multimedia sharing.
-* Email: Allow users to contact you via traditional email, ensuring a familiar and widely used communication method.
-* Telegram: Enable secure and fast messaging with Telegram, providing a channel for users who prefer this platform.*
-* Vkontakte: Reach a broader audience by integrating with Vkontakte, a popular social networking platform in Eastern Europe.
-* SMS: Facilitate direct text messaging for quick and concise communication between users and your support team.
-* Phone: Offer users the option to connect with your support team via a direct phone call for immediate assistance.
-* WeChat: Tap into the vast user base of WeChat, a widely used messaging app in China, to engage with a global audience.
-* Skype: Provide support through Skype, offering voice and video calls, chat, and file sharing.
-* Snapchat: Foster engaging and visually appealing conversations with users through the multimedia messaging capabilities of Snapchat.
-* LinkedIn: Connect with a professional audience on LinkedIn, leveraging the platform for business-related inquiries and support.
-* Twitter: Utilize the fast-paced nature of Twitter to offer quick responses and support, addressing user inquiries publicly or through direct messages.
-* Slack: Cater to business users by integrating with Slack, a popular team collaboration platform, for seamless communication.
-* Instagram: Engage visually with users on Instagram, leveraging direct messages and comments for support and inquiries.
-* Waze: Offer support through Waze, enhancing communication for location-based services and navigation assistance.
-* Google Map: Enable users to connect with you directly through Google Maps, enhancing accessibility and communication.
-* Signal: Provide a secure messaging option through Signal, appealing to users who prioritize privacy and data security.
-* TikTok: Leverage the creative nature of TikTok for user engagement, addressing inquiries and support through short-form videos.
-* Contact Form: Allow users to submit inquiries and feedback through a customizable contact form on your website.
-* Discord: Foster community engagement and support through Discord, a popular platform for real-time communication and collaboration.
 
-= Sticky Chat Widget is GDPR Complaint =
-Sticky Chat Widget is not only a powerful communication tool but also prioritizes user privacy and data protection.
-Our plugin is fully GDPR compliant, ensuring that your visitors' personal information remains secure and handled with the utmost care.
+= Sticky Chat Widget is GDPR Compliant =
 
-* No Visitor Data Storage: Sticky Chat Widget does not store any visitor data on your servers. We believe in respecting user privacy, and as such, no personal information is retained or processed within the plugin.
-* Redirection to Social Channels: Instead of storing visitor data, the widget serves as a bridge to various social channels, redirecting users to platforms such as WhatsApp, Facebook Messenger, and more. This direct communication channel ensures that user interactions occur on the respective platforms.
-* Contact Form Data Collection: When users choose to engage via the customizable contact form, only the information voluntarily provided by users is collected. This may include details such as name, email, and any additional information specified through the custom fields.
-* GDPR Compliance Assurance: We are committed to adhering to the General Data Protection Regulation (GDPR) guidelines, ensuring that our plugin aligns with the highest standards of data protection and user privacy.
-* By adopting a privacy-centric approach, Sticky Chat Widget empowers website owners to engage with their audience effectively while maintaining a strong commitment to user privacy and GDPR compliance. Enjoy the benefits of real-time communication without compromising on data security.
+Sticky Chat Widget is designed with privacy at its core. Along with being a powerful communication tool, it ensures user data is protected and handled responsibly.
+
+* **No Data Storage:** The plugin does not store or process any visitor data on your servers.  
+* **Direct to Social Channels:** Users are redirected to platforms like WhatsApp, Messenger, and Telegram — all communication happens there, not inside your site.  
+* **Contact Form Privacy:** Only the information users voluntarily provide (name, email, custom fields) is collected, and you control how it is handled.  
+* **GDPR Standards:** Fully aligned with the General Data Protection Regulation (GDPR), ensuring the highest level of data protection.  
+
+By taking a privacy-first approach, Sticky Chat Widget lets you engage with your visitors in real time while respecting and protecting their personal data.
+
 
 == Installation ==
 
-1. Install and activate Sticky Chat Widget plugin on your WordPress website
-2. Choose at least one channel and click on the "SAVE CHANGES" button
-3. The Sticky Chat Widget widget will now appear on your site
+1. Download, install, and activate the **Sticky Chat Widget** plugin from the WordPress dashboard (Plugins > Add New > Search for "Sticky Chat Widget") or upload it manually.  
+2. Go to **Sticky Chat Widget > Add new** in your WordPress admin panel.  
+3. Select at least one chat channel, customize your widget (position, colors, effects, etc.), and click **Save Changes**.  
+4. That’s it! The Sticky Chat Widget will now appear on your website, ready for visitors to connect with you.  
+
 
 == Frequently Asked Questions ==
 
-= Is a free plan available for a limited time only? =
-No, you can use the free plan of Sticky Chat Widget as long as per your requirement and move to PRO at any time.
+= Is the free plan limited or time-based? =  
+No. You can use the free plan of Sticky Chat Widget for as long as you want. You can upgrade to PRO anytime for advanced features.  
 
-= Is Sticky Chat Widget is compatible with all theme and page builder?
-Yes absolutely. We have built the widget in such a way that it can easily work with all the page builders such as Elementor, Divi, Visual Composer, WPBakery, Beaver, SiteOrigin and many more.
+= Is Sticky Chat Widget compatible with all themes and page builders? =  
+Yes. The plugin works seamlessly with all major WordPress themes and popular page builders like Elementor, Divi, WPBakery, Visual Composer, Beaver Builder, SiteOrigin, and more.  
 
-= Widget is not showing on my website, what steps should I follow? =
-First of all, make sure you have selected at least one channel from all the 16 channels. And make sure you have installed the plugin appropriately. After the complete process of selection, never forget to click on the "Save Changes" button.
+= The widget is not showing on my website. What should I do? =  
+Make sure you have selected at least one channel in the settings. After configuring, click **Save Changes**. If the issue continues, double-check that the plugin is activated properly.  
 
-= Does Sticky Chat Widget work on mobile? =
-Yes. We have developed this plugin device compatible. And an individual can select the option from the setting whether he/she wants to show the widget in a mobile device or not.
+= Does Sticky Chat Widget work on mobile devices? =  
+Yes. The plugin is fully responsive and mobile-friendly. You can also control whether the widget appears on desktop, mobile, or both.  
 
-= What is the price of PRO Sticky Chat Widget? =
-You can enjoy all the features of Sticky Chat Widget at $25/year only. Once you will purchase the PRO version, you will get the license key.
+= How much does the PRO version cost? =  
+The PRO version costs just $25/year. Once purchased, you’ll receive a license key to unlock all premium features.  
+
 
 == Screenshots ==
 
-1. chat with your website visitors with all channels
-2. change font, font size, color, background color as per your requirement
-3. Choose any channels to chat with your customers
-4. Add custom Call to Action message with some customization options
-5. Select options when you will like to show the widget on the page
-6. Set day and time to show sticky chat widget on a page
-7. Select pages where you like to show sticky chat widget
+1. Floating chat widget with multiple channels to connect instantly with visitors.  
+2. Customize fonts, colors, and background to match your website branding.  
+3. Choose from 25+ channels to let customers reach you their preferred way.  
+4. Add a custom call-to-action message with flexible display options.  
+5. Control when the widget appears using triggers like scroll, delay, or exit intent.  
+6. Schedule visibility by day and time to match your business hours (Pro feature).  
+7. Select specific pages where the sticky chat widget should be displayed.  
+
 
 == Changelog ==
+
+= 1.3.9 =
+- Removed Skype Channel
+- Custom classes for handling open/hide Sticky Chat Widget, Contact Form 
 
 = 1.3.8 =
 - New design for settings menu

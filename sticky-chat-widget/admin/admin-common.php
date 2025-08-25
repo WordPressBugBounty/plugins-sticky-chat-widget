@@ -702,7 +702,7 @@ class GP_Admin_Common_Sticky_Chat_Widget
                     'text'    => esc_html__("Widget customization", 'sticky-chat-widget'),
                 ],
                 [
-                    'tooltip' => esc_html__("Select from 26 channels also upload custom icon", 'sticky-chat-widget'),
+                    'tooltip' => esc_html__("Select from 25 channels also upload custom icon", 'sticky-chat-widget'),
                     'text'    => esc_html__("Channel customization", 'sticky-chat-widget'),
                 ],
                 [
