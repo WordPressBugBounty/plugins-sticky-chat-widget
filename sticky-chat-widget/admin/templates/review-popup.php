@@ -200,7 +200,7 @@ $formIcons = Ginger_Social_Icons::svg_icons();
         }
     }
 </style>
-<div class="review-modal active" id="rating-popup">
+<div class="review-modal" id="rating-popup">
     <div class="review-modal-bg"></div>
     <div class="review-modal-container">
         <div class="review-modal-content">

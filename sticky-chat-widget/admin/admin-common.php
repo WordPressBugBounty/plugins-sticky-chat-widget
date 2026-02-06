@@ -249,6 +249,14 @@ class GP_Admin_Common_Sticky_Chat_Widget
         if (isset($_GET['page']) && in_array($_GET['page'], $pages)) {
             // Include the review popup template.
             include_once dirname(__FILE__)."/templates/review-popup.php";
+
+            echo '<script type="text/javascript">
+            jQuery(document).ready(function($) {
+                setTimeout(function() {
+                    $("#rating-popup").addClass("active");
+                }, 500);
+            });
+        </script>';
         } else {
             // Include the standard admin notice template.
             include_once dirname(__FILE__)."/templates/admin-notice.php";
@@ -814,6 +822,8 @@ class GP_Admin_Common_Sticky_Chat_Widget
             // Include subscribe template if subscription is not hidden.
             include_once dirname(__FILE__)."/templates/subscribe.php";
         }//end if
+
+        include_once dirname(__FILE__)."/templates/help-buttons.php";
 
     }//end admin_upgrade_to_pro()
 

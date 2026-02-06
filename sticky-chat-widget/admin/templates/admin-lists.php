@@ -300,16 +300,24 @@ defined('ABSPATH') or die('Direct Access is not allowed');
             text-align: center;
             padding: 40px 0 30px;
         }
+
+        .gp-no-records-bottom .gp-action-button {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            justify-content: center;
+            margin: 0 auto;
+            line-height: 38px;
+            gap: 10px;
+            padding: 0 15px;
+        }
         .gp-no-records-bottom .gp-action-button i {
             margin-left: 15px;
         }
 
         .gp-no-records-bottom .gp-action-button svg {
             width: 14px;
-            height: 16px;
-            margin-left: 10px;
-            display: inline-block;
-            vertical-align: bottom;
+            height: 14px;
         }
 
         .gp-no-records-bottom .gp-action-button svg path {

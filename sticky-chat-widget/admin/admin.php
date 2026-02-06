@@ -88,7 +88,7 @@ class GP_Admin_Sticky_Chat_Buttons
         // Handle AJAX request to remove a single lead.
         add_action('wp_ajax_gsb_buttons_remove_single_lead', [$this, 'remove_single_lead']);
 
-        add_action("admin_init", [$this, "scw_activate_redirection"]);
+        add_action("activated_plugin", [$this, "scw_activate_redirection"]);
 
     }//end __construct()
 
@@ -1859,6 +1859,7 @@ class GP_Admin_Sticky_Chat_Buttons
     public function admin_analytics_page()
     {
         include_once dirname(__FILE__)."/templates/widget-analytics.php";
+        include_once dirname(__FILE__)."/templates/help-buttons.php";
 
     }//end admin_analytics_page()
 
@@ -1881,6 +1882,7 @@ class GP_Admin_Sticky_Chat_Buttons
             // Include subscribe template if subscription is not hidden.
             include_once dirname(__FILE__)."/templates/subscribe.php";
         }
+        include_once dirname(__FILE__)."/templates/help-buttons.php";
 
     }//end admin_leads_page()
 
@@ -1903,6 +1905,7 @@ class GP_Admin_Sticky_Chat_Buttons
             // Include subscribe template if subscription is not hidden.
             include_once dirname(__FILE__)."/templates/subscribe.php";
         }
+        include_once dirname(__FILE__)."/templates/help-buttons.php";
 
     }//end admin_integration_page()
 
@@ -1971,7 +1974,7 @@ class GP_Admin_Sticky_Chat_Buttons
 
                     // Include settings and help templates for editing widget.
                     include_once dirname(__FILE__)."/templates/admin-settings.php";
-                    include_once dirname(__FILE__)."/templates/admin-help.php";
+//                    include_once dirname(__FILE__)."/templates/admin-help.php";
                 }
             } else {
                 // Fetch posts to check if settings exist.
@@ -1995,6 +1998,8 @@ class GP_Admin_Sticky_Chat_Buttons
             // Include subscribe template if subscription is not hidden.
             include_once dirname(__FILE__)."/templates/subscribe.php";
         }//end if
+
+        include_once dirname(__FILE__)."/templates/help-buttons.php";
 
     }//end admin_setting_page()
 
@@ -2104,6 +2109,9 @@ class GP_Admin_Sticky_Chat_Buttons
                 if (!empty($contactFormSetting)) {
                     $activeCount = 0;
                     foreach ($contactFormSetting['fields'] as $field) {
+                        if ($field['label'] === "Consent Checkbox") {
+                            continue; // skip counting this field
+                        }
                         $activeCount = ($field['is_visible'] == 1) ? ($activeCount + 1) : $activeCount;
                     }
 

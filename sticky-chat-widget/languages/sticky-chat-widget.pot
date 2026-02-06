@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sticky Chat Widget 1.3.9\n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/sticky-chat-widget-free\n"
-"POT-Creation-Date: 2025-08-25 13:20:12+00:00\n"
+"https://wordpress.org/support/plugin/sticky-chat-widget\n"
+"POT-Creation-Date: 2025-12-01 10:50:50+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,210 +14,212 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: admin/admin-common.php:120 admin/admin-common.php:273
-#: admin/admin-common.php:385
+#: admin/admin-common.php:120 admin/admin-common.php:281
+#: admin/admin-common.php:393
 msgid "%1$s is required"
 msgstr ""
 
-#: admin/admin-common.php:284 admin/admin-common.php:401
+#: admin/admin-common.php:292 admin/admin-common.php:409
 #: admin/templates/admin-help.php:40 admin/templates/admin-help.php:43
-#: admin/templates/scw-leads.php:148 includes/social-icons.php:2199
+#: admin/templates/help-buttons.php:364 admin/templates/scw-leads.php:148
+#: includes/social-icons.php:2199
 msgid "Email"
 msgstr ""
 
-#: admin/admin-common.php:289 admin/admin-common.php:406
+#: admin/admin-common.php:297 admin/admin-common.php:414
 msgid "Email address is not valid"
 msgstr ""
 
-#: admin/admin-common.php:299 admin/admin-common.php:414
+#: admin/admin-common.php:307 admin/admin-common.php:422
 #: admin/templates/admin-help.php:48 admin/templates/admin-help.php:51
-#: admin/templates/scw-leads.php:150 includes/social-icons.php:2213
+#: admin/templates/help-buttons.php:368 admin/templates/scw-leads.php:150
+#: includes/social-icons.php:2213
 msgid "Message"
 msgstr ""
 
-#: admin/admin-common.php:307 admin/admin-common.php:421
-#: admin/admin-common.php:423
+#: admin/admin-common.php:315 admin/admin-common.php:429
+#: admin/admin-common.php:431
 msgid "Your request is not valid"
 msgstr ""
 
-#: admin/admin-common.php:336 admin/admin-common.php:499
+#: admin/admin-common.php:344 admin/admin-common.php:507
 msgid "Your message has been sent successfully"
 msgstr ""
 
-#: admin/admin-common.php:393 admin/templates/admin-help.php:32
-#: admin/templates/admin-help.php:35 admin/templates/scw-leads.php:147
-#: includes/social-icons.php:2192
+#: admin/admin-common.php:401 admin/templates/admin-help.php:32
+#: admin/templates/admin-help.php:35 admin/templates/help-buttons.php:360
+#: admin/templates/scw-leads.php:147 includes/social-icons.php:2192
 msgid "Name"
 msgstr ""
 
-#: admin/admin-common.php:537
+#: admin/admin-common.php:545
 msgid "Your comment is required"
 msgstr ""
 
-#: admin/admin-common.php:583 admin/admin.php:1678
+#: admin/admin-common.php:591 admin/admin.php:1678
 msgid "%s is required"
 msgstr ""
 
-#: admin/admin-common.php:605 admin/admin-common.php:606
+#: admin/admin-common.php:613 admin/admin-common.php:614
 #: admin/templates/premium-features.php:41 admin/templates/pro-features.php:35
 msgid "Go Pro"
 msgstr ""
 
-#: admin/admin-common.php:697
+#: admin/admin-common.php:705
 msgid ""
 "Show different widgets for different pages based on page targeting rules. "
 "You can also show different channels on desktop and mobile"
 msgstr ""
 
-#: admin/admin-common.php:698
+#: admin/admin-common.php:706
 msgid "Multiple widgets"
 msgstr ""
 
-#: admin/admin-common.php:701
+#: admin/admin-common.php:709
 msgid "Upload custom icon, choose custom color for your widget button"
 msgstr ""
 
-#: admin/admin-common.php:702
+#: admin/admin-common.php:710
 msgid "Widget customization"
 msgstr ""
 
-#: admin/admin-common.php:705
+#: admin/admin-common.php:713
 msgid "Select from 25 channels also upload custom icon"
 msgstr ""
 
-#: admin/admin-common.php:706
+#: admin/admin-common.php:714
 msgid "Channel customization"
 msgstr ""
 
-#: admin/admin-common.php:709
+#: admin/admin-common.php:717
 msgid ""
 "Add custom fields like text, textarea, number, date, website, dropdown, "
 "file upload to contact form"
 msgstr ""
 
-#: admin/admin-common.php:710
+#: admin/admin-common.php:718
 msgid "Custom fields for contact forms"
 msgstr ""
 
-#: admin/admin-common.php:713
+#: admin/admin-common.php:721
 msgid ""
 "Get leads directly to your Mailchimp or Mailpoet lists when customers "
 "submit their emails through contact form"
 msgstr ""
 
-#: admin/admin-common.php:714
+#: admin/admin-common.php:722
 msgid "Integrate contact form data with Mailchimp & Mailpoet"
 msgstr ""
 
-#: admin/admin-common.php:717
+#: admin/admin-common.php:725
 msgid "Get the your contact form leads to your email address"
 msgstr ""
 
-#: admin/admin-common.php:718
+#: admin/admin-common.php:726
 msgid "Get contact form leads to email"
 msgstr ""
 
-#: admin/admin-common.php:721
+#: admin/admin-common.php:729
 msgid "Select pages where you like to show or hide Sticky Chat Widget"
 msgstr ""
 
-#: admin/admin-common.php:722
+#: admin/admin-common.php:730
 msgid "Page targeting"
 msgstr ""
 
-#: admin/admin-common.php:725
+#: admin/admin-common.php:733
 msgid "Insert custom IDs and class name to each chat channel"
 msgstr ""
 
-#: admin/admin-common.php:726
+#: admin/admin-common.php:734
 msgid "Custom IDs and class"
 msgstr ""
 
-#: admin/admin-common.php:729
+#: admin/admin-common.php:737
 msgid "Select week day and time when you like to show Sticky Chat Widget"
 msgstr ""
 
-#: admin/admin-common.php:730
+#: admin/admin-common.php:738
 msgid "Days and time selection"
 msgstr ""
 
-#: admin/admin-common.php:733
+#: admin/admin-common.php:741
 msgid "Show Sticky Chat Widget for selected countries"
 msgstr ""
 
-#: admin/admin-common.php:734
+#: admin/admin-common.php:742
 msgid "Country targeting"
 msgstr ""
 
-#: admin/admin-common.php:737
+#: admin/admin-common.php:745
 msgid "Show Sticky Chat Widget between selected dates and time"
 msgstr ""
 
-#: admin/admin-common.php:738
+#: admin/admin-common.php:746
 msgid "Date and time selection"
 msgstr ""
 
-#: admin/admin-common.php:741
+#: admin/admin-common.php:749
 msgid "Display Sticky Chat Widget on custom location"
 msgstr ""
 
-#: admin/admin-common.php:742
+#: admin/admin-common.php:750
 msgid "Custom location"
 msgstr ""
 
-#: admin/admin-common.php:745
+#: admin/admin-common.php:753
 msgid "Track each channel's click on google analytics"
 msgstr ""
 
-#: admin/admin-common.php:746 admin/templates/analytics-settings.php:24
+#: admin/admin-common.php:754 admin/templates/analytics-settings.php:24
 msgid "Google analytics"
 msgstr ""
 
-#: admin/admin-common.php:752
+#: admin/admin-common.php:760
 msgid "Can I cancel my account at any time?"
 msgstr ""
 
-#: admin/admin-common.php:753
+#: admin/admin-common.php:761
 msgid ""
 "Yes, if you ever decide that Sticky Chat Widget isn't the best plugin for "
 "you, simply cancel your account from your Account panel. You'll still be "
 "able to use the plugin without updates or support."
 msgstr ""
 
-#: admin/admin-common.php:756
+#: admin/admin-common.php:764
 msgid "Can I change my plan later on?"
 msgstr ""
 
-#: admin/admin-common.php:757
+#: admin/admin-common.php:765
 msgid "Absolutely! You can upgrade or downgrade your plan at any time."
 msgstr ""
 
-#: admin/admin-common.php:760
+#: admin/admin-common.php:768
 msgid "What payment methods are accepted?"
 msgstr ""
 
-#: admin/admin-common.php:761
+#: admin/admin-common.php:769
 msgid ""
 "We accept all major credit cards including Visa, Mastercard, American "
 "Express, as well as PayPal payments."
 msgstr ""
 
-#: admin/admin-common.php:764
+#: admin/admin-common.php:772
 msgid "Do I get updates for the premium plugin?"
 msgstr ""
 
-#: admin/admin-common.php:765
+#: admin/admin-common.php:773
 msgid ""
 "Yes! Automatic updates to our premium plugin are available free of charge "
 "as long as you stay our paying customer. If you cancel your subscription, "
 "you'll still be able to use our plugin without updates or support."
 msgstr ""
 
-#: admin/admin-common.php:768
+#: admin/admin-common.php:776
 msgid "Do you offer support if I need help?"
 msgstr ""
 
-#: admin/admin-common.php:769
+#: admin/admin-common.php:777
 msgid ""
 "Yes! Top-notch customer support for our paid as well as free customers. "
 "We'll do our very best to resolve any issues you encounter while using "
@@ -323,7 +325,7 @@ msgstr ""
 #: admin/admin.php:651 admin/admin.php:800 admin/admin.php:1231
 #: admin/admin.php:1242 admin/templates/admin-mail-integration.php:336
 #: admin/templates/customize-widget-button.php:194
-#: admin/templates/widget-analytics.php:52
+#: admin/templates/help-buttons.php:309 admin/templates/widget-analytics.php:52
 msgid "Upgrade to Pro"
 msgstr ""
 
@@ -583,25 +585,25 @@ msgstr ""
 msgid "Integrations"
 msgstr ""
 
-#: admin/admin.php:2060 admin/admin.php:2289 includes/front-end.php:123
+#: admin/admin.php:2065 admin/admin.php:2297 includes/front-end.php:123
 #: includes/front-end.php:219
 msgid "Invalid Request, Please try again"
 msgstr ""
 
-#: admin/admin.php:2129
+#: admin/admin.php:2137
 msgid "Widget is updated successfully"
 msgstr ""
 
-#: admin/admin.php:2140
+#: admin/admin.php:2148
 msgid "Please select at least one field for the contact form"
 msgstr ""
 
-#: admin/admin.php:2233
+#: admin/admin.php:2241
 msgid "Widget is removed successfully"
 msgstr ""
 
-#: admin/admin.php:2341 admin/admin.php:2391 admin/admin.php:2564
-#: admin/admin.php:2617 admin/admin.php:2662
+#: admin/admin.php:2349 admin/admin.php:2399 admin/admin.php:2572
+#: admin/admin.php:2625 admin/admin.php:2670
 msgid "Invalid request, Please try again"
 msgstr ""
 
@@ -655,67 +657,67 @@ msgstr ""
 msgid "Rename"
 msgstr ""
 
-#: admin/templates/admin-lists.php:346
+#: admin/templates/admin-lists.php:354
 msgid " Add and display "
 msgstr ""
 
-#: admin/templates/admin-lists.php:347
+#: admin/templates/admin-lists.php:355
 msgid "multi social"
 msgstr ""
 
-#: admin/templates/admin-lists.php:347
+#: admin/templates/admin-lists.php:355
 msgid " channels on your website so that your visitors can "
 msgstr ""
 
-#: admin/templates/admin-lists.php:348
+#: admin/templates/admin-lists.php:356
 msgid "quickly contact"
 msgstr ""
 
-#: admin/templates/admin-lists.php:348
+#: admin/templates/admin-lists.php:356
 msgid " you and share their "
 msgstr ""
 
-#: admin/templates/admin-lists.php:349
+#: admin/templates/admin-lists.php:357
 msgid "requirements."
 msgstr ""
 
-#: admin/templates/admin-lists.php:352
+#: admin/templates/admin-lists.php:360
 msgid " Customize"
 msgstr ""
 
-#: admin/templates/admin-lists.php:352
+#: admin/templates/admin-lists.php:360
 msgid " your "
 msgstr ""
 
-#: admin/templates/admin-lists.php:353
+#: admin/templates/admin-lists.php:361
 msgid "widget"
 msgstr ""
 
-#: admin/templates/admin-lists.php:353
+#: admin/templates/admin-lists.php:361
 msgid " channels style according to your "
 msgstr ""
 
-#: admin/templates/admin-lists.php:354
+#: admin/templates/admin-lists.php:362
 msgid "requirement."
 msgstr ""
 
-#: admin/templates/admin-lists.php:357
+#: admin/templates/admin-lists.php:365
 msgid " Display  your channels on "
 msgstr ""
 
-#: admin/templates/admin-lists.php:358
+#: admin/templates/admin-lists.php:366
 msgid "mobile, desktop"
 msgstr ""
 
-#: admin/templates/admin-lists.php:358
+#: admin/templates/admin-lists.php:366
 msgid " or "
 msgstr ""
 
-#: admin/templates/admin-lists.php:359
+#: admin/templates/admin-lists.php:367
 msgid "both."
 msgstr ""
 
-#: admin/templates/admin-lists.php:365
+#: admin/templates/admin-lists.php:373
 msgid " Create Your First Widget"
 msgstr ""
 
@@ -1020,7 +1022,8 @@ msgstr ""
 
 #: admin/templates/common.php:36 admin/templates/common.php:68
 #: admin/templates/common.php:100 admin/templates/common.php:125
-#: admin/templates/common.php:190 admin/templates/plugin-deactivate.php:34
+#: admin/templates/common.php:190 admin/templates/help-buttons.php:372
+#: admin/templates/plugin-deactivate.php:34
 #: admin/templates/premium-features.php:40 admin/templates/pro-features.php:34
 #: admin/templates/scw-leads.php:286 admin/templates/scw-leads.php:310
 #: admin/templates/scw-leads.php:334
@@ -1293,6 +1296,46 @@ msgstr ""
 
 #: admin/templates/customize-widget-button.php:486
 msgid "Font family:"
+msgstr ""
+
+#: admin/templates/help-buttons.php:315
+msgid "Get Support"
+msgstr ""
+
+#: admin/templates/help-buttons.php:321 admin/templates/help-buttons.php:345
+msgid "Contact Us"
+msgstr ""
+
+#: admin/templates/help-buttons.php:327
+msgid "Help Center"
+msgstr ""
+
+#: admin/templates/help-buttons.php:334
+msgid "Leave a Review"
+msgstr ""
+
+#: admin/templates/help-buttons.php:359
+msgid "Name *"
+msgstr ""
+
+#: admin/templates/help-buttons.php:363
+msgid "Email Address *"
+msgstr ""
+
+#: admin/templates/help-buttons.php:367
+msgid "Message *"
+msgstr ""
+
+#: admin/templates/help-buttons.php:375
+msgid "Send Message"
+msgstr ""
+
+#: admin/templates/help-buttons.php:391
+msgid "Message Sent!"
+msgstr ""
+
+#: admin/templates/help-buttons.php:392
+msgid "Thank you for contacting us. We'll get back to you within 24 hours."
 msgstr ""
 
 #: admin/templates/pending-messages.php:15
