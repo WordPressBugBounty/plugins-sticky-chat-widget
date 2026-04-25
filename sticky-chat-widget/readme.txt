@@ -3,7 +3,7 @@ Contributors: gingerplugins
 Tags: whatsapp widget, chat button, facebook messenger, chat widget, contact form
 Requires at least: 5.0
 Tested up to: 6.9
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 Requires PHP: 5.4
 Plugin URI: https://www.gingerplugins.com/downloads/sticky-chat-widget/
 License: GPL3
@@ -187,6 +187,10 @@ The PRO version costs just $25/year. Once purchased, you’ll receive a license 
 
 
 == Changelog ==
+
+= 1.4.1 =
+- Change the page title to draw attention to the chat buttons (Pro).
+- Blur background on widget open (Pro).
 
 = 1.4.0 =
 Contact form bug fixed

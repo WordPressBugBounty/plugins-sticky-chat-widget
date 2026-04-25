@@ -481,6 +481,27 @@ if (!empty($widgetSettings['custom_icon'])) {
             <label for="hide_menu_after_close_click"><?php esc_html_e("Hide menu on close button click ", "sticky-chat-widget") ?></label><span class="ginger-info" data-ginger-tooltip="<?php esc_html_e("Menu will be not opened by default once website visitor will click on widget close button", 'sticky-chat-widget') ?>"><span class="dashicons dashicons-editor-help"></span></span>
         </span>
     </div>
+    <div class="gp-form-field mt-20 other-pro-field">
+        <div class="gp-form-label">
+        </div>
+        <div class="gp-form-input d-flex">
+        <span class="dashboard-switch in-flex on-off">
+            <input type="hidden" name="background_blur_effect" value="no">
+            <input type="checkbox" id="background_blur_effect" name="background_blur_effect" disabled value="yes" class="sr-only">
+            <label for="background_blur_effect"><?php esc_html_e("Background blur effect", "sticky-chat-widget") ?></label>
+             <span class="ginger-info-image">
+                <span class="tooltip-text">
+                    <img src="<?php echo esc_url(GSB_PLUGIN_URL."dist/admin/images/blur_tooltip.png") ?>" alt="" />
+                    <span class=""><?php esc_html_e("Apply a background blur while the widget is open to keep the user’s focus on it.", "sticky-chat-widget") ?></span>
+                </span>
+                <span class="dashicons dashicons-editor-help cursor-pointer"></span>
+            </span>
+            <?php if (!empty($disabled)) { ?>
+                <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
+            <?php } ?>
+        </span>
+        </div>
+    </div>
     <div class="gp-form-field mt-20">
         <div class="gp-form-label">
             <label for="ginger_sb_font_family"><?php esc_html_e("Font family:", "sticky-chat-widget") ?></label>
