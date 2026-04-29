@@ -13,15 +13,22 @@ $inputValue = get_post_meta($postId, "button_css", true);
 $inputValue = isset($inputValue) ? $inputValue : "";
 ?>
 
-<div class="setting-sub-title mt-36"><?php esc_html_e("Custom CSS", "sticky-chat-widget") ?></div>
-<div class="gp-form-field custom-css-setting">
-    <div class="gp-form-label d-flex">
-        <label for="css_editor"><?php esc_html_e("Button CSS:", "sticky-chat-widget") ?></label>
-        <?php if (!empty($disabled)) { ?>
-            <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top" style="margin-bottom: 5px"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
-        <?php } ?>
+<div class="rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div class="border-b border-slate-200 px-5! py-4!">
+        <h3 class="text-lg! font-semibold! text-slate-900!"><?php esc_html_e("Advanced", "sticky-chat-widget") ?></h3>
+        <p class="mt-1! text-sm! text-slate-500"><?php esc_html_e("Add custom CSS to apply advanced button styling.", "sticky-chat-widget") ?></p>
     </div>
-    <div class="gp-form-input">
-        <textarea <?php echo esc_attr($disabled) ?> name="gsb_button_css" class="custom-css" rows="5"></textarea>
+    <div class="p-5!">
+        <div class="gp-form-field custom-css-setting space-y-2!">
+            <div class="gp-form-label d-flex gap-1">
+                <label for="css_editor" class="pb-0!"><?php esc_html_e("Button CSS:", "sticky-chat-widget") ?></label>
+                <?php if (!empty($disabled)) { ?>
+                    <a class="upgrade-link in-block" href="javascript:;" target="_blank" data-ginger-tooltip="Upgrade to Pro" data-ginger-tooltip-location="top" style="margin-bottom: 5px"><?php Ginger_Social_Icons::load_and_sanitize_svg($icons['pro']); ?></a>
+                <?php } ?>
+            </div>
+            <div class="gp-form-input">
+                <textarea <?php echo esc_attr($disabled) ?> name="gsb_button_css" class="custom-css" rows="5"></textarea>
+            </div>
+        </div>
     </div>
 </div>

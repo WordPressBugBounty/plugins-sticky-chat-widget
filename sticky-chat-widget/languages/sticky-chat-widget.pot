@@ -2,10 +2,10 @@
 # This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Sticky Chat Widget 1.4.1\n"
+"Project-Id-Version: Sticky Chat Widget 1.4.2\n"
 "Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/sticky-chat-widget-free\n"
-"POT-Creation-Date: 2026-04-25 11:01:15+00:00\n"
+"https://wordpress.org/support/plugin/sticky-chat-widget-free-main\n"
+"POT-Creation-Date: 2026-04-29 10:55:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Track each channel's click on google analytics"
 msgstr ""
 
-#: admin/admin-common.php:754 admin/templates/analytics-settings.php:24
+#: admin/admin-common.php:754
 msgid "Google analytics"
 msgstr ""
 
@@ -324,7 +324,7 @@ msgstr ""
 
 #: admin/admin.php:651 admin/admin.php:800 admin/admin.php:1231
 #: admin/admin.php:1242 admin/templates/admin-mail-integration.php:336
-#: admin/templates/customize-widget-button.php:194
+#: admin/templates/customize-widget-button.php:86
 #: admin/templates/help-buttons.php:309 admin/templates/widget-analytics.php:52
 msgid "Upgrade to Pro"
 msgstr ""
@@ -337,7 +337,7 @@ msgstr ""
 #: admin/admin.php:666 admin/admin.php:695 admin/admin.php:815
 #: admin/admin.php:844 admin/admin.php:1144 admin/admin.php:1173
 #: admin/admin.php:1264 admin/admin.php:1293
-#: admin/templates/customize-widget-button.php:511
+#: admin/templates/customize-widget-button.php:491
 msgid "Default"
 msgstr ""
 
@@ -356,14 +356,14 @@ msgid "Pre defined message"
 msgstr ""
 
 #: admin/admin.php:724 admin/admin.php:1336 admin/admin.php:1347
-#: admin/templates/customize-widget-button.php:98
-#: admin/templates/customize-widget-button.php:154
+#: admin/templates/customize-widget-button.php:171
+#: admin/templates/customize-widget-button.php:229
 msgid "{page_url}"
 msgstr ""
 
 #: admin/admin.php:725 admin/admin.php:1337 admin/admin.php:1348
-#: admin/templates/customize-widget-button.php:99
-#: admin/templates/customize-widget-button.php:155
+#: admin/templates/customize-widget-button.php:172
+#: admin/templates/customize-widget-button.php:230
 msgid "{page_title}"
 msgstr ""
 
@@ -762,7 +762,7 @@ msgstr ""
 #: admin/templates/admin-mail-integration.php:112
 msgid ""
 " is a marketing automation platform designed to help small businesses. "
-"Integrate Contact form with Mailchimp to automatically send\r\n"
+"Integrate Contact form with Mailchimp to automatically send\n"
 "                new leads, customers, and subscribers to your mailing lists."
 msgstr ""
 
@@ -796,7 +796,7 @@ msgstr ""
 msgid ""
 "Your Mailchimp contacts will automatically be updated with each form "
 "submission, so you can spend less time manually transferring information "
-"and\r\n"
+"and\n"
 "                more time growing your business."
 msgstr ""
 
@@ -829,7 +829,7 @@ msgstr ""
 #: admin/templates/admin-mail-integration.php:175
 msgid ""
 " is a marketing automation platform designed to help small businesses. "
-"Integrate Contact form with Mailpoet to automatically send\r\n"
+"Integrate Contact form with Mailpoet to automatically send\n"
 "                new leads, customers, and subscribers to your mailing lists."
 msgstr ""
 
@@ -843,7 +843,7 @@ msgstr ""
 msgid ""
 "Your Mailpoet contacts will automatically be updated with each form "
 "submission, so you can spend less time manually transferring information "
-"and\r\n"
+"and\n"
 "                more time growing your business."
 msgstr ""
 
@@ -1003,11 +1003,19 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: admin/templates/analytics-settings.php:16
-msgid "Analytics Settings"
+#: admin/templates/analytics-settings.php:18
+msgid "Tracking"
 msgstr ""
 
-#: admin/templates/analytics-settings.php:39
+#: admin/templates/analytics-settings.php:19
+msgid "Enable analytics integrations and monitor widget performance."
+msgstr ""
+
+#: admin/templates/analytics-settings.php:25
+msgid "Google Analytics"
+msgstr ""
+
+#: admin/templates/analytics-settings.php:40
 msgid "Widget analytics"
 msgstr ""
 
@@ -1046,266 +1054,310 @@ msgstr ""
 msgid "Are you sure, you want to remove this widget?"
 msgstr ""
 
-#: admin/templates/custom-css.php:16
-msgid "Custom CSS"
+#: admin/templates/custom-css.php:18
+msgid "Advanced"
 msgstr ""
 
 #: admin/templates/custom-css.php:19
+msgid "Add custom CSS to apply advanced button styling."
+msgstr ""
+
+#: admin/templates/custom-css.php:24
 msgid "Button CSS:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:30
-msgid "Select view:"
+#: admin/templates/customize-widget-button.php:31
+msgid "Layout"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:32
+msgid "Choose widget view style, main icon, and icon direction."
 msgstr ""
 
 #: admin/templates/customize-widget-button.php:38
+msgid "Select View"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:46
 msgid "Icon view"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:44
+#: admin/templates/customize-widget-button.php:52
 msgid "List view"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:50
+#: admin/templates/customize-widget-button.php:58
 msgid "Grid view"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:56
+#: admin/templates/customize-widget-button.php:64
 msgid "Corner circle"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:62
+#: admin/templates/customize-widget-button.php:70
 msgid "Menu view"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:70
-#: admin/templates/customize-widget-button.php:120
-msgid "Header text:"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:78
-#: admin/templates/customize-widget-button.php:128
-msgid "Body text:"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:112
-msgid "WooCommerce Customization"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:150
-msgid "Add Tags"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:156
-msgid "{product-name}"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:157
-msgid "{product-sku}"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:158
-msgid "{product-price}"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:167
-msgid "Header background color:"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:175
-msgid "Header text color:"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:185
-msgid "Icon:"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:216
-msgid "Position:"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:222
-msgid "Left"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:226
-msgid "Right"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:232
-msgid "Custom (Pro)"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:234
-msgid "Custom"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:248
-msgid "Position in mobile"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:257
+#: admin/templates/customize-widget-button.php:108
 msgid "Icons view: "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:257
+#: admin/templates/customize-widget-button.php:108
 msgid "You can display chat buttons menu by vertical or horizontal"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:263
+#: admin/templates/customize-widget-button.php:114
 msgid "Vertical"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:267
+#: admin/templates/customize-widget-button.php:118
 msgid "Horizontal"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:274
+#: admin/templates/customize-widget-button.php:137
+msgid "Customize the header, message content, and colors for your expanded view."
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:143
+#: admin/templates/customize-widget-button.php:195
+msgid "Header text:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:151
+#: admin/templates/customize-widget-button.php:203
+msgid "Body text:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:186
+msgid "WooCommerce Customization"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:225
+msgid "Add Tags"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:231
+msgid "{product-name}"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:232
+msgid "{product-sku}"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:233
+msgid "{product-price}"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:242
+msgid "Header background color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:250
+msgid "Header text color:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:262
+msgid "Position"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:263
+msgid "Set where the widget appears on desktop and mobile screens."
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:269
+msgid "Position:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:275
+msgid "Left"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:279
+msgid "Right"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:285
+msgid "Custom (Pro)"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:287
+msgid "Custom"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:301
+msgid "Position in mobile"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:313
+msgid "Content"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:314
+msgid "Customize the text, greeting message, and CTA content shown in your widget."
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:320
 msgid "Call to action:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:304
+#: admin/templates/customize-widget-button.php:349
 msgid "Show greeting message"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:311
+#: admin/templates/customize-widget-button.php:356
 msgid "Greeting text"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:337
+#: admin/templates/customize-widget-button.php:381
 msgid "Show Greeting message after "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:339
+#: admin/templates/customize-widget-button.php:383
 msgid "  seconds"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:346
+#: admin/templates/customize-widget-button.php:390
 msgid "Greeting background color:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:354
+#: admin/templates/customize-widget-button.php:398
 msgid "Greeting text color:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:364
+#: admin/templates/customize-widget-button.php:408
 msgid "Show CTA text: "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:364
+#: admin/templates/customize-widget-button.php:408
 msgid ""
 "Choose how the CTA button text would appear. \n"
 " All time: always show CTA button text \n"
 "Until first click: hides the CTA button text after the first click."
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:370
+#: admin/templates/customize-widget-button.php:414
 msgid "All time"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:374
+#: admin/templates/customize-widget-button.php:418
 msgid "Until first click"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:382
-#: admin/templates/pending-messages.php:34
-#: admin/templates/tooltip-settings.php:45
+#: admin/templates/customize-widget-button.php:428
+msgid "Style"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:429
+msgid "Customize widget colors, icon appearance, shape, and typography."
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:436
+#: admin/templates/pending-messages.php:40
+#: admin/templates/tooltip-settings.php:50
 msgid "Background color:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:390
+#: admin/templates/customize-widget-button.php:444
 msgid "Background hover color:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:400
+#: admin/templates/customize-widget-button.php:454
 msgid "Icon color:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:408
+#: admin/templates/customize-widget-button.php:462
 msgid "Icon hover color:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:417
+#: admin/templates/customize-widget-button.php:471
+msgid "Icon size:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:474
+msgid "Icon size"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:479
+#: admin/templates/tooltip-settings.php:41
+msgid "Border radius:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:487
+msgid "Font family:"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:510
+msgid "Behavior"
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:511
+msgid "Control widget animations, default state, and interaction behavior."
+msgstr ""
+
+#: admin/templates/customize-widget-button.php:517
 msgid "Menu animation: "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:417
+#: admin/templates/customize-widget-button.php:517
 msgid ""
 "Display social chat button menu using different animations. for preview "
 "click on widget button in preview section"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:429
+#: admin/templates/customize-widget-button.php:529
 msgid "Attention effect: "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:429
+#: admin/templates/customize-widget-button.php:529
 msgid "Use different kind of attention effects for widget button"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:441
-msgid "Icon size:"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:444
-msgid "Icon size"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:449
-#: admin/templates/tooltip-settings.php:36
-msgid "Border radius:"
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:457
+#: admin/templates/customize-widget-button.php:541
 msgid "Default state:"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:463
+#: admin/templates/customize-widget-button.php:547
 msgid "Click to open "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:467
+#: admin/templates/customize-widget-button.php:551
 msgid "Open by default "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:467
+#: admin/templates/customize-widget-button.php:551
 msgid ""
 "Chat buttons menu will be opened by default when website visitor will visit "
 "your website"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:476
+#: admin/templates/customize-widget-button.php:560
 msgid "Show close button "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:476
+#: admin/templates/customize-widget-button.php:560
 msgid ""
 "You can show/hide Widget close button when Default state is opened by "
 "default"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:481
+#: admin/templates/customize-widget-button.php:565
 msgid "Hide menu on close button click "
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:481
+#: admin/templates/customize-widget-button.php:565
 msgid ""
 "Menu will be not opened by default once website visitor will click on "
 "widget close button"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:491
+#: admin/templates/customize-widget-button.php:575
 msgid "Background blur effect"
 msgstr ""
 
-#: admin/templates/customize-widget-button.php:495
+#: admin/templates/customize-widget-button.php:579
 msgid ""
 "Apply a background blur while the widget is open to keep the user’s focus "
 "on it."
-msgstr ""
-
-#: admin/templates/customize-widget-button.php:507
-msgid "Font family:"
 msgstr ""
 
 #: admin/templates/help-buttons.php:315
@@ -1348,40 +1400,44 @@ msgstr ""
 msgid "Thank you for contacting us. We'll get back to you within 24 hours."
 msgstr ""
 
-#: admin/templates/pending-messages.php:15
-msgid "Pending Messages"
+#: admin/templates/pending-messages.php:18
+msgid "Notifications"
 msgstr ""
 
-#: admin/templates/pending-messages.php:20
+#: admin/templates/pending-messages.php:19
+msgid "Configure pending message badge count, colors, and page title behavior."
+msgstr ""
+
+#: admin/templates/pending-messages.php:26
 msgid "Show pending message "
 msgstr ""
 
-#: admin/templates/pending-messages.php:20
+#: admin/templates/pending-messages.php:26
 msgid ""
 "Increase your click rate by displaying a pending messages (bubble) on "
 "widget button"
 msgstr ""
 
-#: admin/templates/pending-messages.php:26
+#: admin/templates/pending-messages.php:32
 msgid "Number of messages:"
 msgstr ""
 
-#: admin/templates/pending-messages.php:42
-#: admin/templates/tooltip-settings.php:53
+#: admin/templates/pending-messages.php:48
+#: admin/templates/tooltip-settings.php:58
 msgid "Text color:"
 msgstr ""
 
-#: admin/templates/pending-messages.php:55
+#: admin/templates/pending-messages.php:61
 msgid "Change page title"
 msgstr ""
 
-#: admin/templates/pending-messages.php:58
+#: admin/templates/pending-messages.php:64
 msgid ""
 "Animated preview of the page title changing when the browser tab is "
 "inactive."
 msgstr ""
 
-#: admin/templates/pending-messages.php:59
+#: admin/templates/pending-messages.php:65
 msgid ""
 "Catch visitors’ attention with dynamic title changes. The text inside the "
 "<title> tag will alternate between the selected title and the original "
@@ -1789,15 +1845,19 @@ msgstr ""
 msgid "Select user"
 msgstr ""
 
-#: admin/templates/tooltip-settings.php:15
-msgid "Customize on Hover Text"
+#: admin/templates/tooltip-settings.php:17
+msgid "Hover Text"
 msgstr ""
 
-#: admin/templates/tooltip-settings.php:20
+#: admin/templates/tooltip-settings.php:18
+msgid "Customize the tooltip text size, colors, and shape shown on hover."
+msgstr ""
+
+#: admin/templates/tooltip-settings.php:25
 msgid "Font size:"
 msgstr ""
 
-#: admin/templates/tooltip-settings.php:28
+#: admin/templates/tooltip-settings.php:33
 msgid "Tooltip height:"
 msgstr ""
 
